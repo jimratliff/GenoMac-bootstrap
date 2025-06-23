@@ -3,7 +3,7 @@
 # Implements selected `defaults` command for the admin accounts, to remove the 
 # biggest annoyances ASAP during bootstrapping.
 
-↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ BEGIN section ONLY for VANILLA/CONFIGURER accounts
+#↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ BEGIN section ONLY for VANILLA/CONFIGURER accounts
 
 # Finder: Show hard drives on desktop
 # This is chosen only because these defaults are aimed at Admin accounts
@@ -13,7 +13,7 @@ defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true
 # This is the default. Included here to enforce the default if it is ever changed.
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
 
-↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ END section ONLY for VANILLA/CONFIGURER accounts
+#↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ END section ONLY for VANILLA/CONFIGURER accounts
 
 ############### General interface
 # Tap to click
