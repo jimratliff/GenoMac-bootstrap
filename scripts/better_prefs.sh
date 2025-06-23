@@ -44,6 +44,9 @@ defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 defaults write NSGlobalDomain WebAutomaticSpellingCorrectionEnabled -bool false
 
+# Show Fast User Switching in menubar as Account Name
+defaults write NSGlobalDomain userMenuExtraStyle -int 1
+
 ############### Finder
 
 # Finder: Show all hidden files
