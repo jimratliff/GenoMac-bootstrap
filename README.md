@@ -41,8 +41,8 @@ To install Homebrew, launch Terminal:
 ### Add Homebrew to PATH
 In Terminal, sequentially execute each of the following three commands:
 ```shell
-echo >> /Users/configurer/.zprofile
-echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/configurer/.zprofile
+echo >> /Users/configger/.zprofile
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/configger/.zprofile
 eval "$(/opt/homebrew/bin/brew shellenv)"
 ```
 ## Clone this repo to `~/bootstrap`
