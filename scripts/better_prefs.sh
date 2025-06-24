@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env zsh
 
 # Implements selected `defaults` command for the admin accounts, to remove the 
 # biggest annoyances ASAP during bootstrapping.
