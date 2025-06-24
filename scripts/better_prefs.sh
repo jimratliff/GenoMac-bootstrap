@@ -81,4 +81,7 @@ defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
 # DiskUtility: Show all devices in sidebar
 defaults read com.apple.DiskUtility SidebarShowAllDevices -bool true
 
+############### Kill each affected app
+for app in "Finder" "SystemUIServer"; do killall "${app}" > /dev/null 2>&1
+done
 
