@@ -18,7 +18,7 @@ COLOR_ADJUST_SETTING="$COLOR_CYAN"
 COLOR_ACTION_TAKEN="$COLOR_GREEN"
 COLOR_WARNING="$COLOR_YELLOW"
 
-SYMBOL_OK="✅ "
+SYMBOL_SUCCESS="✅ "
 SYMBOL_ADJUST_SETTING="⚙️ "
 SYMBOL_ACTION_TAKEN="🪚 "
 SYMBOL_WARNING="🚨 "
@@ -29,7 +29,7 @@ SYMBOL_WARNING="🚨 "
 
 function success() {
   # Terminates a line of output with the OK symbol ($SYMBOL_OK)
-  printf "${SYMBOL_OK}\n"
+  printf "${SYMBOL_SUCCESS}\n"
 }
 
 function report() {
