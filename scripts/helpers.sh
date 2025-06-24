@@ -27,7 +27,7 @@ SYMBOL_WARNING="🚨 "
 # Each %b and %s maps to a successive argument to printf
 # printf "%b[ok]%b %s\n" "$COLOR_GREEN" "$COLOR_RESET" "some message"
 
-function ok() {
+function success() {
   # Terminates a line of output with the OK symbol ($SYMBOL_OK)
   printf "${SYMBOL_OK}\n"
 }
