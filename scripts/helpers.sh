@@ -17,10 +17,12 @@ COLOR_REPORT="$COLOR_BLUE"
 COLOR_ADJUST_SETTING="$COLOR_CYAN"
 COLOR_ACTION_TAKEN="$COLOR_GREEN"
 COLOR_WARNING="$COLOR_YELLOW"
+COLOR_KILLED="$COLOR_RED"
 
 SYMBOL_SUCCESS="✅ "
 SYMBOL_FAILURE="❌ "
 SYMBOL_ADJUST_SETTING="⚙️  "
+SYMBOL_KILLED="☠️ "
 SYMBOL_ACTION_TAKEN="🪚 "
 SYMBOL_WARNING="🚨 "
 
@@ -50,6 +52,12 @@ function adjust_setting() {
   # Output supplied line of text in a distinctive color, prefaced by "$SYMBOL_ADJUST_SETTING.
   # It is intentional to NOT have a newline. This will be supplied by success().
   printf "%b%s%s%b" "$COLOR_ADJUST_SETTING" "$SYMBOL_ADJUST_SETTING" "$1" "$COLOR_RESET"
+}
+
+function killed_app() {
+  # Takes `app` as argument
+  # Outputs message that the app was killed.
+  printf "%b%s %s is being killed" "$COLOR_KILLED" "$SYMBOL_KILLED" "$1" "$COLOR_RESET"
 }
 
 function action_taken() {
