@@ -29,7 +29,7 @@ SYMBOL_WARNING="🚨 "
 
 function success() {
   # Terminates a line of output with the OK symbol ($SYMBOL_OK)
-  printf "${SYMBOL_SUCCESS}\n"
+  printf " ${SYMBOL_SUCCESS}\n"
 }
 
 function report() {
