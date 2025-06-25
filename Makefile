@@ -1,5 +1,4 @@
 better-prefs:
-	zsh scripts/helpers.sh
 	zsh scripts/better_prefs.sh
 
 install-1password:
