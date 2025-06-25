@@ -121,7 +121,7 @@ defaults write com.apple.finder ShowMountedServersOnDesktop -bool true&&success
 ############### DiskUtility
 # DiskUtility: Show all devices in sidebar
 adjust_setting "DiskUtility: Show all devices in sidebar"
-defaults read com.apple.DiskUtility SidebarShowAllDevices -bool true&&success
+defaults write com.apple.DiskUtility SidebarShowAllDevices -bool true&&success
 
 ############### Kill each affected app
 action_taken "Force quitting all apps/processes whose settings we just changed."
