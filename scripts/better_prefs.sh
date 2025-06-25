@@ -10,7 +10,7 @@ source "${0:A:h}/helpers.sh"
 # adjust_setting "Message"
 
 #↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ BEGIN section ONLY for VANILLA/CONFIGURER accounts
-action_taken "Adjust settings appropriately for only SysAdmin account"
+action_taken "Adjust certain settings in a way appropriate for only SysAdmin account (but not for other accounts)"
 
 
 # Finder: Show hard drives on desktop
