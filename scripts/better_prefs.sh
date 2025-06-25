@@ -129,7 +129,8 @@ defaults write com.apple.DiskUtility SidebarShowAllDevices -bool true;success_or
 ############### Kill each affected app
 action_taken "Force quitting all apps/processes whose settings we just changed."
 for app in "Finder" "SystemUIServer" "Dock" "cfprefsd"; do
-  killall "${app}" && printf "Killed app: %s" "$app";success_or_not
+#  killall "${app}" && printf "Killed app: %s" "$app";success_or_not
+  killall "${app}" ; killed_app "$app";success_or_not
 done
 
 report "It’s possible that some settings won’t take effect until after you logout or restart."
