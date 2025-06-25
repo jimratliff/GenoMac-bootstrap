@@ -62,7 +62,7 @@ action_taken "Stop intrusive, arrogant, I-know-better-than-you “corrections”
 adjust_setting "1 of 6: Turn off automatic capitalization"
 defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false;success_or_not
 
-adjust_setting "2 of 6: Don’t automatically substituted dash/hyphen types"
+adjust_setting "2 of 6: Don’t automatically substitute dash/hyphen types"
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false;success_or_not
 
 adjust_setting "3 of 6: Don’t automatically substitute periods"
