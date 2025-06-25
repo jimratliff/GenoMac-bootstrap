@@ -1,5 +1,8 @@
 #!/usr/bin/env zsh
 
+# Source scripts/helpers.sh
+source "${0:A:h}/helpers.sh"
+
 # Implements selected `defaults` command for the admin accounts, to remove the 
 # biggest annoyances ASAP during bootstrapping.
 
