@@ -17,6 +17,7 @@ At this point, we assume the following:
 - Install Homebrew (and therefore also Git)
 - Modify PATH to add Homebrew
 - Clone this public repo to `~/bootstrap`
+- Give Terminal full-disk access
 - Run a script that executes a bunch of `defaults` commands for USER_CONFIGURER to deal with the most-annoying macOS default settings.
 - Prepare USER_CONFIGURER to be able to clone the *next* repo in Project GenoMac, which is private and therefore requires authentication:
   - Install 1Password
@@ -54,7 +55,14 @@ git clone https://github.com/jimratliff/GenoMac-bootstrap.git .
 ```
 **Note the trailing “.” at the end of the `git clone` command.**
 
-## Set better user preferences
+## Grant Terminal full-disk access
+-System Settings
+  - Security & Privacy
+    - Select the Privacy tab
+      - Scroll down and click Full Disk Access
+        - Enable for Terminal
+
+## Implement better user preferences
 In Terminal, still in `~/bootstrap`:
 ```shell
 make better-prefs
