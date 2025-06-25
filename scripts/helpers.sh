@@ -38,6 +38,7 @@ function success_or_not() {
     printf " ${SYMBOL_SUCCESS}\n"
   else
     printf "\n${SYMBOL_FAILURE}\n"
+  fi
 }
 
 function report() {
