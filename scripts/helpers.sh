@@ -19,6 +19,7 @@ COLOR_ACTION_TAKEN="$COLOR_GREEN"
 COLOR_WARNING="$COLOR_YELLOW"
 
 SYMBOL_SUCCESS="✅ "
+SYMBOL_FAILURE="❌ "
 SYMBOL_ADJUST_SETTING="⚙️ "
 SYMBOL_ACTION_TAKEN="🪚 "
 SYMBOL_WARNING="🚨 "
@@ -27,9 +28,16 @@ SYMBOL_WARNING="🚨 "
 # Each %b and %s maps to a successive argument to printf
 # printf "%b[ok]%b %s\n" "$COLOR_GREEN" "$COLOR_RESET" "some message"
 
-function success() {
-  # Terminates a line of output with the OK symbol ($SYMBOL_OK)
-  printf " ${SYMBOL_SUCCESS}\n"
+#function success() {
+#  # Terminates a line of output with the OK symbol ($SYMBOL_OK)
+#  printf " ${SYMBOL_SUCCESS}\n"
+#}
+
+function success_or_not() {
+  if [[ $? -eq 0 ]]; then
+    printf " ${SYMBOL_SUCCESS}\n"
+  else
+    printf "\n${SYMBOL_FAILURE}\n"
 }
 
 function report() {
