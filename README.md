@@ -1,5 +1,17 @@
 # GenoMac-bootstrap
 
+## Cheat sheet
+After initial cloning, to pull down subsequent changes to this deposition
+```bash
+cd ~/bootstrap
+git pull origin main
+```
+
+To run the better-prefs script from `~/bootstrap`:
+```bash
+make better-prefs
+```
+
 ## Overview
 ### Context
 This repository is the first stop for configuring a Mac under Project GenoMac.
