@@ -49,7 +49,7 @@ defaults write NSGlobalDomain AppleShowScrollBars -string "Always";success_or_no
 # Override change to clicking-on-desktop behavior
 # Desktop & Dock » Desktop & Stage Manager » Click wallpaper to reveal desktop » Only in Stage Manager
 adjust_setting "Reverse obnoxious default that revealed desktop anytime you clicked on the desktop"
-defaults write com.apple.WindowManager EnableStandardClickToShowDesktop -bool true;success_or_not
+defaults write com.apple.WindowManager EnableStandardClickToShowDesktop -bool false;success_or_not
 
 ########## Stop intrusive/arrogant “corrections”
 # Turn off:
