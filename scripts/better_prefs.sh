@@ -138,7 +138,7 @@ defaults write com.apple.DiskUtility SidebarShowAllDevices -bool true;success_or
 
 ############### Kill each affected app
 action_taken "Force quit all apps/processes whose settings we just changed"
-for app in "Finder" "SystemUIServer" "Dock" "cfprefsd" "yabadaba"; do
+for app in "Finder" "SystemUIServer" "Dock" "cfprefsd"; do
   killed_app "$app"
   killall "${app}";success_or_not
 done
