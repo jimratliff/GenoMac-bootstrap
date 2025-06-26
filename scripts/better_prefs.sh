@@ -81,7 +81,7 @@ report_adjust_setting "5 of 6: Don’t replace my properly considered spelling w
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false;success_or_not
 
 report_adjust_setting "6 of 6: Don’t replace, in a web context, my properly considered spelling with your arrogant replacements"
-defaults write NSGlobalDomain WebAutomaticSpellingCorrectionEnabled -bool false;
+defaults write NSGlobalDomain WebAutomaticSpellingCorrectionEnabled -bool false;success_or_not
 
 ############### Finder
 
