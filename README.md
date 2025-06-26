@@ -1,7 +1,7 @@
 # GenoMac-bootstrap
 
 ## Cheat sheet
-After initial cloning, to pull down subsequent changes to this deposition
+After initial cloning, to pull down subsequent changes to this repository
 ```bash
 cd ~/bootstrap
 git pull origin main
