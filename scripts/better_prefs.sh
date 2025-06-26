@@ -49,13 +49,15 @@ defaults write NSGlobalDomain AppleShowScrollBars -string "Always";success_or_no
 # Desktop & Dock » Desktop & Stage Manager » Click wallpaper to reveal desktop » Only in Stage Manager
 report_adjust_setting "Reverse obnoxious default that revealed desktop anytime you clicked on the desktop"
 defaults write com.apple.WindowManager EnableStandardClickToShowDesktop -bool false;success_or_not
+
 # Show Fast User Switching in menubar as Account Name
 report_action_taken "Show Fast User Switching in menubar only as Account Name"
+
 report_adjust_setting "1 of 2: userMenuExtraStyle = 1 (Account Name)"
 defaults write NSGlobalDomain userMenuExtraStyle -int 1;success_or_not
 
 report_adjust_setting "2 of 2: UserSwitcher = 2 (menubar only)"
-defaults -currentHost write com.apple.controlcenter UserSwitcher -int 2
+defaults -currentHost write com.apple.controlcenter UserSwitcher -int 2;success_or_not
 
 ########## Stop intrusive/arrogant “corrections”
 # Turn off:
