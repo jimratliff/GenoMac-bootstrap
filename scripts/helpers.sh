@@ -48,7 +48,7 @@ function report() {
   printf "%b%s%b\n" "$COLOR_REPORT" "$1" "$COLOR_RESET"
 }
 
-function adjust_setting() {
+function report_adjust_setting() {
   # Output supplied line of text in a distinctive color, prefaced by "$SYMBOL_ADJUST_SETTING.
   # It is intentional to NOT have a newline. This will be supplied by success().
   printf "%b%s%s%b" "$COLOR_ADJUST_SETTING" "$SYMBOL_ADJUST_SETTING" "$1" "$COLOR_RESET"
@@ -60,7 +60,7 @@ function report_about_to_kill_app() {
   printf "%b%s %s is being killed%b" "$COLOR_KILLED" "$SYMBOL_KILLED" "$1" "$COLOR_RESET"
 }
 
-function action_taken() {
+function report_action_taken() {
   # Output supplied line of text in a distinctive color, prefaced by "$SYMBOL_ADJUST_SETTING.
   printf "%b%s%s%b\n" "$COLOR_ACTION_TAKEN" "$SYMBOL_ACTION_TAKEN" "$1" "$COLOR_RESET"
 }
