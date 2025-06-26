@@ -49,7 +49,15 @@ defaults write NSGlobalDomain AppleShowScrollBars -string "Always";success_or_no
 # Override change to clicking-on-desktop behavior
 # Desktop & Dock » Desktop & Stage Manager » Click wallpaper to reveal desktop » Only in Stage Manager
 adjust_setting "Reverse obnoxious default that revealed desktop anytime you clicked on the desktop"
-defaults write com.apple.WindowManager EnableStandardClickToShowDesktop -bool false;success_or_not
+defaults write com.apple.WindowManager EnableStandardClickToShowDesktop -bool false;success_or_notsuccess_or_not
+
+# Show Fast User Switching in menubar as Account Name
+action_taken "Show Fast User Switching in menubar only as Account Name"
+adjust_setting "1 of 2: userMenuExtraStyle = 1 (Account Name)"
+defaults write NSGlobalDomain userMenuExtraStyle -int 1;success_or_not
+
+adjust_setting "2 of 2: UserSwitcher = 2 (menubar only)"
+defaults -currentHost write com.apple.controlcenter UserSwitcher -int 2
 
 ########## Stop intrusive/arrogant “corrections”
 # Turn off:
@@ -75,11 +83,7 @@ adjust_setting "5 of 6: Don’t replace my properly considered spelling with you
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false;success_or_not
 
 adjust_setting "6 of 6: Don’t replace, in a web context, my properly considered spelling with your arrogant replacements"
-defaults write NSGlobalDomain WebAutomaticSpellingCorrectionEnabled -bool false;success_or_not
-
-# Show Fast User Switching in menubar as Account Name
-adjust_setting "Show Fast User Switching in menubar as Account Name"
-defaults write NSGlobalDomain userMenuExtraStyle -int 1;success_or_not
+defaults write NSGlobalDomain WebAutomaticSpellingCorrectionEnabled -bool false;
 
 ############### Finder
 
