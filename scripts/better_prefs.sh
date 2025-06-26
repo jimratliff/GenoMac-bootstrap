@@ -12,12 +12,9 @@ source "${0:A:h}/helpers.sh"
 #↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ BEGIN section ONLY for VANILLA/CONFIGURER accounts
 action_taken "Adjust certain settings in a way appropriate for only SysAdmin account (but not for other accounts)"
 
-
 # Finder: Show hard drives on desktop
 # This is chosen only because these defaults are aimed at Admin accounts
-
 adjust_setting "Show hard drives on desktop"
-
 defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true;success_or_not
 
 # Finder: Show external drives on desktop
@@ -140,9 +137,16 @@ defaults write com.apple.DiskUtility SidebarShowAllDevices -bool true;success_or
 
 ############### Kill each affected app
 action_taken "Force quit all apps/processes whose settings we just changed"
-for app in "Finder" "SystemUIServer" "Dock" "cfprefsd"; do
-  killed_app "$app"
-  killall "${app}";success_or_not
+apps_to_kill=(
+  "Finder"
+  "SystemUIServer"
+  "Dock"
+  "cfprefsd"
+)
+
+for app_to_kill in "${apps_to_kill[@]}"; do
+  killed_app "$app_to_kill"
+  killall "$app_to_kill";success_or_not
 done
 
 report "It’s possible that some settings won’t take effect until after you logout or restart."
