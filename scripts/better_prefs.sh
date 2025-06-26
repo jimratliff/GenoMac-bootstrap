@@ -123,7 +123,7 @@ defaults write com.apple.finder ShowMountedServersOnDesktop -bool true;success_o
 
 ############### DiskUtility
 # Launch and quit DiskUtility in order that it will have preferences to modify.
-action_taken "Launch and quit DiskUtility in order that it will have preferences to modify."
+action_taken "Launch and quit DiskUtility in order that it will have preferences to modify"
 open -b com.apple.DiskUtility # By bundle ID (more reliable than `open -a` by display name)
 sleep 2
 osascript -e 'quit app "Disk Utility"'
@@ -133,8 +133,8 @@ adjust_setting "DiskUtility: Show all devices in sidebar"
 defaults write com.apple.DiskUtility SidebarShowAllDevices -bool true;success_or_not
 
 ############### Kill each affected app
-action_taken "Force quitting all apps/processes whose settings we just changed."
-for app in "Finder" "SystemUIServer" "Dock" "cfprefsd"; do
+action_taken "Force quit all apps/processes whose settings we just changed"
+for app in "Finder" "SystemUIServer" "Dock" "cfprefsd" "yabadaba"; do
 #  killall "${app}" && printf "Killed app: %s" "$app";success_or_not
   killall "${app}" ; killed_app "$app";success_or_not
 done
