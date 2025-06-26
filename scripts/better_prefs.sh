@@ -122,7 +122,7 @@ defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true;success_o
 
 # Finder: Show connected servers on desktop
 # This is chosen only because these defaults are aimed at Admin accounts
-adjust_setting "This is chosen only because these defaults are aimed at Admin accounts"
+adjust_setting "Show connected servers on desktop"
 defaults write com.apple.finder ShowMountedServersOnDesktop -bool true;success_or_not
 
 ############### DiskUtility
