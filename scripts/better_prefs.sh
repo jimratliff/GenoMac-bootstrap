@@ -145,7 +145,7 @@ apps_to_kill=(
 )
 
 for app_to_kill in "${apps_to_kill[@]}"; do
-  killed_app "$app_to_kill"
+  report_about_to_kill_app "$app_to_kill"
   killall "$app_to_kill";success_or_not
 done
 
