@@ -54,7 +54,7 @@ function adjust_setting() {
   printf "%b%s%s%b" "$COLOR_ADJUST_SETTING" "$SYMBOL_ADJUST_SETTING" "$1" "$COLOR_RESET"
 }
 
-function killed_app() {
+function report_about_to_kill_app() {
   # Takes `app` as argument
   # Outputs message that the app was killed.
   printf "%b%s %s is being killed%b" "$COLOR_KILLED" "$SYMBOL_KILLED" "$1" "$COLOR_RESET"
