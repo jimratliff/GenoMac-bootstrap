@@ -6,56 +6,56 @@ source "${0:A:h}/helpers.sh"
 # Implements selected `defaults` command for the admin accounts, to remove the 
 # biggest annoyances ASAP during bootstrapping.
 
-# action_taken "Message"
-# adjust_setting "Message"
+# report_action_taken "Message"
+# report_adjust_setting "Message"
 
 #↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ BEGIN section ONLY for VANILLA/CONFIGURER accounts
-action_taken "Adjust certain settings in a way appropriate for only SysAdmin account (but not for other accounts)"
+report_action_taken "Adjust certain settings in a way appropriate for only SysAdmin account (but not for other accounts)"
 
 # Finder: Show hard drives on desktop
 # This is chosen only because these defaults are aimed at Admin accounts
-adjust_setting "Show hard drives on desktop"
+report_adjust_setting "Show hard drives on desktop"
 defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true;success_or_not
 
 # Finder: Show external drives on desktop
 # This is the default. Included here to enforce the default if it is ever changed.
-adjust_setting "Show external drives on desktop"
+report_adjust_setting "Show external drives on desktop"
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true;success_or_not
 
 #↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ END section ONLY for VANILLA/CONFIGURER accounts
 
 ############### General interface
-action_taken "Changing settings related to the user interface in general"
+report_action_taken "Changing settings related to the user interface in general"
 
 # Tap to click
-adjust_setting "Turn on tap to click"
+report_adjust_setting "Turn on tap to click"
 defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true;success_or_not
 
 ########## Drag window with three fingers
-action_taken "Turn on three-finger drag"
+report_action_taken "Turn on three-finger drag"
 
-adjust_setting "1 of 3: TrackpadThreeFingerDrag: true"
+report_adjust_setting "1 of 3: TrackpadThreeFingerDrag: true"
 defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true;success_or_not
-adjust_setting "2 of 3: TrackpadThreeFingerHorizSwipeGesture: 0"
+report_adjust_setting "2 of 3: TrackpadThreeFingerHorizSwipeGesture: 0"
 defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerHorizSwipeGesture -int 0;success_or_not
-adjust_setting "3 of 3: TrackpadThreeFingerVertSwipeGesture: 0"
+report_adjust_setting "3 of 3: TrackpadThreeFingerVertSwipeGesture: 0"
 defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerVertSwipeGesture -int 0;success_or_not
 
 # Show scroll bars always (not only when scrolling)
-adjust_setting "Always show scrollbars"
+report_adjust_setting "Always show scrollbars"
 defaults write NSGlobalDomain AppleShowScrollBars -string "Always";success_or_not
 
 # Override change to clicking-on-desktop behavior
 # Desktop & Dock » Desktop & Stage Manager » Click wallpaper to reveal desktop » Only in Stage Manager
-adjust_setting "Reverse obnoxious default that revealed desktop anytime you clicked on the desktop"
+report_adjust_setting "Reverse obnoxious default that revealed desktop anytime you clicked on the desktop"
 defaults write com.apple.WindowManager EnableStandardClickToShowDesktop -bool false;success_or_notsuccess_or_not
 
 # Show Fast User Switching in menubar as Account Name
-action_taken "Show Fast User Switching in menubar only as Account Name"
-adjust_setting "1 of 2: userMenuExtraStyle = 1 (Account Name)"
+report_action_taken "Show Fast User Switching in menubar only as Account Name"
+report_adjust_setting "1 of 2: userMenuExtraStyle = 1 (Account Name)"
 defaults write NSGlobalDomain userMenuExtraStyle -int 1;success_or_not
 
-adjust_setting "2 of 2: UserSwitcher = 2 (menubar only)"
+report_adjust_setting "2 of 2: UserSwitcher = 2 (menubar only)"
 defaults -currentHost write com.apple.controlcenter UserSwitcher -int 2
 
 ########## Stop intrusive/arrogant “corrections”
@@ -64,79 +64,79 @@ defaults -currentHost write com.apple.controlcenter UserSwitcher -int 2
 # - Capitalize words automatically
 # - Add period with double-space
 # - Use smart quotes and dashes
-action_taken "Stop intrusive, arrogant, I-know-better-than-you “corrections”"
+report_action_taken "Stop intrusive, arrogant, I-know-better-than-you “corrections”"
 
-adjust_setting "1 of 6: Turn off automatic capitalization"
+report_adjust_setting "1 of 6: Turn off automatic capitalization"
 defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false;success_or_not
 
-adjust_setting "2 of 6: Don’t automatically substitute dash/hyphen types"
+report_adjust_setting "2 of 6: Don’t automatically substitute dash/hyphen types"
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false;success_or_not
 
-adjust_setting "3 of 6: Don’t automatically substitute periods"
+report_adjust_setting "3 of 6: Don’t automatically substitute periods"
 defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false;success_or_not
 
-adjust_setting "4 of 6: I’ll supply the intelligence for my quotation marks, thank you!"
+report_adjust_setting "4 of 6: I’ll supply the intelligence for my quotation marks, thank you!"
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false;success_or_not
 
-adjust_setting "5 of 6: Don’t replace my properly considered spelling with your arrogant replacements"
+report_adjust_setting "5 of 6: Don’t replace my properly considered spelling with your arrogant replacements"
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false;success_or_not
 
-adjust_setting "6 of 6: Don’t replace, in a web context, my properly considered spelling with your arrogant replacements"
+report_adjust_setting "6 of 6: Don’t replace, in a web context, my properly considered spelling with your arrogant replacements"
 defaults write NSGlobalDomain WebAutomaticSpellingCorrectionEnabled -bool false;
 
 ############### Finder
 
-action_taken "Adjust settings for Finder"
+report_action_taken "Adjust settings for Finder"
 
 # Finder: Show all hidden files
 # Does NOT correspond to any UI command
-adjust_setting "Show all hidden files (i.e., “dot files”)"
+report_adjust_setting "Show all hidden files (i.e., “dot files”)"
 defaults write com.apple.finder AppleShowAllFiles true;success_or_not
 
 # Finder: Show Pathbar
-adjust_setting "Show path bar"
+report_adjust_setting "Show path bar"
 defaults write com.apple.finder ShowPathbar -bool true;success_or_not
 
 # Finder: ShowStatusBar
-adjust_setting "Show status bar"
+report_adjust_setting "Show status bar"
 defaults write com.apple.finder ShowStatusBar -bool true;success_or_not
 
 # Finder: Show all filename extensions
-adjust_setting "Show all filename extensions"
+report_adjust_setting "Show all filename extensions"
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true;success_or_not
 
 # Finder: Always show window proxy icon
-adjust_setting "Always show window proxy icon"
+report_adjust_setting "Always show window proxy icon"
 defaults write com.apple.universalaccess showWindowTitlebarIcons -bool true;success_or_not
 
 # Finder: Open new windows to Home
 # This is intended for bootstrapping ONLY, not for enforcement
-adjust_setting "By default, new Finder window should open to user’s home directory"
+report_adjust_setting "By default, new Finder window should open to user’s home directory"
 defaults write com.apple.finder NewWindowTarget -string "PfHm";success_or_not
 
 # Finder: Show removable media (CDs, DVDs, etc.) on desktop
 # This is the default. Included here to enforce the default if it is ever changed.
-adjust_setting "Show removable media (CDs, DVDs, etc.) on desktop"
+report_adjust_setting "Show removable media (CDs, DVDs, etc.) on desktop"
 defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true;success_or_not
 
 # Finder: Show connected servers on desktop
 # This is chosen only because these defaults are aimed at Admin accounts
-adjust_setting "Show connected servers on desktop"
+report_adjust_setting "Show connected servers on desktop"
 defaults write com.apple.finder ShowMountedServersOnDesktop -bool true;success_or_not
 
 ############### DiskUtility
 # Launch and quit DiskUtility in order that it will have preferences to modify.
-action_taken "Launch and quit DiskUtility in order that it will have preferences to modify"
+report_action_taken "Launch and quit DiskUtility in order that it will have preferences to modify"
 open -b com.apple.DiskUtility # By bundle ID (more reliable than `open -a` by display name)
 sleep 2
 osascript -e 'quit app "Disk Utility"'
 
 # DiskUtility: Show all devices in sidebar
-adjust_setting "DiskUtility: Show all devices in sidebar"
+report_adjust_setting "DiskUtility: Show all devices in sidebar"
 defaults write com.apple.DiskUtility SidebarShowAllDevices -bool true;success_or_not
 
 ############### Kill each affected app
-action_taken "Force quit all apps/processes whose settings we just changed"
+report_action_taken "Force quit all apps/processes whose settings we just changed"
 apps_to_kill=(
   "Finder"
   "SystemUIServer"
