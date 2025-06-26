@@ -122,6 +122,12 @@ adjust_setting "This is chosen only because these defaults are aimed at Admin ac
 defaults write com.apple.finder ShowMountedServersOnDesktop -bool true;success_or_not
 
 ############### DiskUtility
+# Launch and quit DiskUtility in order that it will have preferences to modify.
+action_taken "Launch and quit DiskUtility in order that it will have preferences to modify."
+open -b com.apple.DiskUtility # By bundle ID (more reliable than `open -a` by display name)
+sleep 2
+osascript -e 'quit app "Disk Utility"'
+
 # DiskUtility: Show all devices in sidebar
 adjust_setting "DiskUtility: Show all devices in sidebar"
 defaults write com.apple.DiskUtility SidebarShowAllDevices -bool true;success_or_not
