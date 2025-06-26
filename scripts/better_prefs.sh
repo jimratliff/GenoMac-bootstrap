@@ -16,6 +16,7 @@ action_taken "Adjust certain settings in a way appropriate for only SysAdmin acc
 # Finder: Show hard drives on desktop
 # This is chosen only because these defaults are aimed at Admin accounts
 adjust_setting "Show hard drives on desktop"
+
 defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true;success_or_not
 
 # Finder: Show external drives on desktop
