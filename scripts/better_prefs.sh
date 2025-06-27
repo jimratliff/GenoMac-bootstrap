@@ -99,12 +99,21 @@ defaults -currentHost write com.apple.controlcenter UserSwitcher -int 2;success_
 report_adjust_setting "Always show Sound in menubar (not only when “active”)"
 defaults -currentHost write com.apple.controlcenter sound -int 18
 
+# Show battery percentage in menubar
+report_adjust_setting "Show battery percentage in menubar"
+defaults -currentHost write com.apple.controlcenter BatteryShowPercentage -bool true
+
 ############### Control Center
 
 ########## Add Bluetooth to Control Center to access battery percentages of Bluetooth devices
 
 report_adjust_setting "Add Bluetooth to Control Center to access battery percentages of Bluetooth devices"
 defaults write com.apple.controlcenter "NSStatusItem Visible Bluetooth" -bool true
+
+############### Menubar
+
+report_adjust_setting "Turn OFF automatic hide/show the Dock"
+defaults write com.apple.dock autohide -bool false
 
 
 ########## Stop intrusive/arrogant “corrections”
