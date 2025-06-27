@@ -9,6 +9,43 @@ source "${0:A:h}/helpers.sh"
 # report_action_taken "Message"
 # report_adjust_setting "Message"
 
+#↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ BEGIN section that requires sudo
+report_action_taken "Begin commands that require `sudo`"
+report_action_taken "I very likely am about to ask you for your administrator password. Do you trust me??? 😉"
+# Update user’s cached credentials for `sudo`.
+sudo -v
+
+# Keep-alive: update existing `sudo` time stamp until `.macos` has finished
+while true; do 
+  sudo -n true          # non-interactively refresh sudo timestamp (fails silently if not authorized)
+  sleep 60              # wait one minute
+  kill -0 "$$" || exit  # exit if the parent shell no longer exists
+done 2>/dev/null &      # run loop in background, silence stderr
+
+
+report_action_taken "Implement system-wide settings controlling how macOS and MAS-app software updates occur"
+
+report_action_taken "Temporarily turn off Software Update schedule to permit implementing new preferences"
+sudo softwareupdate --schedule OFF
+
+report_adjust_setting "Automatically check for updates (both macOS and MAS apps)"
+sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate AutomaticCheckEnabled -bool true
+
+report_adjust_setting "Download updates when available"
+sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate AutomaticDownload -bool true
+
+report_adjust_setting "Do NOT automatically update macOS"
+sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate AutomaticallyInstallMacOSUpdates -bool false
+
+report_adjust_setting "Automatically update applications from Mac App Store"
+sudo defaults write /Library/Preferences/com.apple.commerce AutoUpdate -bool true
+
+report_action_taken "Restore Software Update schedule to ON"
+sudo softwareupdate --schedule ON
+
+report_action_taken "End commands that require `sudo`"
+#↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ END section that requires sudo
+
 #↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ BEGIN section ONLY for VANILLA/CONFIGURER accounts
 report_action_taken "Adjust certain settings in a way appropriate for only SysAdmin account (but not for other accounts)"
 
