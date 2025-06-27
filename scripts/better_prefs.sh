@@ -10,7 +10,7 @@ source "${0:A:h}/helpers.sh"
 # report_adjust_setting "Message"
 
 #↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ BEGIN section that requires sudo
-report_action_taken "Begin commands that require \`sudo\`"
+report_action_taken "Begin commands that require 'sudo'"
 report_action_taken "I very likely am about to ask you for your administrator password. Do you trust me??? 😉"
 # Update user’s cached credentials for `sudo`.
 sudo -v
@@ -36,7 +36,7 @@ sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate AutomaticallyI
 report_adjust_setting "Automatically update applications from Mac App Store"
 sudo defaults write /Library/Preferences/com.apple.commerce AutoUpdate -bool true;success_or_not
 
-report_action_taken "End commands that require \`sudo\`"
+report_action_taken "End commands that require 'sudo'"
 #↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ END section that requires sudo
 
 #↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ BEGIN section ONLY for VANILLA/CONFIGURER accounts
