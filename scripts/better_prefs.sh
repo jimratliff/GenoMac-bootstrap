@@ -122,10 +122,14 @@ defaults -currentHost write com.apple.controlcenter BatteryShowPercentage -bool 
 report_adjust_setting "Add Bluetooth to Control Center to access battery percentages of Bluetooth devices"
 defaults write com.apple.controlcenter "NSStatusItem Visible Bluetooth" -bool true
 
-############### Menubar
+############### Dock
+report_action_taken "Implement Dock settings"
 
 report_adjust_setting "Turn OFF automatic hide/show the Dock"
 defaults write com.apple.dock autohide -bool false
+
+report_adjust_setting "Enable two-finger scrolling on Dock icon to reveal thumbnails of all windows for that app"
+defaults write com.apple.dock scroll-to-open -bool true
 
 
 ########## Stop intrusive/arrogant “corrections”
