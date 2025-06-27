@@ -22,11 +22,7 @@ while true; do
   kill -0 "$$" || exit  # exit if the parent shell no longer exists
 done 2>/dev/null &      # run loop in background, silence stderr
 
-
 report_action_taken "Implement system-wide settings controlling how macOS and MAS-app software updates occur"
-
-report_action_taken "Temporarily turn off Software Update schedule to permit implementing new preferences"
-sudo softwareupdate --schedule OFF;success_or_not
 
 report_adjust_setting "Automatically check for updates (both macOS and MAS apps)"
 sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate AutomaticCheckEnabled -bool true;success_or_not
@@ -39,9 +35,6 @@ sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate AutomaticallyI
 
 report_adjust_setting "Automatically update applications from Mac App Store"
 sudo defaults write /Library/Preferences/com.apple.commerce AutoUpdate -bool true;success_or_not
-
-report_action_taken "Restore Software Update schedule to ON"
-sudo softwareupdate --schedule ON;success_or_not
 
 report_action_taken "End commands that require `sudo`"
 #↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ END section that requires sudo
