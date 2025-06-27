@@ -36,6 +36,9 @@ sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate AutomaticallyI
 report_adjust_setting "Automatically update applications from Mac App Store"
 sudo defaults write /Library/Preferences/com.apple.commerce AutoUpdate -bool true;success_or_not
 
+report_adjust_setting "Display additional information (IP address, hostname, OS version, etc.) when clicking on the clock in upper-right corner of the login window"
+sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName;success_or_not
+
 report_action_taken "End commands that require 'sudo'"
 #↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ END section that requires sudo
 
@@ -80,7 +83,9 @@ defaults write NSGlobalDomain AppleShowScrollBars -string "Always";success_or_no
 report_adjust_setting "Reverse obnoxious default that revealed desktop anytime you clicked on the desktop"
 defaults write com.apple.WindowManager EnableStandardClickToShowDesktop -bool false;success_or_not
 
-# Show Fast User Switching in menubar as Account Name
+############### Menubar
+
+########## Show Fast User Switching in menubar as Account Name
 report_action_taken "Show Fast User Switching in menubar only as Account Name"
 
 report_adjust_setting "1 of 2: userMenuExtraStyle = 1 (Account Name)"
@@ -88,6 +93,19 @@ defaults write NSGlobalDomain userMenuExtraStyle -int 1;success_or_not
 
 report_adjust_setting "2 of 2: UserSwitcher = 2 (menubar only)"
 defaults -currentHost write com.apple.controlcenter UserSwitcher -int 2;success_or_not
+
+# Always show Sound in menubar
+
+report_adjust_setting "Always show Sound in menubar (not only when “active”)"
+defaults -currentHost write com.apple.controlcenter sound -int 18
+
+############### Control Center
+
+########## Add Bluetooth to Control Center to access battery percentages of Bluetooth devices
+
+report_adjust_setting "Add Bluetooth to Control Center to access battery percentages of Bluetooth devices"
+defaults write com.apple.controlcenter "NSStatusItem Visible Bluetooth" -bool true
+
 
 ########## Stop intrusive/arrogant “corrections”
 # Turn off:
