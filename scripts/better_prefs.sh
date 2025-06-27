@@ -55,7 +55,7 @@ defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true;succe
 #↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ END section ONLY for VANILLA/CONFIGURER accounts
 
 ############### General interface
-report_action_taken "Changing settings related to the user interface in general"
+report_action_taken "Change settings related to the user interface in general"
 
 # Tap to click
 report_adjust_setting "Turn on tap to click"
