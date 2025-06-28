@@ -187,6 +187,10 @@ defaults write com.apple.dock autohide -bool false;success_or_not
 report_adjust_setting "Dock: Enable two-finger scrolling on Dock icon to reveal thumbnails of all windows for that app"
 defaults write com.apple.dock scroll-to-open -bool true;success_or_not
 
+report_adjust_setting "Disable the Launchpad gesture (pinch with thumb and three fingers)"
+defaults write com.apple.dock showLaunchpadGestureEnabled -int 0;success_or_not
+
+
 ############### Finder
 
 report_action_taken "Adjust settings for Finder"
