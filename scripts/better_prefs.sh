@@ -175,6 +175,7 @@ defaults write com.apple.dock largesize -float 128;success_or_not
 report_adjust_setting "Dock: Show indicator lights for open apps"
 defaults write com.apple.dock show-process-indicators -bool true;success_or_not
 
+# This isn’t working for me (6/27/2025 on M1 Mac mini)
 report_adjust_setting "Make Dock icons of hidden apps translucent"
 defaults write com.apple.Dock showhidden -bool true;success_or_not
 
