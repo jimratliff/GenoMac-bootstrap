@@ -22,9 +22,25 @@ while true; do
   kill -0 "$$" || exit  # exit if the parent shell no longer exists
 done 2>/dev/null &      # run loop in background, silence stderr
 
+############### Get login-window text
 report_action_taken "Set login-window text"
-sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText -string "I'm sorry Dave, I'm afraid I can't do that"
+while true; do
+  echo -n "Please enter your desired login-window text: "
+  read user_input
 
+  echo "You entered: \"$user_input\""
+  echo -n "Is this correct? (y/n): "
+  read confirmation
+
+  if [[ "$confirmation" =~ ^[Yy]$ ]]; then
+    break
+  fi
+done
+
+echo "Final choice: \"$user_input\""
+sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText -string "$user_input";success_or_not
+
+############### System-wide settings controlling software-update behavior
 report_action_taken "Implement system-wide settings controlling how macOS and MAS-app software updates occur"
 
 report_adjust_setting "Automatically check for updates (both macOS and MAS apps)"
