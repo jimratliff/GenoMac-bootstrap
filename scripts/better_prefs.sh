@@ -5,6 +5,8 @@ source "${0:A:h}/helpers.sh"
 
 # Implements selected `defaults` command for the admin accounts, to remove the 
 # biggest annoyances ASAP during bootstrapping.
+#
+# Because this is for bootstrapping, any settings that act upon, or require, software no pre-installed on the Mac, must wait.
 
 # report_action_taken "Message"
 # report_adjust_setting "Message"
@@ -171,10 +173,13 @@ report_adjust_setting "Dock: Set size of magnified Dock icons"
 defaults write com.apple.dock largesize -float 128;success_or_not
 
 report_adjust_setting "Dock: Show indicator lights for open apps"
-defaults write com.apple.dock show-process-indicators -bool true
+defaults write com.apple.dock show-process-indicators -bool true;success_or_not
 
 report_adjust_setting "Make Dock icons of hidden apps translucent"
-defaults write com.apple.Dock showhidden -bool true
+defaults write com.apple.Dock showhidden -bool true;success_or_not
+
+report_adjust_setting "Highlight the element of a grid-view Dock stack over which the cursor hovers
+defaults write com.apple.dock mouse-over-hilte-stack -boolean true;success_or_not
 
 report_adjust_setting "Dock: Turn OFF automatic hide/show the Dock"
 defaults write com.apple.dock autohide -bool false;success_or_not
