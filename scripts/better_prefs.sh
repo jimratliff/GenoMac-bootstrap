@@ -95,14 +95,33 @@ defaults write NSGlobalDomain AppleShowScrollBars -string "Always";success_or_no
 report_adjust_setting "Reverse obnoxious default that revealed desktop anytime you clicked on the desktop"
 defaults write com.apple.WindowManager EnableStandardClickToShowDesktop -bool false;success_or_not
 
+########## Stop intrusive/arrogant “corrections”
+# Turn off:
+# - Correct spelling automatically
+# - Capitalize words automatically
+# - Add period with double-space
+# - Use smart quotes and dashes
+report_action_taken "Stop intrusive, arrogant, I-know-better-than-you “corrections”"
+
+report_adjust_setting "1 of 6: Turn off automatic capitalization"
+defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false;success_or_not
+report_adjust_setting "2 of 6: Don’t automatically substitute dash/hyphen types"
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false;success_or_not
+report_adjust_setting "3 of 6: Don’t automatically substitute periods"
+defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false;success_or_not
+report_adjust_setting "4 of 6: I’ll supply the intelligence for my quotation marks, thank you!"
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false;success_or_not
+report_adjust_setting "5 of 6: Don’t replace my properly considered spelling with your arrogant replacements"
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false;success_or_not
+report_adjust_setting "6 of 6: Don’t replace, in a web context, my properly considered spelling with your arrogant replacements"
+defaults write NSGlobalDomain WebAutomaticSpellingCorrectionEnabled -bool false;success_or_not
+
 ############### Menubar
 
 ########## Show Fast User Switching in menubar as Account Name
 report_action_taken "Show Fast User Switching in menubar only as Account Name"
-
 report_adjust_setting "1 of 2: userMenuExtraStyle = 1 (Account Name)"
 defaults write NSGlobalDomain userMenuExtraStyle -int 1;success_or_not
-
 report_adjust_setting "2 of 2: UserSwitcher = 2 (menubar only)"
 defaults -currentHost write com.apple.controlcenter UserSwitcher -int 2;success_or_not
 
@@ -130,33 +149,6 @@ defaults write com.apple.dock autohide -bool false
 
 report_adjust_setting "Enable two-finger scrolling on Dock icon to reveal thumbnails of all windows for that app"
 defaults write com.apple.dock scroll-to-open -bool true
-
-
-########## Stop intrusive/arrogant “corrections”
-# Turn off:
-# - Correct spelling automatically
-# - Capitalize words automatically
-# - Add period with double-space
-# - Use smart quotes and dashes
-report_action_taken "Stop intrusive, arrogant, I-know-better-than-you “corrections”"
-
-report_adjust_setting "1 of 6: Turn off automatic capitalization"
-defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false;success_or_not
-
-report_adjust_setting "2 of 6: Don’t automatically substitute dash/hyphen types"
-defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false;success_or_not
-
-report_adjust_setting "3 of 6: Don’t automatically substitute periods"
-defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false;success_or_not
-
-report_adjust_setting "4 of 6: I’ll supply the intelligence for my quotation marks, thank you!"
-defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false;success_or_not
-
-report_adjust_setting "5 of 6: Don’t replace my properly considered spelling with your arrogant replacements"
-defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false;success_or_not
-
-report_adjust_setting "6 of 6: Don’t replace, in a web context, my properly considered spelling with your arrogant replacements"
-defaults write NSGlobalDomain WebAutomaticSpellingCorrectionEnabled -bool false;success_or_not
 
 ############### Finder
 
