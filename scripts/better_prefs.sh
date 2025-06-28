@@ -165,10 +165,10 @@ defaults write com.apple.controlcenter "NSStatusItem Visible Bluetooth" -bool tr
 report_action_taken "Implement Dock settings"
 
 report_adjust_setting "Turn on magnification effect when hovering over Dock"
-defaults write com.apple.dock magnification -bool true
+defaults write com.apple.dock magnification -bool true;success_or_not
 
 report_adjust_setting "Set size of magnified Dock icons"
-defaults write com.apple.dock largesize -float 128
+defaults write com.apple.dock largesize -float 128;success_or_not
 
 report_adjust_setting "Turn OFF automatic hide/show the Dock"
 defaults write com.apple.dock autohide -bool false;success_or_not
