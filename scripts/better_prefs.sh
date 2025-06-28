@@ -42,6 +42,13 @@ done
 echo "Final choice: \"$user_input\""
 sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText -string "$user_input";success_or_not
 
+############### Configure application firewall
+report_action_taken "Configure application firewall"
+report_adjust_setting "1 of 2: Enable application firewall"
+sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on;success_or_not
+report_adjust_setting "2 of 2: Enable Stealth Mode"
+sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setstealthmode on;success_or_not
+
 ############### System-wide settings controlling software-update behavior
 report_action_taken "Implement system-wide settings controlling how macOS and MAS-app software updates occur"
 
