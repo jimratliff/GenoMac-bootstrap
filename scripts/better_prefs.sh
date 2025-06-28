@@ -22,6 +22,9 @@ while true; do
   kill -0 "$$" || exit  # exit if the parent shell no longer exists
 done 2>/dev/null &      # run loop in background, silence stderr
 
+report_action_taken "Set login-window text"
+sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText -string "I'm sorry Dave, I'm afraid I can't do that"
+
 report_action_taken "Implement system-wide settings controlling how macOS and MAS-app software updates occur"
 
 report_adjust_setting "Automatically check for updates (both macOS and MAS apps)"
@@ -92,6 +95,10 @@ defaults write NSGlobalDomain AppleShowScrollBars -string "Always";success_or_no
 # Desktop & Dock » Desktop & Stage Manager » Click wallpaper to reveal desktop » Only in Stage Manager
 report_adjust_setting "Reverse obnoxious default that revealed desktop anytime you clicked on the desktop"
 defaults write com.apple.WindowManager EnableStandardClickToShowDesktop -bool false;success_or_not
+
+# Window tabbing mode
+report_adjust_setting "AppleWindowTabbingMode: manual ⇒ Window should display at tabs according to window’s tabbing mode”"
+defaults write NSGlobalDomain AppleWindowTabbingMode -string "manual";success_or_not
 
 ########## Stop intrusive/arrogant “corrections”
 # Turn off:
