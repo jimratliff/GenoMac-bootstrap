@@ -191,6 +191,17 @@ defaults write com.apple.dock scroll-to-open -bool true;success_or_not
 report_adjust_setting "Disable the Launchpad gesture (pinch with thumb and three fingers)"
 defaults write com.apple.dock showLaunchpadGestureEnabled -int 0;success_or_not
 
+############### Mission Control/Spaces
+report_action_taken "Implement settings related to Space (Mission Control)"
+
+report_adjust_setting "Spaces: Don’t rearrange based on most-recent use"
+defaults write com.apple.dock mru-spaces -bool false;success_or_not
+
+report_adjust_setting "Spaces span all display (no separate space for each monitor)"
+defaults write com.apple.spaces "spans-displays" -bool "true";success_or_not
+
+report_adjust_setting "Do not jump to a new space when switching applications"
+defaults write NSGlobalDomain AppleSpacesSwitchOnActivate -bool false;success_or_not
 
 ############### Finder
 
