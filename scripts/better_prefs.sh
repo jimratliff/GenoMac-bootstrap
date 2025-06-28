@@ -178,7 +178,7 @@ defaults write com.apple.dock show-process-indicators -bool true;success_or_not
 report_adjust_setting "Make Dock icons of hidden apps translucent"
 defaults write com.apple.Dock showhidden -bool true;success_or_not
 
-report_adjust_setting "Highlight the element of a grid-view Dock stack over which the cursor hovers
+report_adjust_setting "Highlight the element of a grid-view Dock stack over which the cursor hovers"
 defaults write com.apple.dock mouse-over-hilte-stack -boolean true;success_or_not
 
 report_adjust_setting "Dock: Turn OFF automatic hide/show the Dock"
