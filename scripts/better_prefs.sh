@@ -62,10 +62,8 @@ report_action_taken "Implement app-state persistence"
 
 report_adjust_setting "1 of 3: loginwindow: TALLogoutSavesState: true"
 defaults write com.apple.loginwindow TALLogoutSavesState -bool true;success_or_not
-
 report_adjust_setting "2 of 3: loginwindow: LoginwindowLaunchesRelaunchApps: true"
 defaults write com.apple.loginwindow LoginwindowLaunchesRelaunchApps -bool true;success_or_not
-
 report_adjust_setting "3 of 3: NSGlobalDomain: NSQuitAlwaysKeepsWindows: true"
 defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool true;success_or_not
 
@@ -126,29 +124,28 @@ report_adjust_setting "2 of 2: UserSwitcher = 2 (menubar only)"
 defaults -currentHost write com.apple.controlcenter UserSwitcher -int 2;success_or_not
 
 # Always show Sound in menubar
-
 report_adjust_setting "Always show Sound in menubar (not only when “active”)"
-defaults -currentHost write com.apple.controlcenter sound -int 18
+defaults -currentHost write com.apple.controlcenter sound -int 18;success_or_not
 
 # Show battery percentage in menubar
 report_adjust_setting "Show battery percentage in menubar"
-defaults -currentHost write com.apple.controlcenter BatteryShowPercentage -bool true
+defaults -currentHost write com.apple.controlcenter BatteryShowPercentage -bool true;success_or_not
 
 ############### Control Center
 
 ########## Add Bluetooth to Control Center to access battery percentages of Bluetooth devices
 
 report_adjust_setting "Add Bluetooth to Control Center to access battery percentages of Bluetooth devices"
-defaults write com.apple.controlcenter "NSStatusItem Visible Bluetooth" -bool true
+defaults write com.apple.controlcenter "NSStatusItem Visible Bluetooth" -bool true;success_or_not
 
 ############### Dock
 report_action_taken "Implement Dock settings"
 
 report_adjust_setting "Turn OFF automatic hide/show the Dock"
-defaults write com.apple.dock autohide -bool false
+defaults write com.apple.dock autohide -bool false;success_or_not
 
 report_adjust_setting "Enable two-finger scrolling on Dock icon to reveal thumbnails of all windows for that app"
-defaults write com.apple.dock scroll-to-open -bool true
+defaults write com.apple.dock scroll-to-open -bool true;success_or_not
 
 ############### Finder
 
