@@ -99,8 +99,11 @@ defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool true;success_or_not
 report_action_taken "Change settings related to the user interface in general"
 
 # Tap to click
-report_adjust_setting "Turn on tap to click"
+report_action_taken "Implement trackpad tap-to-click"
+report_adjust_setting "1 of 2: Turn on tap to click for user"
 defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true;success_or_not
+report_adjust_setting "2 of 2: Turn on tap to click for login window"
+defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1;success_or_not
 
 ########## Drag window with three fingers
 report_action_taken "Turn on three-finger drag"
