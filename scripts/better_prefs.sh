@@ -233,7 +233,7 @@ report_adjust_setting "Disable the Launchpad gesture (pinch with thumb and three
 defaults write com.apple.dock showLaunchpadGestureEnabled -int 0;success_or_not
 
 ############### Mission Control/Spaces
-report_action_taken "Implement settings related to Space (Mission Control)"
+report_action_taken "Implement settings related to Spaces (Mission Control)"
 
 report_adjust_setting "Spaces: Don’t rearrange based on most-recent use"
 defaults write com.apple.dock mru-spaces -bool false;success_or_not
