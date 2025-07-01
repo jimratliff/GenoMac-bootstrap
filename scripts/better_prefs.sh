@@ -284,6 +284,10 @@ defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true;success_o
 report_adjust_setting "Show connected servers on desktop"
 defaults write com.apple.finder ShowMountedServersOnDesktop -bool true;success_or_not
 
+# Finder: Unhide the ~/Library folder
+report_adjust_setting "Unhide the ~/Library folder"
+chflags nohidden ~/Library;success_or_not
+
 ############### DiskUtility
 # Launch and quit DiskUtility in order that it will have preferences to modify.
 report_action_taken "Launch and quit DiskUtility in order that it will have preferences to modify"
