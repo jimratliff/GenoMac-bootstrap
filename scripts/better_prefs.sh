@@ -98,6 +98,12 @@ defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool true;success_or_not
 ############### General interface
 report_action_taken "Change settings related to the user interface in general"
 
+########## Trackpad
+
+# Enable “Natural scroll”
+report_adjust_setting "Enable “natural scrolling”"
+
+
 # Tap to click
 report_action_taken "Implement trackpad tap-to-click"
 report_adjust_setting "1 of 2: Turn on tap to click for user"
@@ -105,15 +111,40 @@ defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true;success_or_
 report_adjust_setting "2 of 2: Turn on tap to click for login window"
 defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1;success_or_not
 
-########## Drag window with three fingers
-report_action_taken "Turn on three-finger drag"
+# Trackpad Right Click
+report_adjust_setting "Turn on two-finger right click"
+defaults write com.apple.AppleMultitouchTrackpad TrackpadRightClick -bool true;success_or_not
 
+# Drag window with three fingers
+report_action_taken "Turn on three-finger drag"
 report_adjust_setting "1 of 3: TrackpadThreeFingerDrag: true"
 defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true;success_or_not
 report_adjust_setting "2 of 3: TrackpadThreeFingerHorizSwipeGesture: 0"
 defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerHorizSwipeGesture -int 0;success_or_not
 report_adjust_setting "3 of 3: TrackpadThreeFingerVertSwipeGesture: 0"
 defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerVertSwipeGesture -int 0;success_or_not
+
+# Disable three-finger tap to look up a word
+report_adjust_setting "Disable three-finger tap to look up a word"
+defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerTapGesture -int 0;success_or_not
+
+# Enable pinch to zoom
+report_adjust_setting "Enable pinch to zoom"
+defaults write com.apple.AppleMultitouchTrackpad TrackpadPinch -bool true;success_or_not
+
+# Enable “Smart Zoom” (double tap with two fingers)
+report_adjust_setting "Enable “Smart Zoom” (double tap with two fingers)"
+defaults write com.apple.AppleMultitouchTrackpad TrackpadTwoFingerDoubleTapGesture -bool true;success_or_not
+
+# Enable rotate with trackpad
+report_adjust_setting "Enable rotate with trackpad"
+defaults write com.apple.AppleMultitouchTrackpad TrackpadRotate -bool true;success_or_not
+
+
+
+
+
+########## Other general interface
 
 # Show scroll bars always (not only when scrolling)
 report_adjust_setting "Always show scrollbars"
