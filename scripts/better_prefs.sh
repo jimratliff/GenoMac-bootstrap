@@ -99,6 +99,29 @@ defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool true;success_or_not
 report_action_taken "Change settings related to the user interface in general"
 
 ########## Trackpad
+#
+#  Implements the following choices
+#  Point & Click
+#    Tracking speed: 7 (on a scale from 0 to 9)
+#    Click: Medium
+#    Quiet Click: No
+#    Force Click and haptic feedback: Yes
+#    Look up & data detectors: Force Click with One Finger
+#    Secondary click: Click or Tap with Two Fingers
+#    Tap to click: Yes
+#  Scroll & Zoom
+#    Natural scrolling: Yes
+#    Zoom in or out: Yes
+#    Smart zoom: Yes
+#    Rotate: Yes
+#  More Gestures
+#    Swipe between pages: Scroll Left or Right with Two Fingers
+#    Swipe between full-screen applications: No
+#    Notification Center: No
+#    Mission Control: Swipe Up with Four Fingers
+#    App Exposé: No
+#    Launchpad: No
+#    Show Desktop: Yes
 
 report_action_taken "Implement configuration of Trackpad behavior"
 
