@@ -100,6 +100,32 @@ report_action_taken "Change settings related to the user interface in general"
 
 ########## Trackpad
 
+report_action_taken "Implement configuration of Trackpad behavior"
+
+report_action_taken "Trackpad: Point & Click category of settings"
+
+# Tracking speed (2.0 corresponds to the 7th tick mark (counting the leftmost tick mark as 0))
+report_adjust_setting "Trackpad: Point & Click: Tracking speed"
+defaults write NSGlobalDomain com.apple.trackpad.scaling -float 2.0;success_or_not
+
+report_action_taken "Trackpad: Point & Click: Click firmness"
+report_adjust_setting "1 of 2: FirstClickThreshold"
+defaults write com.apple.AppleMultitouchTrackpad FirstClickThreshold -int 1;success_or_not
+report_adjust_setting "2 of 2: SecondClickThreshold"
+defaults write com.apple.AppleMultitouchTrackpad SecondClickThreshold -int 1;success_or_not
+
+report_adjust_setting "Turn OFF Quiet Click"
+defaults write com.apple.AppleMultitouchTrackpad ActuationStrength -int 1;success_or_not
+
+
+
+
+
+
+
+
+# vvvvvvvvvvvv OLD vvvvvvvvvvvvvv
+
 # Enable “Natural scroll”
 report_adjust_setting "Enable “natural scrolling”"
 
