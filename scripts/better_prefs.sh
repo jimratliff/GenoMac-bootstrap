@@ -291,7 +291,7 @@ defaults write NSGlobalDomain WebAutomaticSpellingCorrectionEnabled -bool false;
 report_action_taken "Implement keyboard-related defaults"
 
 report_adjust_setting "Holding alpha key down pops up character-accent menu (rather than repeats). Reinforces default"
-defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool true
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool true;success_or_not
 
 ############### Menubar
 
@@ -417,7 +417,7 @@ defaults write com.apple.finder FXDefaultSearchScope -string "SCcf";success_or_n
 
 ############### Time Machine
 report_adjust_setting "Time Machine: Don’t prompt to use new disk as backup volume"
-defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
+defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true;success_or_not
 
 
 ############### DiskUtility
