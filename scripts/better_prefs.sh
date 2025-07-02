@@ -395,6 +395,13 @@ defaults write com.apple.finder ShowMountedServersOnDesktop -bool true;success_o
 report_adjust_setting "Unhide the ~/Library folder"
 chflags nohidden ~/Library;success_or_not
 
+# Finder: Do not sort folders first
+report_adjust_setting "Do not sort folders first"
+report_adjust_setting "1 of 2: Do not sort folders first in lists"
+defaults write com.apple.finder _FXSortFoldersFirst -bool false
+report_adjust_setting "1 of 2: Do not sort folders first on desktop"
+defaults write com.apple.finder "_FXSortFoldersFirstOnDesktop" -bool "false"
+
 ############### DiskUtility
 # Launch and quit DiskUtility in order that it will have preferences to modify.
 report_action_taken "Launch and quit DiskUtility in order that it will have preferences to modify"
