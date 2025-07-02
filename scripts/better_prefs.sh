@@ -266,6 +266,15 @@ defaults write com.apple.WindowManager EnableStandardClickToShowDesktop -bool fa
 report_adjust_setting "AppleWindowTabbingMode: manual ⇒ Window should display at tabs according to window’s tabbing mode”"
 defaults write NSGlobalDomain AppleWindowTabbingMode -string "manual";success_or_not
 
+# Double-click on titlebar behavior
+# System Settings » Desktop & Dock » Dock » Double-click a window's title bar to: 
+#  - "Fill" Fill
+#  - "Maximize" =Zoom (default)
+#  - "Minimize"
+#  - "None" =Do Nothing
+report_adjust_setting "Double-click on window’s title bar ⇒ Zoom (reinforces default)"
+defaults write NSGlobalDomain AppleActionOnDoubleClick -string "Maximize";success_or_not
+
 ########## Stop intrusive/arrogant “corrections”
 # Turn off:
 # - Correct spelling automatically
