@@ -400,7 +400,14 @@ report_adjust_setting "Do not sort folders first"
 report_adjust_setting "1 of 2: Do not sort folders first in lists"
 defaults write com.apple.finder _FXSortFoldersFirst -bool false;success_or_not
 report_adjust_setting "1 of 2: Do not sort folders first on desktop"
-defaults write com.apple.finder "_FXSortFoldersFirstOnDesktop" -bool "false";success_or_not
+defaults write com.apple.finder "_FXSortFoldersFirstOnDesktop" -bool false;success_or_not
+
+# Enable warning when changing extension (reinforces the default)
+report_adjust_setting "Enable warning when changing extension (reinforces the default)"
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool true
+
+# Search from current folder by default (rather than from "This Mac")
+defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 
 ############### DiskUtility
 # Launch and quit DiskUtility in order that it will have preferences to modify.
