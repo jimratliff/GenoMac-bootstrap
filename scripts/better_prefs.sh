@@ -287,6 +287,12 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false;s
 report_adjust_setting "6 of 6: Don’t replace, in a web context, my properly considered spelling with your arrogant replacements"
 defaults write NSGlobalDomain WebAutomaticSpellingCorrectionEnabled -bool false;success_or_not
 
+############### Keyboard-related defaults
+report_action_taken "Implement keyboard-related defaults"
+
+report_adjust_setting "Holding alpha key down pops up character-accent menu (rather than repeats). Reinforces default"
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool true
+
 ############### Menubar
 
 ########## Show Fast User Switching in menubar as Account Name
@@ -352,7 +358,6 @@ report_adjust_setting "Do not jump to a new space when switching applications"
 defaults write NSGlobalDomain AppleSpacesSwitchOnActivate -bool false;success_or_not
 
 ############### Finder
-
 report_action_taken "Adjust settings for Finder"
 
 # Finder: Show all hidden files
@@ -409,6 +414,11 @@ defaults write com.apple.finder FXEnableExtensionChangeWarning -bool true;succes
 # Search from current folder by default (rather than from "This Mac")
 report_adjust_setting "Search from current folder by default (rather than from “This Mac”)"
 defaults write com.apple.finder FXDefaultSearchScope -string "SCcf";success_or_not
+
+############### Time Machine
+report_adjust_setting "Time Machine: Don’t prompt to use new disk as backup volume"
+defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
+
 
 ############### DiskUtility
 # Launch and quit DiskUtility in order that it will have preferences to modify.
