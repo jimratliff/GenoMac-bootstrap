@@ -293,6 +293,9 @@ report_action_taken "Implement keyboard-related defaults"
 report_adjust_setting "Holding alpha key down pops up character-accent menu (rather than repeats). Reinforces default"
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool true;success_or_not
 
+report_adjust_setting "Enable Keyboard Navigation (with Tab key)"
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 2;success_or_not
+
 ############### Menubar
 
 ########## Show Fast User Switching in menubar as Account Name
