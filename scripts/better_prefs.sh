@@ -398,16 +398,16 @@ chflags nohidden ~/Library;success_or_not
 # Finder: Do not sort folders first
 report_adjust_setting "Do not sort folders first"
 report_adjust_setting "1 of 2: Do not sort folders first in lists"
-defaults write com.apple.finder _FXSortFoldersFirst -bool false
+defaults write com.apple.finder _FXSortFoldersFirst -bool false;success_or_not
 report_adjust_setting "1 of 2: Do not sort folders first on desktop"
-defaults write com.apple.finder "_FXSortFoldersFirstOnDesktop" -bool "false"
+defaults write com.apple.finder "_FXSortFoldersFirstOnDesktop" -bool "false";success_or_not
 
 ############### DiskUtility
 # Launch and quit DiskUtility in order that it will have preferences to modify.
 report_action_taken "Launch and quit DiskUtility in order that it will have preferences to modify"
 open -b com.apple.DiskUtility # By bundle ID (more reliable than `open -a` by display name)
 sleep 2
-osascript -e 'quit app "Disk Utility"'
+osascript -e 'quit app "Disk Utility"';success_or_not
 
 # DiskUtility: Show all devices in sidebar
 report_adjust_setting "DiskUtility: Show all devices in sidebar"
