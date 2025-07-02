@@ -438,12 +438,17 @@ defaults write com.apple.Terminal "Default Window Settings" -string "Man Page"
 report_adjust_setting "Terminal: default for starting windows: “Man Page”";success_or_not
 defaults write com.apple.Terminal "Startup Window Settings" -string "Man Page"
 
+############### Text Edit
+report_adjust_setting "Text Edit: Make plain text the default format"
+defaults write com.apple.TextEdit RichText -bool false;success_or_not
+
 ############### Kill each affected app
 report_action_taken "Force quit all apps/processes whose settings we just changed"
 apps_to_kill=(
   "Finder"
   "SystemUIServer"
   "Dock"
+  "Text Edit"
   "cfprefsd"
 )
 
