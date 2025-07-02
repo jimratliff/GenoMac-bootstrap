@@ -404,10 +404,11 @@ defaults write com.apple.finder "_FXSortFoldersFirstOnDesktop" -bool false;succe
 
 # Enable warning when changing extension (reinforces the default)
 report_adjust_setting "Enable warning when changing extension (reinforces the default)"
-defaults write com.apple.finder FXEnableExtensionChangeWarning -bool true
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool true;success_or_not
 
 # Search from current folder by default (rather than from "This Mac")
-defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
+report_adjust_setting "Search from current folder by default (rather than from “This Mac”)"
+defaults write com.apple.finder FXDefaultSearchScope -string "SCcf";success_or_not
 
 ############### DiskUtility
 # Launch and quit DiskUtility in order that it will have preferences to modify.
