@@ -365,16 +365,19 @@ path_for_screen_capture_result="$HOME/Screenshots"
 report_adjust_setting "1 of n: Create screen-capture destination directory if necessary"
 mkdir -p "$path_for_screen_capture_result";success_or_not
 
-report_adjust_setting "2 of n: Assign path to screen-capture destination"
+report_adjust_setting "2 of n: Enforce appropriate permissions (700) on screen-capture directory"
+chmod 700 "$path_for_screen_capture_result";success_or_not
+
+report_adjust_setting "3 of n: Assign path to screen-capture destination"
 defaults write com.apple.screencapture location -string "$path_for_screen_capture_result";success_or_not
-report_adjust_setting "3 of n: Assign path to previous screen-capture destination"
+report_adjust_setting "4 of n: Assign path to previous screen-capture destination"
 defaults write com.apple.screencapture location-last -string "$path_for_screen_capture_result";success_or_not
 
-report_adjust_setting "4 of n: Specify that target is a file"
+report_adjust_setting "5 of n: Specify that target is a file"
 # Needed only when overriding an assignment to clipboard or an app (e.g., Mail, Preview)
 defaults write com.apple.screencapture target -string "file";success_or_not
 
-report_adjust_setting "5 of n: Show floating thumbnail (reinforces default)"
+report_adjust_setting "6 of n: Show floating thumbnail (reinforces default)"
 defaults write com.apple.screencapture show-thumbnail -bool true;success_or_not
 
 ############### Mission Control/Spaces
