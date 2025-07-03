@@ -458,7 +458,7 @@ report_adjust_setting "Enable warning when changing extension (reinforces the de
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool true;success_or_not
 
 # Finder: Folder opens in tab (not new window) after ⌘-double-click. (reinforces default)
-report_adjust_setting "⌘-double-click opens folder in new tab (not new window).
+report_adjust_setting "⌘-double-click opens folder in new tab (not new window)"
 defaults write com.apple.finder "FinderSpawnTab" -bool true;success_or_not
 
 
