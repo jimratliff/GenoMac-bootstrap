@@ -430,7 +430,7 @@ report_adjust_setting "Unhide the ~/Library folder"
 chflags nohidden ~/Library;success_or_not
 
 # Finder: Do not sort folders first
-report_adjust_setting "Do not sort folders first"
+report_action_taken "Do not sort folders first"
 report_adjust_setting "1 of 2: Do not sort folders first in lists"
 defaults write com.apple.finder _FXSortFoldersFirst -bool false;success_or_not
 report_adjust_setting "1 of 2: Do not sort folders first on desktop"
