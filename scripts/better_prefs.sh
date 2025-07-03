@@ -361,7 +361,7 @@ defaults write com.apple.dock mouse-over-hilte-stack -bool true;success_or_not
 ############### Screen Capture
 report_action_taken "Implement settings related to Screen Capture"
 
-path_for_screen_capture_result="~/Screenshots"
+path_for_screen_capture_result="$HOME/Screenshots"
 report_adjust_setting "1 of n: Create screen-capture destination directory if necessary"
 mkdir -p "$path_for_screen_capture_result";success_or_not
 
