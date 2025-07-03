@@ -327,6 +327,7 @@ defaults -currentHost write com.apple.controlcenter BatteryShowPercentage -bool 
 
 ########## Add Bluetooth to Control Center to access battery percentages of Bluetooth devices
 
+# This needs to be tested on laptop
 report_adjust_setting "Add Bluetooth to Control Center to access battery percentages of Bluetooth devices"
 defaults write com.apple.controlcenter "NSStatusItem Visible Bluetooth" -bool true;success_or_not
 
@@ -361,11 +362,14 @@ defaults write com.apple.dock mouse-over-hilte-stack -bool true;success_or_not
 ############### Screen Capture
 report_action_taken "Implement settings related to Screen Capture"
 
+# NOTE: Setting the location should be separated from the other screen-capture preferences because this
+#       would be user-specific
 path_for_screen_capture_result="$HOME/Screenshots"
 report_adjust_setting "1 of 7: Create screen-capture destination directory if necessary"
 mkdir -p "$path_for_screen_capture_result";success_or_not
 
 report_adjust_setting "2 of 7: Enforce appropriate permissions (700) on screen-capture directory"
+# The 700 permissions are appropriate because this location in a user’s home directory.
 chmod 700 "$path_for_screen_capture_result";success_or_not
 
 report_adjust_setting "3 of 7: Assign path to screen-capture destination"
