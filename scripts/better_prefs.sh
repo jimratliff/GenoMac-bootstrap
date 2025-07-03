@@ -64,7 +64,8 @@ sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate AutomaticallyI
 report_adjust_setting "Automatically update applications from Mac App Store"
 sudo defaults write /Library/Preferences/com.apple.commerce AutoUpdate -bool true;success_or_not
 
-report_adjust_setting "Display additional information (IP address, hostname, OS version, etc.) when clicking on the clock in upper-right corner of the login window"
+report_adjust_setting "Display additional info (IP address, hostname, OS version) when clicking on the clock digits of the login window"
+# Requires restart.
 sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName;success_or_not
 
 report_action_taken "End commands that require 'sudo'"
@@ -434,15 +435,18 @@ report_adjust_setting "Show removable media (CDs, DVDs, etc.) on desktop"
 defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true;success_or_not
 
 # Finder: Show connected servers on desktop
-# This is chosen only because these defaults are aimed at Admin accounts
 report_adjust_setting "Show connected servers on desktop"
 defaults write com.apple.finder ShowMountedServersOnDesktop -bool true;success_or_not
+
+# Search from current folder by default (rather than from "This Mac")
+report_adjust_setting "Search from current folder by default (rather than from “This Mac”)"
+defaults write com.apple.finder FXDefaultSearchScope -string "SCcf";success_or_not
 
 # Finder: Unhide the ~/Library folder
 report_adjust_setting "Unhide the ~/Library folder"
 chflags nohidden ~/Library;success_or_not
 
-# Finder: Do not sort folders first
+# Finder: Do not sort folders first (reinforces the default)
 report_action_taken "Do not sort folders first"
 report_adjust_setting "1 of 2: Do not sort folders first in lists"
 defaults write com.apple.finder _FXSortFoldersFirst -bool false;success_or_not
@@ -453,9 +457,10 @@ defaults write com.apple.finder "_FXSortFoldersFirstOnDesktop" -bool false;succe
 report_adjust_setting "Enable warning when changing extension (reinforces the default)"
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool true;success_or_not
 
-# Search from current folder by default (rather than from "This Mac")
-report_adjust_setting "Search from current folder by default (rather than from “This Mac”)"
-defaults write com.apple.finder FXDefaultSearchScope -string "SCcf";success_or_not
+# Finder: Folder opens in tab (not new window) after ⌘-double-click. (reinforces default)
+report_adjust_setting "⌘-double-click opens folder in new tab (not new window).
+defaults write com.apple.finder "FinderSpawnTab" -bool true;success_or_not
+
 
 ############### Time Machine
 report_adjust_setting "Time Machine: Don’t prompt to use new disk as backup volume"
