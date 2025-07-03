@@ -381,7 +381,7 @@ report_adjust_setting "6 of 7: Show floating thumbnail (reinforces default)"
 defaults write com.apple.screencapture show-thumbnail -bool true;success_or_not
 
 report_adjust_setting "7 of 7: Disable the drop shadow on screenshots"
-defaults write com.apple.screencapture disable-shadow -bool "false";success_or_not
+defaults write com.apple.screencapture disable-shadow -bool "true";success_or_not
 
 ############### Mission Control/Spaces
 report_action_taken "Implement settings related to Spaces (Mission Control)"
