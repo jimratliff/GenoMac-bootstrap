@@ -252,6 +252,7 @@ report_adjust_setting "#7: -cH -g: c.a.trackpad.fourFingerPinchSwipeGesture"
 defaults -currentHost write  NSGlobalDomain com.apple.trackpad.fourFingerPinchSwipeGesture -int 2 ;success_or_not
 
 ########## Other general interface
+report_action_taken "Implement other general interface defaults"
 
 # Show scroll bars always (not only when scrolling)
 report_adjust_setting "Always show scrollbars"
@@ -356,6 +357,22 @@ defaults write com.apple.dock minimize-to-application -bool false;success_or_not
 # This is NOT working as of 7/2/2025
 report_adjust_setting "Highlight the element of a grid-view Dock stack over which the cursor hovers"
 defaults write com.apple.dock mouse-over-hilte-stack -bool true;success_or_not
+
+############### Screen Capture
+report_action_taken "Implement settings related to Screen Capture"
+
+path_for_screen_capture_result="~/Screenshots"
+report_adjust_setting "1 of n: Assign path to screen-capture destination"
+defaults write com.apple.screencapture location -string "$path_for_screen_capture_result";success_or_not
+report_adjust_setting "2 of n: Assign path to previous screen-capture destination"
+defaults write com.apple.screencapture location-last -string "$path_for_screen_capture_result";success_or_not
+
+report_adjust_setting "3 of n: Specify that target is a file"
+# Needed only when overriding an assignment to clipboard or an app (e.g., Mail, Preview)
+defaults write com.apple.screencapture target -string "file";success_or_not
+
+report_adjust_setting "4 of n: Show floating thumbnail (reinforces default)"
+defaults write com.apple.screencapture show-thumbnail -bool true;success_or_not
 
 ############### Mission Control/Spaces
 report_action_taken "Implement settings related to Spaces (Mission Control)"
