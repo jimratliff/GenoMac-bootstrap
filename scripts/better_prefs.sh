@@ -450,6 +450,17 @@ defaults write com.apple.finder FXDefaultSearchScope -string "SCcf";success_or_n
 report_adjust_setting "Unhide the ~/Library folder"
 chflags nohidden ~/Library;success_or_not
 
+# Finder: Expand certain panels of GetInfo windows
+report_action_taken "Expand certain panels of GetInfo windows"
+defaults write com.apple.finder FXInfoPanesExpanded -dict \
+        General -bool true \
+        MetaData -bool true \
+        Name -bool true \
+        Comments -bool true \
+        OpenWith -bool true \
+        Preview -bool true \
+        Privileges -bool true;success_or_not
+
 # Finder: Do not sort folders first (reinforces the default)
 report_action_taken "Do not sort folders first"
 report_adjust_setting "1 of 2: Do not sort folders first in lists"
