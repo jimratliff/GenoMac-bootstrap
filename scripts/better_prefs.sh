@@ -262,8 +262,6 @@ report_adjust_setting "2 of 3: com.apple.driver.AppleBluetoothMultitouch.trackpa
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerDrag -bool true;success_or_not
 report_adjust_setting "3 of 3: -cH -g » com.apple.trackpad.threeFingerDragGesture"
 defaults -currentHost write NSGlobalDomain com.apple.trackpad.threeFingerDragGesture -bool true;success_or_not
-#report_adjust_setting "3 of 3: -cH -g » com.apple.trackpad.threeFingerDragGesture"
-#defaults -currentHost write NSGlobalDomain com.apple.trackpad.threeFingerDragGesture -bool true;success_or_not
 
 ########## Other general interface
 report_action_taken "Implement other general interface defaults"
