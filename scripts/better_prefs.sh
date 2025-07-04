@@ -528,12 +528,21 @@ defaults write com.apple.Safari ShowOverlayStatusBar -bool true;success_or_not
 report_adjust_setting "Show favorites bar (NOT WORKING)"
 # WARNING: This is not working reliably
 defaults write com.apple.Safari "ShowFavoritesBar-v2" -bool true;success_or_not
+defaults write com.apple.Safari "ShowFavoritesBar" -bool true;success_or_not
 
 report_adjust_setting "⌘-click opens a link in a new tab (reinforces default)"
 defaults write com.apple.Safari CommandClickMakesTabs -bool true;success_or_not
 
 report_adjust_setting "Do NOT make a new tab/window active"
 defaults write com.apple.Safari OpenNewTabsInFront -bool false;success_or_not
+
+report_action_taken "Turn on: Prevent cross-site tracking (reinforces default)"
+report_adjust_setting "1 of 3: BlockStoragePolicy"
+defaults write com.apple.Safari BlockStoragePolicy -int 2;success_or_not
+report_adjust_setting "2 of 3: WebKitPreferences.storageBlockingPolicy"
+defaults write com.apple.Safari WebKitPreferences.storageBlockingPolicy -int 1;success_or_not
+report_adjust_setting "1 of 3: WebKitStorageBlockingPolicy"
+defaults write com.apple.Safari WebKitStorageBlockingPolicy -int 1;success_or_not
 
 report_action_taken "Warn if visit a fraudulent site"
 report_adjust_setting "1 of 2: WarnAboutFraudulentWebsites"
