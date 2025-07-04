@@ -429,9 +429,9 @@ defaults write com.apple.universalaccess showWindowTitlebarIcons -bool true;succ
 report_adjust_setting "By default, new Finder window should open to user’s home directory"
 defaults write com.apple.finder NewWindowTarget -string "PfHm";success_or_not
 
-# Finder: Preferred window view: Column view
-report_adjust_setting "Set Finder preferred window view to Column View"
-defaults write com.apple.finder FXPreferredViewStyle -string "clmv";success_or_not
+# Finder: Preferred window view: List view
+report_adjust_setting "Set Finder preferred window view to List View"
+defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv";success_or_not
 
 # Finder: Show removable media (CDs, DVDs, etc.) on desktop
 # This is the default. Included here to enforce the default if it is ever changed.
