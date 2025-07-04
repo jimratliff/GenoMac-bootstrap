@@ -255,13 +255,13 @@ defaults -currentHost write  NSGlobalDomain com.apple.trackpad.fiveFingerPinchSw
 report_adjust_setting "#7: -cH -g: c.a.trackpad.fourFingerPinchSwipeGesture"
 defaults -currentHost write  NSGlobalDomain com.apple.trackpad.fourFingerPinchSwipeGesture -int 2;success_or_not
 
-report_action_taken "Accessibility » Pointer Control » Trackpad Options: Three-finger drag"
-report_adjust_setting "1 of 3: com.apple.AppleMultitouchTrackpad » TrackpadThreeFingerDrag"
-defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true;success_or_not
-report_adjust_setting "2 of 3: com.apple.driver.AppleBluetoothMultitouch.trackpad » TrackpadThreeFingerDrag"
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerDrag -bool true;success_or_not
-report_adjust_setting "3 of 3: -cH -g » com.apple.trackpad.threeFingerDragGesture"
-defaults -currentHost write NSGlobalDomain com.apple.trackpad.threeFingerDragGesture -bool true;success_or_not
+# report_action_taken "Accessibility » Pointer Control » Trackpad Options: Three-finger drag"
+# report_adjust_setting "1 of 3: com.apple.AppleMultitouchTrackpad » TrackpadThreeFingerDrag"
+# defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true;success_or_not
+# report_adjust_setting "2 of 3: com.apple.driver.AppleBluetoothMultitouch.trackpad » TrackpadThreeFingerDrag"
+# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerDrag -bool true;success_or_not
+# report_adjust_setting "3 of 3: -cH -g » com.apple.trackpad.threeFingerDragGesture"
+# defaults -currentHost write NSGlobalDomain com.apple.trackpad.threeFingerDragGesture -bool true;success_or_not
 
 ########## Other general interface
 report_action_taken "Implement other general interface defaults"
