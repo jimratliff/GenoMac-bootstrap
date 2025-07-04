@@ -528,6 +528,12 @@ defaults write com.apple.Safari ShowOverlayStatusBar -bool true;success_or_not
 report_adjust_setting "Show favorites bar"
 defaults write com.apple.Safari "ShowFavoritesBar-v2" -bool true;success_or_not
 
+report_adjust_setting "⌘-click opens a link in a new tab (reinforces default)"
+defaults write com.apple.Safari CommandClickMakesTabs -bool true;success_or_not
+
+report_adjust_setting "Do NOT make a new tab/window active"
+defaults write com.apple.Safari OpenNewTabsInFront -bool false;success_or_not
+
 report_action_taken "Show features for web developers"
 report_adjust_setting "1 of 5: IncludeDevelopMenu"
 defaults write com.apple.Safari IncludeDevelopMenu -bool true;success_or_not
