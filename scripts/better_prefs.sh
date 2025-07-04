@@ -523,13 +523,13 @@ report_adjust_setting "2 of 2: WebKitTabToLinksPreferenceKey"
 defaults write com.apple.Safari WebKitTabToLinksPreferenceKey -bool true;success_or_not
 
 report_action_taken "Show features for web developers"
-report_adjust_setting "1 of j: IncludeDevelopMenu"
+report_adjust_setting "1 of 4: IncludeDevelopMenu"
 defaults write com.apple.Safari IncludeDevelopMenu -bool true;success_or_not
-report_adjust_setting "2 of j: MobileDeviceRemoteXPCEnabled"
+report_adjust_setting "2 of 4: MobileDeviceRemoteXPCEnabled"
 defaults write com.apple.Safari MobileDeviceRemoteXPCEnabled -bool true;success_or_not
-report_adjust_setting "3 of j: WebKitDeveloperExtrasEnabledPreferenceKey"
+report_adjust_setting "3 of 4: WebKitDeveloperExtrasEnabledPreferenceKey"
 defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true;success_or_not
-report_adjust_setting "4 of j: WebKitPreferences.developerExtrasEnabled"
+report_adjust_setting "4 of 4: WebKitPreferences.developerExtrasEnabled"
 defaults write com.apple.Safari WebKitPreferences.developerExtrasEnabled -bool true;success_or_not
 
 
