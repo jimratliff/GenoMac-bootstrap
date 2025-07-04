@@ -504,6 +504,19 @@ defaults write com.apple.Terminal "Startup Window Settings" -string "Man Page"
 report_adjust_setting "Text Edit: Make plain text the default format"
 defaults write com.apple.TextEdit RichText -bool false;success_or_not
 
+############### Safari
+report_action_taken "Implement Safari settings"
+
+report_adjust_setting "Do NOT auto-open “safe” downloads"
+defaults write com.apple.Safari AutoOpenSafeDownloads -bool false;success_or_not
+
+report_adjust_setting "Never automatically open a website in a tab rather than a window"
+defaults write com.apple.Safari TabCreationPolicy -int 0;success_or_not
+
+report_adjust_setting "Show full website address in Smart Search field"
+defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true;success_or_not
+
+
 ############### Kill each affected app
 report_action_taken "Force quit all apps/processes whose settings we just changed"
 apps_to_kill=(
