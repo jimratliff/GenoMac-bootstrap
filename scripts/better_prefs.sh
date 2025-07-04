@@ -307,14 +307,9 @@ defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool true;success_or_not
 report_adjust_setting "Enable Keyboard Navigation (with Tab key)"
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 2;success_or_not
 
-############### Menubar
+############### Menubar 
 
-########## Show Fast User Switching in menubar as Account Name
-report_action_taken "Show Fast User Switching in menubar only as Account Name"
-report_adjust_setting "1 of 2: userMenuExtraStyle = 1 (Account Name)"
-defaults write NSGlobalDomain userMenuExtraStyle -int 1;success_or_not
-report_adjust_setting "2 of 2: UserSwitcher = 2 (menubar only)"
-defaults -currentHost write com.apple.controlcenter UserSwitcher -int 2;success_or_not
+report_action_taken "Implement menubar-related settings"
 
 # Always show Sound in menubar
 report_adjust_setting "Always show Sound in menubar (not only when “active”)"
@@ -326,6 +321,13 @@ defaults -currentHost write com.apple.controlcenter BatteryShowPercentage -bool 
 
 report_adjust_setting "Show time with seconds"
 defaults write com.apple.menuextra.clock ShowSeconds -bool true;success_or_not
+
+########## Show Fast User Switching in menubar as Account Name
+report_action_taken "Show Fast User Switching in menubar only as Account Name"
+report_adjust_setting "1 of 2: userMenuExtraStyle = 1 (Account Name)"
+defaults write NSGlobalDomain userMenuExtraStyle -int 1;success_or_not
+report_adjust_setting "2 of 2: UserSwitcher = 2 (menubar only)"
+defaults -currentHost write com.apple.controlcenter UserSwitcher -int 2;success_or_not
 
 ############### Control Center
 
@@ -528,10 +530,10 @@ defaults write com.apple.Safari WebKitTabToLinksPreferenceKey -bool true;success
 report_adjust_setting "Show status bar"
 defaults write com.apple.Safari ShowOverlayStatusBar -bool true;success_or_not
 
-report_adjust_setting "Show favorites bar (NOT WORKING)"
+# report_adjust_setting "Show favorites bar (NOT WORKING)"
 # WARNING: This is not working reliably
-defaults write com.apple.Safari "ShowFavoritesBar-v2" -bool true;success_or_not
-defaults write com.apple.Safari "ShowFavoritesBar" -bool true;success_or_not
+# defaults write com.apple.Safari "ShowFavoritesBar-v2" -bool true;success_or_not
+# defaults write com.apple.Safari "ShowFavoritesBar" -bool true;success_or_not
 
 report_adjust_setting "⌘-click opens a link in a new tab (reinforces default)"
 defaults write com.apple.Safari CommandClickMakesTabs -bool true;success_or_not
