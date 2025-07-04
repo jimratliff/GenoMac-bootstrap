@@ -324,6 +324,9 @@ defaults -currentHost write com.apple.controlcenter sound -int 18;success_or_not
 report_adjust_setting "Show battery percentage in menubar"
 defaults -currentHost write com.apple.controlcenter BatteryShowPercentage -bool true;success_or_not
 
+report_adjust_setting "Show time with seconds"
+defaults write com.apple.menuextra.clock ShowSeconds -bool true;success_or_not
+
 ############### Control Center
 
 ########## Add Bluetooth to Control Center to access battery percentages of Bluetooth devices
