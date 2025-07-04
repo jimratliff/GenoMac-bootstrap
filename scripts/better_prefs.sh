@@ -526,7 +526,7 @@ report_adjust_setting "Show status bar"
 defaults write com.apple.Safari ShowOverlayStatusBar -bool true;success_or_not
 
 report_adjust_setting "Show favorites bar"
-defaults write com.apple.Safari ShowFavoritesBar-v2 -bool true;success_or_not
+defaults write com.apple.Safari "ShowFavoritesBar-v2" -bool true;success_or_not
 
 report_action_taken "Show features for web developers"
 report_adjust_setting "1 of 5: IncludeDevelopMenu"
