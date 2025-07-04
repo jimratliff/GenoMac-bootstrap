@@ -534,6 +534,8 @@ defaults write com.apple.Safari WebKitPreferences.developerExtrasEnabled -bool t
 report_adjust_setting "5 of 5: Safari.SandboxBroker: IncludeDevelopMenu"
 defaults write com.apple.Safari.SandboxBroker ShowDevelopMenu -bool true;success_or_not
 
+report_adjust_setting "Reveal internal debug menu"
+defaults write com.apple.Safari IncludeInternalDebugMenu -bool true;success_or_not
 
 ############### Kill each affected app
 report_action_taken "Force quit all apps/processes whose settings we just changed"
