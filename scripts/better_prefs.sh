@@ -540,6 +540,7 @@ apps_to_kill=(
   "SystemUIServer"
   "Dock"
   "Text Edit"
+  "Safari"
   "cfprefsd"
 )
 
