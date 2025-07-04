@@ -526,6 +526,7 @@ report_adjust_setting "Show status bar"
 defaults write com.apple.Safari ShowOverlayStatusBar -bool true;success_or_not
 
 report_adjust_setting "Show favorites bar"
+# WARNING: This is not working reliably
 defaults write com.apple.Safari "ShowFavoritesBar-v2" -bool true;success_or_not
 
 report_adjust_setting "⌘-click opens a link in a new tab (reinforces default)"
