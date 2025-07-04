@@ -525,7 +525,7 @@ defaults write com.apple.Safari WebKitTabToLinksPreferenceKey -bool true;success
 report_adjust_setting "Show status bar"
 defaults write com.apple.Safari ShowOverlayStatusBar -bool true;success_or_not
 
-report_adjust_setting "Show favorites bar"
+report_adjust_setting "Show favorites bar (NOT WORKING)"
 # WARNING: This is not working reliably
 defaults write com.apple.Safari "ShowFavoritesBar-v2" -bool true;success_or_not
 
@@ -534,6 +534,12 @@ defaults write com.apple.Safari CommandClickMakesTabs -bool true;success_or_not
 
 report_adjust_setting "Do NOT make a new tab/window active"
 defaults write com.apple.Safari OpenNewTabsInFront -bool false;success_or_not
+
+report_action_taken "Warn if visit a fraudulent site"
+report_adjust_setting "1 of 2: WarnAboutFraudulentWebsites"
+defaults write com.apple.Safari WarnAboutFraudulentWebsites -bool true;success_or_not
+report_adjust_setting "2 of 2: com.apple.Safari.SafeBrowsing » SafeBrowsingEnabled"
+defaults write com.apple.Safari.SafeBrowsing SafeBrowsingEnabled -bool true;success_or_not
 
 report_action_taken "Show features for web developers"
 report_adjust_setting "1 of 5: IncludeDevelopMenu"
