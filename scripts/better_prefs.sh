@@ -516,20 +516,20 @@ defaults write com.apple.Safari TabCreationPolicy -int 0;success_or_not
 report_adjust_setting "Show full website address in Smart Search field"
 defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true;success_or_not
 
-report_action_taken "Implement "Press Tab to highlight each item on a webpage"
+report_action_taken "Implement “Press Tab to highlight each item on a webpage”"
 report_adjust_setting "1 of 2: WebKitPreferences.tabFocusesLinks"
 defaults write com.apple.Safari WebKitPreferences.tabFocusesLinks -bool true;success_or_not
 report_adjust_setting "2 of 2: WebKitTabToLinksPreferenceKey"
 defaults write com.apple.Safari WebKitTabToLinksPreferenceKey -bool true;success_or_not
 
 report_action_taken "Show features for web developers"
-report_adjust_setting "i of j: IncludeDevelopMenu"
+report_adjust_setting "1 of j: IncludeDevelopMenu"
 defaults write com.apple.Safari IncludeDevelopMenu -bool true;success_or_not
-report_adjust_setting "i of j: MobileDeviceRemoteXPCEnabled"
+report_adjust_setting "2 of j: MobileDeviceRemoteXPCEnabled"
 defaults write com.apple.Safari MobileDeviceRemoteXPCEnabled -bool true;success_or_not
-report_adjust_setting "i of j: WebKitDeveloperExtrasEnabledPreferenceKey"
+report_adjust_setting "3 of j: WebKitDeveloperExtrasEnabledPreferenceKey"
 defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true;success_or_not
-report_adjust_setting "i of j: WebKitPreferences.developerExtrasEnabled"
+report_adjust_setting "4 of j: WebKitPreferences.developerExtrasEnabled"
 defaults write com.apple.Safari WebKitPreferences.developerExtrasEnabled -bool true;success_or_not
 
 
