@@ -357,8 +357,8 @@ report_adjust_setting "Minimize app to Dock rather than to app’s Dock icon"
 defaults write com.apple.dock minimize-to-application -bool false;success_or_not
 
 # This is NOT working as of 7/2/2025
-report_adjust_setting "Highlight the element of a grid-view Dock stack over which the cursor hovers"
-defaults write com.apple.dock mouse-over-hilte-stack -bool true;success_or_not
+# report_adjust_setting "Highlight the element of a grid-view Dock stack over which the cursor hovers"
+# defaults write com.apple.dock mouse-over-hilte-stack -bool true;success_or_not
 
 ############### Screen Capture
 report_action_taken "Implement settings related to Screen Capture"
