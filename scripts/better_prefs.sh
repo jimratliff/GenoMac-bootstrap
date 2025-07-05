@@ -23,6 +23,12 @@ GENOMAC_BOOTSTRAP_HELPER_DIR="${this_script_dir}"
 # BETTER_PREFS_COMPONENTS_DIR="${this_script_dir}"
 BETTER_PREFS_COMPONENTS_DIR="${this_script_dir}/prefs_scripts"
 
+# Print assigned paths for diagnostic purposes
+printf "\n📂 Path diagnostics:\n"
+printf "this_script_dir:              %s\n" "$this_script_dir"
+printf "GENOMAC_BOOTSTRAP_HELPER_DIR: %s\n" "$GENOMAC_BOOTSTRAP_HELPER_DIR"
+printf "BETTER_PREFS_COMPONENTS_DIR:  %s\n\n" "$BETTER_PREFS_COMPONENTS_DIR"
+
 source "${GENOMAC_BOOTSTRAP_HELPER_DIR}/helpers.sh"
 source "${BETTER_PREFS_COMPONENTS_DIR}/set_initial_systemwide_settings.sh"
 source "${BETTER_PREFS_COMPONENTS_DIR}/set_initial_user_level_settings.sh"
