@@ -1,8 +1,8 @@
-#!/usr/bin/env zsh
 
 # Source scripts/helpers.sh
 source "${0:A:h}/helpers.sh"
 
+function get_loginwindow_message() {
 ############### Get login-window message
 # Displays any preexisting login-window message
 # Asks user whether they want to supply new text
@@ -54,3 +54,5 @@ if [[ "$choice" =~ ^[Yy]$ ]]; then
 else
   echo "No changes made to login-window text."
 fi
+
+}
