@@ -19,7 +19,6 @@ source "${BETTER_PREFS_COMPONENTS_DIR}/set_diskutility_settings.sh"
 source "${BETTER_PREFS_COMPONENTS_DIR}/set_terminal_settings.sh"
 source "${BETTER_PREFS_COMPONENTS_DIR}/set_safari_settings.sh"
 
-
 function set_initial_user_level_settings() {
 
 # Enable app-state persistence
@@ -66,7 +65,6 @@ report_adjust_setting "Enable Keyboard Navigation (with Tab key)"
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 2;success_or_not
 
 ############### Menubar 
-
 report_action_taken "Implement menubar-related settings"
 
 # Always show Sound in menubar
@@ -80,7 +78,7 @@ defaults -currentHost write com.apple.controlcenter BatteryShowPercentage -bool 
 report_adjust_setting "Show time with seconds"
 defaults write com.apple.menuextra.clock ShowSeconds -bool true;success_or_not
 
-########## Show Fast User Switching in menubar as Account Name
+# Show Fast User Switching in menubar as Account Name
 report_action_taken "Show Fast User Switching in menubar only as Account Name"
 report_adjust_setting "1 of 2: userMenuExtraStyle = 1 (Account Name)"
 defaults write NSGlobalDomain userMenuExtraStyle -int 1;success_or_not
@@ -88,9 +86,7 @@ report_adjust_setting "2 of 2: UserSwitcher = 2 (menubar only)"
 defaults -currentHost write com.apple.controlcenter UserSwitcher -int 2;success_or_not
 
 ############### Control Center
-
-########## Add Bluetooth to Control Center to access battery percentages of Bluetooth devices
-
+# Add Bluetooth to Control Center to access battery percentages of Bluetooth devices
 # This needs to be tested on laptop
 report_adjust_setting "Add Bluetooth to Control Center to access battery percentages of Bluetooth devices"
 defaults write com.apple.controlcenter "NSStatusItem Visible Bluetooth" -bool true;success_or_not
@@ -101,7 +97,7 @@ set_general_dock_settings
 # Screen Capture
 set_screen_capture_settings
 
-############### Mission Control/Spaces
+# Mission Control/Spaces
 report_action_taken "Implement settings related to Spaces (Mission Control)"
 
 report_adjust_setting "Spaces: Don’t rearrange based on most-recent use"
@@ -116,7 +112,7 @@ defaults write NSGlobalDomain AppleSpacesSwitchOnActivate -bool false;success_or
 # Finder
 set_finder_settings
 
-############### Time Machine
+# Time Machine
 report_adjust_setting "Time Machine: Don’t prompt to use new disk as backup volume"
 defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true;success_or_not
 
@@ -126,7 +122,7 @@ set_diskutility_settings
 # Terminal
 set_terminal_settings
 
-############### Text Edit
+# Text Edit
 report_adjust_setting "Text Edit: Make plain text the default format"
 defaults write com.apple.TextEdit RichText -bool false;success_or_not
 
