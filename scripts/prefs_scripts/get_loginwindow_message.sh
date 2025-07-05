@@ -29,7 +29,7 @@ fi
 
 # Ask whether to set new login text
 while true; do
-  echo -n "Would you like to set (or clear) login-window text? (y/n): "
+  echo -n "Would you like to change login-window text? (y/n): "
   read choice
   if [[ "$choice" =~ ^[YyNn]$ ]]; then
     break
