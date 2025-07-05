@@ -6,6 +6,9 @@ source "${0:A:h}/helpers.sh"
 # Source scripts/get_loginwindow_message.sh
 source "${0:A:h}/get_loginwindow_message.sh"
 
+# Source scripts/set_initial_systemwide_settings.sh
+source "${0:A:h}/set_initial_systemwide_settings.sh"
+
 # Implements selected `defaults` command for the admin accounts, to remove the 
 # biggest annoyances ASAP during bootstrapping.
 #
