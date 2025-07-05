@@ -12,8 +12,6 @@ set -euo pipefail
 this_script_path="${(%):-%N}"
 this_script_dir="${this_script_path:A:h}"
 
-# this_script_dir="${(%):-%N:A:h}"
-
 # Specify the directory in which the `helpers.sh` file lives.
 # E.g., when `helpers.sh` lives at the same level as this script:
 # GENOMAC_BOOTSTRAP_HELPER_DIR="${this_script_dir}"
@@ -33,6 +31,7 @@ printf "GENOMAC_BOOTSTRAP_HELPER_DIR: %s\n" "$GENOMAC_BOOTSTRAP_HELPER_DIR"
 printf "BETTER_PREFS_COMPONENTS_DIR:  %s\n\n" "$BETTER_PREFS_COMPONENTS_DIR"
 
 source "${GENOMAC_BOOTSTRAP_HELPER_DIR}/helpers.sh"
+
 source "${BETTER_PREFS_COMPONENTS_DIR}/set_initial_systemwide_settings.sh"
 source "${BETTER_PREFS_COMPONENTS_DIR}/set_initial_user_level_settings.sh"
 source "${BETTER_PREFS_COMPONENTS_DIR}/overrides_for_sysadmin_users.sh"
