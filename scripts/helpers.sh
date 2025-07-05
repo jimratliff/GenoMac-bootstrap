@@ -1,4 +1,3 @@
-#!/usr/bin/env zsh
 # Set up and assign colors
 ESC_SEQ="\033["
 
