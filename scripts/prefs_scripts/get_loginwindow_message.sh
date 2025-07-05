@@ -14,7 +14,7 @@ function get_loginwindow_message() {
 # Displays any preexisting login-window message
 # Asks user whether they want to supply new text
 #   - I.e., if not, existing text is retained or, if none existing, there will be no loginwindow message.
-# If user wants to supply a message, the user is queried for the text and iterates until confirmed.
+# If user wants to supply a message, the user is queried for the text and iterates until user confirms satisfaction.
 
 report_action_taken "Set login-window message"
 
