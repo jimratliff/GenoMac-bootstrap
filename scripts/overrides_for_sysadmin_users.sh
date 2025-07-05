@@ -16,10 +16,12 @@ defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true;success_or_no
 report_adjust_setting "Show external drives on desktop"
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true;success_or_not
 
+report_action_taken "Sysadmin overrides completed. Please relaunch Finder.
+
 # TODO: This winds up killing Finder twice. A better solutions should be sought, where each script
 # appends to a list of apps that need to be killed.
 
-report_about_to_kill_app "Finder"
-killall "Finder";success_or_not
+# report_about_to_kill_app "Finder"
+# killall "Finder";success_or_not
 
 }
