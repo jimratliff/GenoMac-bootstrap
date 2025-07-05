@@ -14,6 +14,9 @@ source "${0:A:h}/get_loginwindow_message.sh"
 # report_action_taken "Message"
 # report_adjust_setting "Message"
 
+# Set initial system-wide settings (requires sudo)
+set_initial_systemwide_settings
+
 # #↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ BEGIN section that requires sudo
 # report_action_taken "Begin commands that require 'sudo'"
 # report_action_taken "I very likely am about to ask you for your administrator password. Do you trust me??? 😉"
