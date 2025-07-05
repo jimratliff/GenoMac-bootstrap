@@ -297,9 +297,9 @@ defaults write NSGlobalDomain AppleActionOnDoubleClick -string "Maximize";succes
 report_action_taken "Stop intrusive, arrogant, I-know-better-than-you “corrections”"
 
 report_action_taken "Turn OFF: “Correct spelling automatically”"
-report_adjust_setting "1 of 2: NSAutomaticSpellingCorrectionEnabled";success_or_not
+report_adjust_setting "1 of 2: NSAutomaticSpellingCorrectionEnabled"
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false;success_or_not
-report_adjust_setting "2 of 2: WebAutomaticSpellingCorrectionEnabled";success_or_not
+report_adjust_setting "2 of 2: WebAutomaticSpellingCorrectionEnabled"
 defaults write NSGlobalDomain WebAutomaticSpellingCorrectionEnabled -bool false;success_or_not
 
 report_adjust_setting "Turn OFF: Capitalize words automatically"
