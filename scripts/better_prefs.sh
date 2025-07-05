@@ -317,11 +317,10 @@ report_adjust_setting "Turn OFF: Add period with double-space"
 defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false;success_or_not
 
 report_action_taken "Turn OFF: Use smart quotes and dashes"
-
-report_adjust_setting "2 of 6: Don’t automatically substitute dash/hyphen types"
-defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false;success_or_not
-report_adjust_setting "4 of 6: I’ll supply the intelligence for my quotation marks, thank you!"
+report_adjust_setting "1 of 2: I’ll supply the intelligence for my quotation marks, thank you!"
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false;success_or_not
+report_adjust_setting "2 of 2: Don’t automatically substitute dash/hyphen types"
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false;success_or_not
 
 ############### Keyboard-related defaults
 report_action_taken "Implement keyboard-related defaults"
