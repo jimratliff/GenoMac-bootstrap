@@ -9,7 +9,10 @@
 set -euo pipefail
 
 # Resolve the directory in which this file lives (even when sourced)
-this_script_dir="${(%):-%N:A:h}"
+this_script_path="${(%):-%N}"
+this_script_dir="${this_script_path:A:h}"
+
+# this_script_dir="${(%):-%N:A:h}"
 
 # Specify the directory in which the `helpers.sh` file lives.
 # E.g., when `helpers.sh` lives at the same level as this script:
