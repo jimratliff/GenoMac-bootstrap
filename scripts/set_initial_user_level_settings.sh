@@ -13,6 +13,9 @@ source "${0:A:h}/set_safari_settings.sh"
 # Source scripts/set_auto_correction_suggestion_settings.sh
 source "${0:A:h}/set_auto_correction_suggestion_settings.sh"
 
+# Source scripts/set_screen_capture_settings.sh
+source "${0:A:h}/set_screen_capture_settings.sh"
+
 function set_initial_user_level_settings() {
 
 ############### Enable app-state persistence
