@@ -1,6 +1,6 @@
 # Prevent multiple sourcing
-if [[ -n "${__already_loaded_helpers_sh:-}" ]]; then return 0; fi
-__already_loaded_helpers_sh=1
+if [[ -n "${__already_loaded_genomac_bootstrap_helpers_sh:-}" ]]; then return 0; fi
+__already_loaded_genomac_bootstrap_helpers_sh=1
 
 # ... rest of helpers.sh ...
 
