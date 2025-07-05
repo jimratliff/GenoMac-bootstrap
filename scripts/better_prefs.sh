@@ -26,7 +26,7 @@ source "${0:A:h}/set_initial_user_level_settings.sh"
 # report_adjust_setting "Message"
 
 # Set initial system-wide settings (requires sudo)
-set_initial_systemwide_settings
+# set_initial_systemwide_settings
 
 # Set initial user-level settings
 set_initial_user_level_settings
