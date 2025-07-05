@@ -1,7 +1,8 @@
 # Source scripts/helpers.sh
 source "${0:A:h}/helpers.sh"
 
-#↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ BEGIN section that requires sudo
+function set_initial_systemwide_settings() {
+
 report_action_taken "Begin commands that require 'sudo'"
 report_action_taken "I very likely am about to ask you for your administrator password. Do you trust me??? 😉"
 # Update user’s cached credentials for `sudo`.
@@ -39,9 +40,10 @@ sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate AutomaticallyI
 report_adjust_setting "Automatically update applications from Mac App Store"
 sudo defaults write /Library/Preferences/com.apple.commerce AutoUpdate -bool true;success_or_not
 
+############### Display additional information on login window
 report_adjust_setting "Display additional info (IP address, hostname, OS version) when clicking on the clock digits of the login window"
 # Requires restart.
 sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName;success_or_not
 
 report_action_taken "End commands that require 'sudo'"
-#↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ END section that requires sudo
+}
