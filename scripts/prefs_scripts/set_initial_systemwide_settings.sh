@@ -9,7 +9,7 @@ fi
 
 source "${GENOMAC_BOOTSTRAP_HELPER_DIR}/helpers.sh"
 
-source "${BETTER_PREFS_COMPONENTS_DIR}/set_initial_systemwide_settings.sh"
+source "${BETTER_PREFS_COMPONENTS_DIR}/get_loginwindow_message.sh"
 
 function set_initial_systemwide_settings() {
 # Makes system-wide settings, requiring sudo, to be run from USER_CONFIGURER.
