@@ -1,3 +1,9 @@
+# Prevent multiple sourcing
+if [[ -n "${__already_loaded_helpers_sh:-}" ]]; then return 0; fi
+__already_loaded_helpers_sh=1
+
+# ... rest of helpers.sh ...
+
 # Set up and assign colors
 ESC_SEQ="\033["
 
