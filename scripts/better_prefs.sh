@@ -20,20 +20,20 @@ source "${0:A:h}/set_initial_systemwide_settings.sh"
 # Set initial system-wide settings (requires sudo)
 set_initial_systemwide_settings
 
-#↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ BEGIN section ONLY for VANILLA/CONFIGURER accounts
-report_action_taken "Adjust certain settings in a way appropriate for only SysAdmin account (but not for other accounts)"
-
-# Finder: Show hard drives on desktop
-# This is chosen only because these defaults are aimed at Admin accounts
-report_adjust_setting "Show hard drives on desktop"
-defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true;success_or_not
-
-# Finder: Show external drives on desktop
-# This is the default. Included here to enforce the default if it is ever changed.
-report_adjust_setting "Show external drives on desktop"
-defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true;success_or_not
-
-#↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ END section ONLY for VANILLA/CONFIGURER accounts
+# #↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ BEGIN section ONLY for VANILLA/CONFIGURER accounts
+# report_action_taken "Adjust certain settings in a way appropriate for only SysAdmin account (but not for other accounts)"
+# 
+# # Finder: Show hard drives on desktop
+# # This is chosen only because these defaults are aimed at Admin accounts
+# report_adjust_setting "Show hard drives on desktop"
+# defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true;success_or_not
+# 
+# # Finder: Show external drives on desktop
+# # This is the default. Included here to enforce the default if it is ever changed.
+# report_adjust_setting "Show external drives on desktop"
+# defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true;success_or_not
+# 
+# #↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ END section ONLY for VANILLA/CONFIGURER accounts
 
 ############### Enable app-state persistence
 report_action_taken "Implement app-state persistence"
@@ -410,6 +410,18 @@ defaults write com.apple.finder NewWindowTarget -string "PfHm";success_or_not
 # Finder: Preferred window view: List view
 report_adjust_setting "Set Finder preferred window view to List View"
 defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv";success_or_not
+
+# Finder: Do not show hard drives on desktop
+# This is the intended system for regular user (other than the sysadmin users USER_VANILLA and USER_CONFIGURER).
+# To set preferences for these sysadmin users, a script should run following this scripts that inverts this boolean.
+report_adjust_setting "Do not show hard drives on desktop"
+defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false;success_or_not
+
+# Finder: Do not show external drives on desktopdesktop
+# This is the intended system for regular user (other than the sysadmin users USER_VANILLA and USER_CONFIGURER).
+# To set preferences for these sysadmin users, a script should run following this scripts that inverts this boolean.
+report_adjust_setting "Do not show external drives on desktop"
+defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool false;success_or_not
 
 # Finder: Show removable media (CDs, DVDs, etc.) on desktop
 # This is the default. Included here to enforce the default if it is ever changed.
