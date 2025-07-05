@@ -1,29 +1,32 @@
 #!/usr/bin/env zsh
 
+# Implements selected `defaults` and related commands for the SysAdmin accounts (USER_VANILLA, USER_CONFIGURER), 
+# to remove at least the biggest annoyances ASAP during bootstrapping.
+#
+# Because this is for bootstrapping, any settings that act upon, or require, software not pre-installed on the 
+# Mac, must wait.
+
 set -euo pipefail
 
-# Source scripts/helpers.sh
-source "${0:A:h}/helpers.sh"
+# Resolve the directory in which this file lives (even when sourced)
+this_script_dir="${(%):-%N:A:h}"
 
-# Source scripts/get_loginwindow_message.sh
-source "${0:A:h}/get_loginwindow_message.sh"
+# Specify the directory in which the `helpers.sh` file lives.
+# E.g., when `helpers.sh` lives at the same level as this script:
+# GENOMAC_BOOTSTRAP_HELPER_DIR="${this_script_dir}"
+GENOMAC_BOOTSTRAP_HELPER_DIR="${this_script_dir}"
 
-# Source scripts/set_initial_systemwide_settings.sh
-source "${0:A:h}/set_initial_systemwide_settings.sh"
+# Specify the directory in which the file(s) containing the preferences-related functions called by this script
+# lives.
+# E.g., the function `overrides_for_sysadmin_users` is supplied by a file `overrides_for_sysadmin_users.sh`. If
+# `overrides_for_sysadmin_users.sh` resides at the same level as this script:
+# BETTER_PREFS_COMPONENTS_DIR="${this_script_dir}"
+BETTER_PREFS_COMPONENTS_DIR="${this_script_dir}/prefs_scripts"
 
-# Source scripts/overrides_for_sysadmin_users.sh
-source "${0:A:h}/overrides_for_sysadmin_users.sh"
-
-# Source scripts/set_initial_user_level_settings.sh
-source "${0:A:h}/set_initial_user_level_settings.sh"
-
-# Implements selected `defaults` command for the admin accounts, to remove the 
-# biggest annoyances ASAP during bootstrapping.
-#
-# Because this is for bootstrapping, any settings that act upon, or require, software not pre-installed on the Mac, must wait.
-
-# report_action_taken "Message"
-# report_adjust_setting "Message"
+source "${GENOMAC_BOOTSTRAP_HELPER_DIR}/helpers.sh"
+source "${BETTER_PREFS_COMPONENTS_DIR}/set_initial_systemwide_settings.sh"
+source "${BETTER_PREFS_COMPONENTS_DIR}/set_initial_user_level_settings.sh"
+source "${BETTER_PREFS_COMPONENTS_DIR}/overrides_for_sysadmin_users.sh"
 
 # Set initial system-wide settings (requires sudo)
 set_initial_systemwide_settings
@@ -31,10 +34,11 @@ set_initial_systemwide_settings
 # Set initial user-level settings
 set_initial_user_level_settings
 
-############### Override certain settings in a way appropriate for only SysAdmin accounts
+# Override certain settings in a way appropriate for only SysAdmin accounts
 overrides_for_sysadmin_users
 
-############### Kill each affected app
+# Kill each app affected by `defaults` commands in the prior functions
+# (App-killing deferred here to avoid redundantly killing the same app multiple times.)
 report_action_taken "Force quit all apps/processes whose settings we just changed"
 apps_to_kill=(
   "Finder"
