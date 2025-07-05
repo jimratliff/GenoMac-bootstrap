@@ -3,6 +3,9 @@
 # Source scripts/helpers.sh
 source "${0:A:h}/helpers.sh"
 
+# Source scripts/get_loginwindow_message.sh
+source "${0:A:h}/get_loginwindow_message.sh"
+
 # Implements selected `defaults` command for the admin accounts, to remove the 
 # biggest annoyances ASAP during bootstrapping.
 #
@@ -25,22 +28,24 @@ while true; do
 done 2>/dev/null &      # run loop in background, silence stderr
 
 ############### Get login-window text
-report_action_taken "Set login-window text"
-while true; do
-  echo -n "Please enter your desired login-window text: "
-  read user_input
+get_loginwindow_message
 
-  echo "You entered: \"$user_input\""
-  echo -n "Is this correct? (y/n): "
-  read confirmation
-
-  if [[ "$confirmation" =~ ^[Yy]$ ]]; then
-    break
-  fi
-done
-
-echo "Final choice: \"$user_input\""
-sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText -string "$user_input";success_or_not
+# report_action_taken "Set login-window text"
+# while true; do
+#   echo -n "Please enter your desired login-window text: "
+#   read user_input
+# 
+#   echo "You entered: \"$user_input\""
+#   echo -n "Is this correct? (y/n): "
+#   read confirmation
+# 
+#   if [[ "$confirmation" =~ ^[Yy]$ ]]; then
+#     break
+#   fi
+# done
+# 
+# echo "Final choice: \"$user_input\""
+# sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText -string "$user_input";success_or_not
 
 ############### Configure application firewall
 report_action_taken "Configure application firewall"
