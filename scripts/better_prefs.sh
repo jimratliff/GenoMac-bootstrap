@@ -12,6 +12,9 @@ source "${0:A:h}/set_initial_systemwide_settings.sh"
 # Source scripts/overrides_for_sysadmin_users.sh
 source "${0:A:h}/overrides_for_sysadmin_users.sh"
 
+# Source scripts/set_initial_user_level_settings.sh
+source "${0:A:h}/set_initial_user_level_settings.sh"
+
 # Implements selected `defaults` command for the admin accounts, to remove the 
 # biggest annoyances ASAP during bootstrapping.
 #
