@@ -2,6 +2,7 @@
 source "${0:A:h}/helpers.sh"
 
 function set_initial_systemwide_settings() {
+# Makes system-wide settings, requiring sudo, to be run from USER_CONFIGURER.
 
 report_action_taken "Begin commands that require 'sudo'"
 report_action_taken "I very likely am about to ask you for your administrator password. Do you trust me??? 😉"
