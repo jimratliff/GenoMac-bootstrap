@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+set -euo pipefail
+
 # Source scripts/helpers.sh
 source "${0:A:h}/helpers.sh"
 
