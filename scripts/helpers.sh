@@ -56,7 +56,7 @@ function report_adjust_setting() {
 function report_about_to_kill_app() {
   # Takes `app` as argument
   # Outputs message that the app was killed.
-  printf "%b%s %s is being killed %b" "$COLOR_KILLED" "$SYMBOL_KILLED" "$1" "$COLOR_RESET"
+  printf "%b%s %s is being killed (if necessary) %b" "$COLOR_KILLED" "$SYMBOL_KILLED" "$1" "$COLOR_RESET"
 }
 
 function report_action_taken() {
