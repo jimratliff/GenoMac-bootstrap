@@ -1,3 +1,5 @@
+# Sets *general* Dock settings, not including specifying the occupants of the Dock.
+
 # This file assumes GENOMAC_BOOTSTRAP_HELPER_DIR is already set in the current shell
 # to the absolute path of the directory containing helpers.sh.
 # That variable must be defined before this file is sourced.
