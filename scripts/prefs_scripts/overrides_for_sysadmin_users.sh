@@ -1,3 +1,7 @@
+# For SysAdmin users (USER_VANILLA & USER_CONFIGURER), implements settings that diverge from choices for
+# generic non-SysAdmin users. Thus, this is intended to be run only after implementing settings for
+# generic non-SysAdmin users.
+
 # This file assumes GENOMAC_BOOTSTRAP_HELPER_DIR is already set in the current shell
 # to the absolute path of the directory containing helpers.sh.
 # That variable must be defined before this file is sourced.
