@@ -9,32 +9,16 @@ fi
 
 source "${GENOMAC_BOOTSTRAP_HELPER_DIR}/helpers.sh"
 
-# Source scripts/set_trackpad_settings.sh
-source "${0:A:h}/set_trackpad_settings.sh"
+source "${BETTER_PREFS_COMPONENTS_DIR}/set_app_state_persistence.sh"
+source "${BETTER_PREFS_COMPONENTS_DIR}/set_trackpad_settings.sh"
+source "${BETTER_PREFS_COMPONENTS_DIR}/set_auto_correction_suggestion_settings.sh"
+source "${BETTER_PREFS_COMPONENTS_DIR}/set_general_dock_settings.sh"
+source "${BETTER_PREFS_COMPONENTS_DIR}/set_screen_capture_settings.sh"
+source "${BETTER_PREFS_COMPONENTS_DIR}/set_finder_settings.sh"
+source "${BETTER_PREFS_COMPONENTS_DIR}/set_diskutility_settings.sh"
+source "${BETTER_PREFS_COMPONENTS_DIR}/set_terminal_settings.sh"
+source "${BETTER_PREFS_COMPONENTS_DIR}/set_safari_settings.sh"
 
-# Source scripts/set_finder_settings.sh
-source "${0:A:h}/set_finder_settings.sh"
-
-# Source scripts/set_safari_settings.sh
-source "${0:A:h}/set_safari_settings.sh"
-
-# Source scripts/set_auto_correction_suggestion_settings.sh
-source "${0:A:h}/set_auto_correction_suggestion_settings.sh"
-
-# Source scripts/set_screen_capture_settings.sh
-source "${0:A:h}/set_screen_capture_settings.sh"
-
-# Source scripts/set_terminal_settings.sh
-source "${0:A:h}/set_terminal_settings.sh"
-
-# Source scripts/set_general_dock_settings.sh
-source "${0:A:h}/set_general_dock_settings.sh"
-
-# Source scripts/set_diskutility_settings.sh
-source "${0:A:h}/set_diskutility_settings.sh"
-
-# Source scripts/set_app_state_persistence.sh
-source "${0:A:h}/set_app_state_persistence.sh"
 
 function set_initial_user_level_settings() {
 
