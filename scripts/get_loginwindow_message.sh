@@ -1,6 +1,13 @@
+# This file assumes GENOMAC_BOOTSTRAP_HELPER_DIR is already set in the current shell
+# to the absolute path of the directory containing helpers.sh.
+# That variable must be defined before this file is sourced.
 
-# Source scripts/helpers.sh
-source "${0:A:h}/helpers.sh"
+if [[ -z "${GENOMAC_BOOTSTRAP_HELPER_DIR:-}" ]]; then
+  echo "❌ GENOMAC_BOOTSTRAP_HELPER_DIR is not set. Please source the main bootstrap script first."
+  return 1
+fi
+
+source "${GENOMAC_BOOTSTRAP_HELPER_DIR}/helpers.sh"
 
 function get_loginwindow_message() {
 ############### Get login-window message
