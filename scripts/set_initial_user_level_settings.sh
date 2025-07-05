@@ -25,6 +25,9 @@ source "${0:A:h}/set_general_dock_settings.sh"
 # Source scripts/set_diskutility_settings.sh
 source "${0:A:h}/set_diskutility_settings.sh"
 
+# Source scripts/set_app_state_persistence.sh
+source "${0:A:h}/set_app_state_persistence.sh"
+
 function set_initial_user_level_settings() {
 
 ############### Enable app-state persistence
