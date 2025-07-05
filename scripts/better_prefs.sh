@@ -480,7 +480,7 @@ report_adjust_setting "Unhide the ~/Library folder"
 chflags nohidden ~/Library;success_or_not
 
 # Finder: Expand certain panels of GetInfo windows
-report_action_taken "Expand certain panels of GetInfo windows"
+report_adjust_setting "Expand certain panels of GetInfo windows"
 defaults write com.apple.finder FXInfoPanesExpanded -dict \
         General -bool true \
         MetaData -bool true \
