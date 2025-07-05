@@ -10,6 +10,9 @@ source "${0:A:h}/set_finder_settings.sh"
 # Source scripts/set_safari_settings.sh
 source "${0:A:h}/set_safari_settings.sh"
 
+# Source scripts/set_auto_correction_suggestion_settings.sh
+source "${0:A:h}/set_auto_correction_suggestion_settings.sh"
+
 function set_initial_user_level_settings() {
 
 ############### Enable app-state persistence
@@ -53,39 +56,41 @@ defaults write NSGlobalDomain AppleWindowTabbingMode -string "manual";success_or
 report_adjust_setting "Double-click on window’s title bar ⇒ Zoom (reinforces default)"
 defaults write NSGlobalDomain AppleActionOnDoubleClick -string "Maximize";success_or_not
 
-########## Stop intrusive/arrogant “corrections”
-# Turn off:
-# - Correct spelling automatically
-# - Capitalize words automatically
-# - Add period with double-space
-# - Use smart quotes and dashes
-report_action_taken "Stop intrusive, arrogant, I-know-better-than-you “corrections”"
+# ########## Stop intrusive/arrogant “corrections”
+set_auto_correction_suggestion_settings
 
-report_action_taken "Turn OFF: “Correct spelling automatically”"
-report_adjust_setting "1 of 2: NSAutomaticSpellingCorrectionEnabled"
-defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false;success_or_not
-report_adjust_setting "2 of 2: WebAutomaticSpellingCorrectionEnabled"
-defaults write NSGlobalDomain WebAutomaticSpellingCorrectionEnabled -bool false;success_or_not
-
-report_adjust_setting "Turn OFF: Capitalize words automatically"
-defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false;success_or_not
-
-# Turning off inline predictive text not currently chosen to be implemented, but could be:
-# report_adjust_setting "Turn OFF: Show inline predictive text"
-# defaults write NSGlobalDomain NSAutomaticInlinePredictionEnabled -bool false;success_or_not
-
-# INTERESTING: Two different Macs (both running Sequoia macOS 15.5) disagree whether there is now a
-# “Show suggested replies” option. My Mac Studio has it (which has been upgraded over time); 
-# my pristine M1 Mac mini does not have it.
-
-report_adjust_setting "Turn OFF: Add period with double-space"
-defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false;success_or_not
-
-report_action_taken "Turn OFF: Use smart quotes and dashes"
-report_adjust_setting "1 of 2: I’ll supply the intelligence for my quotation marks, thank you!"
-defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false;success_or_not
-report_adjust_setting "2 of 2: Don’t automatically substitute dash/hyphen types"
-defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false;success_or_not
+# # Turn off:
+# # - Correct spelling automatically
+# # - Capitalize words automatically
+# # - Add period with double-space
+# # - Use smart quotes and dashes
+# report_action_taken "Stop intrusive, arrogant, I-know-better-than-you “corrections”"
+# 
+# report_action_taken "Turn OFF: “Correct spelling automatically”"
+# report_adjust_setting "1 of 2: NSAutomaticSpellingCorrectionEnabled"
+# defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false;success_or_not
+# report_adjust_setting "2 of 2: WebAutomaticSpellingCorrectionEnabled"
+# defaults write NSGlobalDomain WebAutomaticSpellingCorrectionEnabled -bool false;success_or_not
+# 
+# report_adjust_setting "Turn OFF: Capitalize words automatically"
+# defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false;success_or_not
+# 
+# # Turning off inline predictive text not currently chosen to be implemented, but could be:
+# # report_adjust_setting "Turn OFF: Show inline predictive text"
+# # defaults write NSGlobalDomain NSAutomaticInlinePredictionEnabled -bool false;success_or_not
+# 
+# # INTERESTING: Two different Macs (both running Sequoia macOS 15.5) disagree whether there is now a
+# # “Show suggested replies” option. My Mac Studio has it (which has been upgraded over time); 
+# # my pristine M1 Mac mini does not have it.
+# 
+# report_adjust_setting "Turn OFF: Add period with double-space"
+# defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false;success_or_not
+# 
+# report_action_taken "Turn OFF: Use smart quotes and dashes"
+# report_adjust_setting "1 of 2: I’ll supply the intelligence for my quotation marks, thank you!"
+# defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false;success_or_not
+# report_adjust_setting "2 of 2: Don’t automatically substitute dash/hyphen types"
+# defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false;success_or_not
 
 ############### Keyboard-related defaults
 report_action_taken "Implement keyboard-related defaults"
