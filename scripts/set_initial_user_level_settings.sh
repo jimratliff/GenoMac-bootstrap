@@ -189,6 +189,9 @@ report_adjust_setting "Do not jump to a new space when switching applications"
 defaults write NSGlobalDomain AppleSpacesSwitchOnActivate -bool false;success_or_not
 
 ############### Finder
+set_finder_settings
+
+
 # report_action_taken "Adjust settings for Finder"
 # 
 # # Finder: Show all hidden files
