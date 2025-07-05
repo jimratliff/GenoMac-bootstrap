@@ -9,10 +9,13 @@ source "${0:A:h}/get_loginwindow_message.sh"
 # Source scripts/set_initial_systemwide_settings.sh
 source "${0:A:h}/set_initial_systemwide_settings.sh"
 
+# Source scripts/overrides_for_sysadmin_users.sh
+source "${0:A:h}/overrides_for_sysadmin_users.sh"
+
 # Implements selected `defaults` command for the admin accounts, to remove the 
 # biggest annoyances ASAP during bootstrapping.
 #
-# Because this is for bootstrapping, any settings that act upon, or require, software no pre-installed on the Mac, must wait.
+# Because this is for bootstrapping, any settings that act upon, or require, software not pre-installed on the Mac, must wait.
 
 # report_action_taken "Message"
 # report_adjust_setting "Message"
@@ -555,6 +558,9 @@ defaults write com.apple.Safari.SandboxBroker ShowDevelopMenu -bool true;success
 report_adjust_setting "Reveal internal debug menu"
 defaults write com.apple.Safari IncludeInternalDebugMenu -bool true;success_or_not
 
+############### Override certain settings in a way appropriate for only SysAdmin accounts
+overrides_for_sysadmin_users
+
 ############### Kill each affected app
 report_action_taken "Force quit all apps/processes whose settings we just changed"
 apps_to_kill=(
@@ -572,4 +578,6 @@ for app_to_kill in "${apps_to_kill[@]}"; do
 done
 
 report "It’s possible that some settings won’t take effect until after you logout or restart."
+
+
 
