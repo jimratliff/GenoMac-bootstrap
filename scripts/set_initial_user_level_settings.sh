@@ -16,6 +16,9 @@ source "${0:A:h}/set_auto_correction_suggestion_settings.sh"
 # Source scripts/set_screen_capture_settings.sh
 source "${0:A:h}/set_screen_capture_settings.sh"
 
+# Source scripts/set_terminal_settings.sh
+source "${0:A:h}/set_terminal_settings.sh"
+
 function set_initial_user_level_settings() {
 
 ############### Enable app-state persistence
@@ -165,11 +168,13 @@ report_adjust_setting "DiskUtility: Show all devices in sidebar"
 defaults write com.apple.DiskUtility SidebarShowAllDevices -bool true;success_or_not
 
 ############### Terminal
-report_action_taken "Give the Terminal a teeny bit of style, even though we will soon abandon it"
-report_adjust_setting "Terminal: default for new windows: “Man Page”";success_or_not
-defaults write com.apple.Terminal "Default Window Settings" -string "Man Page"
-report_adjust_setting "Terminal: default for starting windows: “Man Page”";success_or_not
-defaults write com.apple.Terminal "Startup Window Settings" -string "Man Page"
+set_terminal_settings
+
+# report_action_taken "Give the Terminal a teeny bit of style, even though we will soon abandon it"
+# report_adjust_setting "Terminal: default for new windows: “Man Page”";success_or_not
+# defaults write com.apple.Terminal "Default Window Settings" -string "Man Page"
+# report_adjust_setting "Terminal: default for starting windows: “Man Page”";success_or_not
+# defaults write com.apple.Terminal "Startup Window Settings" -string "Man Page"
 
 ############### Text Edit
 report_adjust_setting "Text Edit: Make plain text the default format"
