@@ -30,23 +30,6 @@ done 2>/dev/null &      # run loop in background, silence stderr
 ############### Get login-window text
 get_loginwindow_message
 
-# report_action_taken "Set login-window text"
-# while true; do
-#   echo -n "Please enter your desired login-window text: "
-#   read user_input
-# 
-#   echo "You entered: \"$user_input\""
-#   echo -n "Is this correct? (y/n): "
-#   read confirmation
-# 
-#   if [[ "$confirmation" =~ ^[Yy]$ ]]; then
-#     break
-#   fi
-# done
-# 
-# echo "Final choice: \"$user_input\""
-# sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText -string "$user_input";success_or_not
-
 ############### Configure application firewall
 report_action_taken "Configure application firewall"
 report_adjust_setting "1 of 2: Enable application firewall"
