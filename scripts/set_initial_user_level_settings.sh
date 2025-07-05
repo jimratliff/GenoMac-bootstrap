@@ -30,13 +30,10 @@ source "${0:A:h}/set_app_state_persistence.sh"
 
 function set_initial_user_level_settings() {
 
-############### Enable app-state persistence
+# Enable app-state persistence
 set_app_state_persistence
 
-############### General interface
-report_action_taken "Change settings related to the user interface in general"
-
-# ########## Trackpad
+# Trackpad
 set_trackpad_settings
 
 ########## Other general interface
@@ -64,7 +61,7 @@ defaults write NSGlobalDomain AppleWindowTabbingMode -string "manual";success_or
 report_adjust_setting "Double-click on window’s title bar ⇒ Zoom (reinforces default)"
 defaults write NSGlobalDomain AppleActionOnDoubleClick -string "Maximize";success_or_not
 
-# ########## Stop intrusive/arrogant “corrections”
+# Stop intrusive/arrogant “corrections”
 set_auto_correction_suggestion_settings
 
 ############### Keyboard-related defaults
@@ -106,10 +103,10 @@ defaults -currentHost write com.apple.controlcenter UserSwitcher -int 2;success_
 report_adjust_setting "Add Bluetooth to Control Center to access battery percentages of Bluetooth devices"
 defaults write com.apple.controlcenter "NSStatusItem Visible Bluetooth" -bool true;success_or_not
 
-############### Dock
+# Dock
 set_general_dock_settings
 
-############### Screen Capture
+# Screen Capture
 set_screen_capture_settings
 
 ############### Mission Control/Spaces
@@ -124,24 +121,24 @@ defaults write com.apple.spaces "spans-displays" -bool "true";success_or_not
 report_adjust_setting "Do not jump to a new space when switching applications"
 defaults write NSGlobalDomain AppleSpacesSwitchOnActivate -bool false;success_or_not
 
-############### Finder
+# Finder
 set_finder_settings
 
 ############### Time Machine
 report_adjust_setting "Time Machine: Don’t prompt to use new disk as backup volume"
 defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true;success_or_not
 
-############### DiskUtility
+# DiskUtility
 set_diskutility_settings
 
-############### Terminal
+# Terminal
 set_terminal_settings
 
 ############### Text Edit
 report_adjust_setting "Text Edit: Make plain text the default format"
 defaults write com.apple.TextEdit RichText -bool false;success_or_not
 
-############### Safari
+# Safari
 set_safari_settings
 
 }
