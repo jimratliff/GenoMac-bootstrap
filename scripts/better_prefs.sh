@@ -23,6 +23,9 @@ source "${0:A:h}/overrides_for_sysadmin_users.sh"
 # Set initial system-wide settings (requires sudo)
 set_initial_systemwide_settings
 
+# Set initial user-level settings
+set_initial_user_level_settings
+
 # ############### Enable app-state persistence
 # report_action_taken "Implement app-state persistence"
 # 
