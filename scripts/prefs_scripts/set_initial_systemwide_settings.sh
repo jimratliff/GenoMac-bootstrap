@@ -7,6 +7,11 @@ if [[ -z "${GENOMAC_BOOTSTRAP_HELPER_DIR:-}" ]]; then
   return 1
 fi
 
+if [[ -z "${BETTER_PREFS_COMPONENTS_DIR:-}" ]]; then
+  echo "❌ BETTER_PREFS_COMPONENTS_DIR is not set. Please source the main bootstrap script first."
+  return 1
+fi
+
 source "${GENOMAC_BOOTSTRAP_HELPER_DIR}/helpers.sh"
 
 source "${BETTER_PREFS_COMPONENTS_DIR}/get_loginwindow_message.sh"
