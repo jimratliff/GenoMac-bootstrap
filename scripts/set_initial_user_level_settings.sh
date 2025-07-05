@@ -1,6 +1,9 @@
 # Source scripts/helpers.sh
 source "${0:A:h}/helpers.sh"
 
+# Source scripts/set_trackpad_settings.sh
+source "${0:A:h}/set_trackpad_settings.sh"
+
 function set_initial_user_level_settings() {
 
 ############### Enable app-state persistence
@@ -17,6 +20,8 @@ defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool true;success_or_not
 report_action_taken "Change settings related to the user interface in general"
 
 # ########## Trackpad
+set_trackpad_settings
+
 # #
 # #  Implements the following choices
 # #  Point & Click
