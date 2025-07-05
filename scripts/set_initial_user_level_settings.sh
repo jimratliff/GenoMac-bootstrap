@@ -4,6 +4,9 @@ source "${0:A:h}/helpers.sh"
 # Source scripts/set_trackpad_settings.sh
 source "${0:A:h}/set_trackpad_settings.sh"
 
+# Source scripts/set_finder_settings.sh
+source "${0:A:h}/set_finder_settings.sh"
+
 function set_initial_user_level_settings() {
 
 ############### Enable app-state persistence
