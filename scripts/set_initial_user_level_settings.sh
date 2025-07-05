@@ -22,6 +22,9 @@ source "${0:A:h}/set_terminal_settings.sh"
 # Source scripts/set_general_dock_settings.sh
 source "${0:A:h}/set_general_dock_settings.sh"
 
+# Source scripts/set_diskutility_settings.sh
+source "${0:A:h}/set_diskutility_settings.sh"
+
 function set_initial_user_level_settings() {
 
 ############### Enable app-state persistence
@@ -135,15 +138,17 @@ defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true;succ
 
 
 ############### DiskUtility
-# Launch and quit DiskUtility in order that it will have preferences to modify.
-report_action_taken "Launch and quit DiskUtility in order that it will have preferences to modify"
-open -b com.apple.DiskUtility # By bundle ID (more reliable than `open -a` by display name)
-sleep 2
-osascript -e 'quit app "Disk Utility"';success_or_not
+set_diskutility_settings
 
-# DiskUtility: Show all devices in sidebar
-report_adjust_setting "DiskUtility: Show all devices in sidebar"
-defaults write com.apple.DiskUtility SidebarShowAllDevices -bool true;success_or_not
+# # Launch and quit DiskUtility in order that it will have preferences to modify.
+# report_action_taken "Launch and quit DiskUtility in order that it will have preferences to modify"
+# open -b com.apple.DiskUtility # By bundle ID (more reliable than `open -a` by display name)
+# sleep 2
+# osascript -e 'quit app "Disk Utility"';success_or_not
+# 
+# # DiskUtility: Show all devices in sidebar
+# report_adjust_setting "DiskUtility: Show all devices in sidebar"
+# defaults write com.apple.DiskUtility SidebarShowAllDevices -bool true;success_or_not
 
 ############### Terminal
 set_terminal_settings
