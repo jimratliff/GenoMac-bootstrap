@@ -31,17 +31,17 @@ while true; do
   kill -0 "$$" || exit  # exit if the parent shell no longer exists
 done 2>/dev/null &      # run loop in background, silence stderr
 
-############### Get login-window text
+# Get login-window message
 get_loginwindow_message
 
-############### Configure application firewall
+# Configure application firewall
 report_action_taken "Configure application firewall"
 report_adjust_setting "1 of 2: Enable application firewall"
 sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on;success_or_not
 report_adjust_setting "2 of 2: Enable Stealth Mode"
 sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setstealthmode on;success_or_not
 
-############### System-wide settings controlling software-update behavior
+# Configure system-wide settings controlling software-update behavior
 report_action_taken "Implement system-wide settings controlling how macOS and MAS-app software updates occur"
 
 report_adjust_setting "Automatically check for updates (both macOS and MAS apps)"
@@ -56,10 +56,11 @@ sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate AutomaticallyI
 report_adjust_setting "Automatically update applications from Mac App Store"
 sudo defaults write /Library/Preferences/com.apple.commerce AutoUpdate -bool true;success_or_not
 
-############### Display additional information on login window
+# Display additional information on login window
 report_adjust_setting "Display additional info (IP address, hostname, OS version) when clicking on the clock digits of the login window"
 # Requires restart.
 sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName;success_or_not
 
 report_action_taken "End commands that require 'sudo'"
+
 }
