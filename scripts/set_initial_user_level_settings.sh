@@ -19,6 +19,9 @@ source "${0:A:h}/set_screen_capture_settings.sh"
 # Source scripts/set_terminal_settings.sh
 source "${0:A:h}/set_terminal_settings.sh"
 
+# Source scripts/set_general_dock_settings.sh
+source "${0:A:h}/set_general_dock_settings.sh"
+
 function set_initial_user_level_settings() {
 
 ############### Enable app-state persistence
@@ -105,32 +108,34 @@ report_adjust_setting "Add Bluetooth to Control Center to access battery percent
 defaults write com.apple.controlcenter "NSStatusItem Visible Bluetooth" -bool true;success_or_not
 
 ############### Dock
-report_action_taken "Implement Dock settings"
+set_general_dock_settings
 
-report_adjust_setting "Dock: Turn OFF automatic hide/show the Dock"
-defaults write com.apple.dock autohide -bool false;success_or_not
-
-report_adjust_setting "Dock: Turn on magnification effect when hovering over Dock"
-defaults write com.apple.dock magnification -bool true;success_or_not
-
-report_adjust_setting "Dock: Set size of magnified Dock icons"
-defaults write com.apple.dock largesize -float 128;success_or_not
-
-report_adjust_setting "Dock: Show indicator lights for open apps"
-defaults write com.apple.dock show-process-indicators -bool true;success_or_not
-
-report_adjust_setting "Make Dock icons of hidden apps translucent"
-defaults write com.apple.Dock showhidden -bool true;success_or_not
-
-report_adjust_setting "Dock: Enable two-finger scrolling on Dock icon to reveal thumbnails of all windows for that app"
-defaults write com.apple.dock scroll-to-open -bool true;success_or_not
-
-report_adjust_setting "Minimize app to Dock rather than to app’s Dock icon"
-defaults write com.apple.dock minimize-to-application -bool false;success_or_not
-
-# This is NOT working as of 7/2/2025
-# report_adjust_setting "Highlight the element of a grid-view Dock stack over which the cursor hovers"
-# defaults write com.apple.dock mouse-over-hilte-stack -bool true;success_or_not
+# report_action_taken "Implement Dock settings"
+# 
+# report_adjust_setting "Dock: Turn OFF automatic hide/show the Dock"
+# defaults write com.apple.dock autohide -bool false;success_or_not
+# 
+# report_adjust_setting "Dock: Turn on magnification effect when hovering over Dock"
+# defaults write com.apple.dock magnification -bool true;success_or_not
+# 
+# report_adjust_setting "Dock: Set size of magnified Dock icons"
+# defaults write com.apple.dock largesize -float 128;success_or_not
+# 
+# report_adjust_setting "Dock: Show indicator lights for open apps"
+# defaults write com.apple.dock show-process-indicators -bool true;success_or_not
+# 
+# report_adjust_setting "Make Dock icons of hidden apps translucent"
+# defaults write com.apple.Dock showhidden -bool true;success_or_not
+# 
+# report_adjust_setting "Dock: Enable two-finger scrolling on Dock icon to reveal thumbnails of all windows for that app"
+# defaults write com.apple.dock scroll-to-open -bool true;success_or_not
+# 
+# report_adjust_setting "Minimize app to Dock rather than to app’s Dock icon"
+# defaults write com.apple.dock minimize-to-application -bool false;success_or_not
+# 
+# # This is NOT working as of 7/2/2025
+# # report_adjust_setting "Highlight the element of a grid-view Dock stack over which the cursor hovers"
+# # defaults write com.apple.dock mouse-over-hilte-stack -bool true;success_or_not
 
 ############### Screen Capture
 set_screen_capture_settings
