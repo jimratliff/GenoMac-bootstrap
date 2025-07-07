@@ -67,6 +67,6 @@ for app_to_kill in "${apps_to_kill[@]}"; do
 done
 
 report "It’s possible that some settings won’t take effect until after you logout or restart."
-report_end_phase
+report_end_phase 'Completed: the preference-setting phase of the bootstrapping process'
 
 
