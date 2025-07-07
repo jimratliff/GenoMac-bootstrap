@@ -37,7 +37,8 @@ if [[ "$choice" =~ ^[Yy]$ ]]; then
     echo -n "Is this correct? (y/n): "
     read confirmation
     if [[ "$confirmation" =~ ^[Yy]$ ]]; then
-      sudo systemsetup -setcomputername "$new_name"; success_or_not
+      report_action_taken 'Assigning ComputerName'
+      sudo systemsetup -setcomputername "$new_name" 2> >(grep -v '### Error:-99' >&2); success_or_not
       break
     fi
   done
