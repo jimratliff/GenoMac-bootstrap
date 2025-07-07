@@ -37,7 +37,7 @@ SYMBOL_WARNING="🚨 "
 
 # Internal utility to extract caller metadata (one level above wrapper)
 function _get_phase_caller_info() {
-  local func_depth=3  # default: caller of the wrapper (2) + 1 for this helper
+  local func_depth=3  # One level beyond wrapper
   local file="${(%):-%x}"
   local func=""
 
@@ -47,6 +47,11 @@ function _get_phase_caller_info() {
 
   if [[ -n ${funcfiletrace[$func_depth]:-} ]]; then
     file="${funcfiletrace[$func_depth]%%:*}"
+  fi
+
+  # Replace $HOME prefix with ~
+  if [[ -n "$HOME" && "$file" == "$HOME"* ]]; then
+    file="~${file#$HOME}"
   fi
 
   echo "$func|$file"
