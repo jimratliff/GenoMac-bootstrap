@@ -13,7 +13,7 @@ source "${GENOMAC_BOOTSTRAP_HELPER_DIR}/helpers.sh"
 
 function set_diskutility_settings() {
 
-report_start_phase
+report_start_phase_standard
 
 # Launch and quit DiskUtility in order that it will have preferences to modify.
 report_action_taken "Launch and quit DiskUtility in order that it will have preferences to modify"
@@ -25,6 +25,6 @@ osascript -e 'quit app "Disk Utility"';success_or_not
 report_adjust_setting "DiskUtility: Show all devices in sidebar"
 defaults write com.apple.DiskUtility SidebarShowAllDevices -bool true;success_or_not
 
-report_end_phase
+report_end_phase_standard
 
 }
