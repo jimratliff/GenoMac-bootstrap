@@ -41,7 +41,7 @@ function set_trackpad_settings() {
 #    Use trackpad for dragging: Yes
 #    Dragging sytle: Three Finger Drag
 
-report_start_phase
+report_start_phase_standard
 report_action_taken "Implement configuration of Trackpad behavior"
 
 report_adjust_setting "Point & Click: Tracking speed"
@@ -178,6 +178,6 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeF
 report_adjust_setting "3 of 3: -cH -g » com.apple.trackpad.threeFingerDragGesture"
 defaults -currentHost write NSGlobalDomain com.apple.trackpad.threeFingerDragGesture -bool true;success_or_not
 
-report_end_phase
+report_end_phase_standard
 
 }
