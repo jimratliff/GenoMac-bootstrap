@@ -9,6 +9,8 @@ fi
 
 source "${GENOMAC_BOOTSTRAP_HELPER_DIR}/helpers.sh"
 
+############################## BEGIN SCRIPT PROPER ##############################
+
 function get_loginwindow_message() {
 ############### Get login-window message
 # Displays any preexisting login-window message
@@ -16,6 +18,7 @@ function get_loginwindow_message() {
 #   - I.e., if not, existing text is retained or, if none existing, there will be no loginwindow message.
 # If user wants to supply a message, the user is queried for the text and iterates until user confirms satisfaction.
 
+report_start_phase
 report_action_taken "Set login-window message"
 
 # Check for existing login text
@@ -61,5 +64,7 @@ if [[ "$choice" =~ ^[Yy]$ ]]; then
 else
   echo "No changes made to login-window text."
 fi
+
+report_end_phase
 
 }
