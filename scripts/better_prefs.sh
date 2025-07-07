@@ -36,6 +36,9 @@ source "${BETTER_PREFS_COMPONENTS_DIR}/set_initial_systemwide_settings.sh"
 source "${BETTER_PREFS_COMPONENTS_DIR}/set_initial_user_level_settings.sh"
 source "${BETTER_PREFS_COMPONENTS_DIR}/overrides_for_sysadmin_users.sh"
 
+############################## BEGIN SCRIPT PROPER ##############################
+report_start_phase
+
 # Set initial system-wide settings (requires sudo)
 set_initial_systemwide_settings
 
@@ -64,6 +67,6 @@ for app_to_kill in "${apps_to_kill[@]}"; do
 done
 
 report "It’s possible that some settings won’t take effect until after you logout or restart."
-
+report_end_phase
 
 
