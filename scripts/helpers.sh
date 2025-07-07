@@ -77,6 +77,14 @@ function report_end_phase() {
   printf "%b%s%b\n\n" "$COLOR_YELLOW" "--------------------------------------------------------------------------------" "$COLOR_RESET"
 }
 
+function report_start_phase_standard() {
+  report_start_phase "$(_calling_function)" "$(_calling_file)"
+}
+
+function report_end_phase_standard() {
+  report_end_phase "$(_calling_function)" "$(_calling_file)"
+}
+
 function keep_sudo_alive() {
   report_action_taken "I very likely am about to ask you for your administrator password. Do you trust me??? 😉"
 
