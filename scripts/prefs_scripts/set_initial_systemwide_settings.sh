@@ -22,16 +22,7 @@ function set_initial_systemwide_settings() {
 # Makes system-wide settings, requiring sudo, to be run from USER_CONFIGURER.
 
 report_action_taken "Begin commands that require 'sudo'"
-report_action_taken "I very likely am about to ask you for your administrator password. Do you trust me??? 😉"
-# Update user’s cached credentials for `sudo`.
-sudo -v
-
-# Keep-alive: update existing `sudo` time stamp until `.macos` has finished
-while true; do 
-  sudo -n true          # non-interactively refresh sudo timestamp (fails silently if not authorized)
-  sleep 60              # wait one minute
-  kill -0 "$$" || exit  # exit if the parent shell no longer exists
-done 2>/dev/null &      # run loop in background, silence stderr
+keep_sudo_alive
 
 # Get ComputerName and LocalHostName
 get_Mac_names
