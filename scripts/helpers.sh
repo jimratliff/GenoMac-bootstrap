@@ -35,10 +35,23 @@ SYMBOL_WARNING="🚨 "
 # Each %b and %s maps to a successive argument to printf
 # printf "%b[ok]%b %s\n" "$COLOR_GREEN" "$COLOR_RESET" "some message"
 
-#function success() {
-#  # Terminates a line of output with the OK symbol ($SYMBOL_OK)
-#  printf " ${SYMBOL_SUCCESS}\n"
-#}
+function report_start_phase() {
+  local func_name="${funcstack[1]}"
+  local file_name="${(%):-%x}"
+
+  printf "\n%b********************* ENTERING PHASE *********************%b\n" "$COLOR_MAGENTA" "$COLOR_RESET"
+  printf "%bEntering function: %s (file: %s)%b\n" "$COLOR_MAGENTA" "$func_name" "$file_name" "$COLOR_RESET"
+  printf "%b***********************************************************%b\n\n" "$COLOR_MAGENTA" "$COLOR_RESET"
+}
+
+function report_end_phase() {
+  local func_name="${funcstack[1]}"
+  local file_name="${(%):-%x}"
+
+  printf "\n%b--------------------- LEAVING PHASE ---------------------%b\n" "$COLOR_YELLOW" "$COLOR_RESET"
+  printf "%bLeaving function: %s (file: %s)%b\n" "$COLOR_YELLOW" "$func_name" "$file_name" "$COLOR_RESET"
+  printf "%b----------------------------------------------------------%b\n\n" "$COLOR_YELLOW" "$COLOR_RESET"
+}
 
 function keep_sudo_alive() {
   report_action_taken "I very likely am about to ask you for your administrator password. Do you trust me??? 😉"
