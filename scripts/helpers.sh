@@ -62,13 +62,13 @@ function report_start_phase() {
   local caller_func="${info%%|*}"
   local caller_file="${info##*|}"
 
-  printf "\n%b%s%b\n" "$COLOR_MAGENTA" "************************************************************" "$COLOR_RESET"
+  printf "\n%b%s%b\n" "$COLOR_MAGENTA" "********************************************************************************" "$COLOR_RESET"
 
   if [[ -n "$caller_func" && -n "$caller_file" && "$caller_func" != "(script body)" ]]; then
     printf "%bEntering: %s (file: %s)%b\n" "$COLOR_MAGENTA" "$caller_func" "$caller_file" "$COLOR_RESET"
   fi
 
-  printf "%b%s%b\n\n" "$COLOR_MAGENTA" "************************************************************" "$COLOR_RESET"
+  printf "%b%s%b\n\n" "$COLOR_MAGENTA" "********************************************************************************" "$COLOR_RESET"
 }
 
 function report_end_phase() {
@@ -76,13 +76,13 @@ function report_end_phase() {
   local caller_func="${info%%|*}"
   local caller_file="${info##*|}"
 
-  printf "\n%b%s%b\n" "$COLOR_YELLOW" "------------------------------------------------------------" "$COLOR_RESET"
+  printf "\n%b%s%b\n" "$COLOR_YELLOW" "--------------------------------------------------------------------------------" "$COLOR_RESET"
 
   if [[ -n "$caller_func" && -n "$caller_file" && "$caller_func" != "(script body)" ]]; then
     printf "%bLeaving: %s (file: %s)%b\n" "$COLOR_YELLOW" "$caller_func" "$caller_file" "$COLOR_RESET"
   fi
 
-  printf "%b%s%b\n\n" "$COLOR_YELLOW" "------------------------------------------------------------" "$COLOR_RESET"
+  printf "%b%s%b\n\n" "$COLOR_YELLOW" "--------------------------------------------------------------------------------" "$COLOR_RESET"
 }
 
 function keep_sudo_alive() {
