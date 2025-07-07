@@ -9,8 +9,11 @@ fi
 
 source "${GENOMAC_BOOTSTRAP_HELPER_DIR}/helpers.sh"
 
+############################## BEGIN SCRIPT PROPER ##############################
+
 function set_screen_capture_settings() {
 
+report_start_phase
 report_action_taken "Implement settings related to Screen Capture"
 
 # NOTE: Setting the location should be separated from the other screen-capture preferences because this
@@ -37,5 +40,7 @@ defaults write com.apple.screencapture show-thumbnail -bool true;success_or_not
 
 report_adjust_setting "7 of 7: Disable the drop shadow on screenshots"
 defaults write com.apple.screencapture disable-shadow -bool "true";success_or_not
+
+report_end_phase
 
 }
