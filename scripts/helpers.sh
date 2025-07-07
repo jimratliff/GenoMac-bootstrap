@@ -36,15 +36,12 @@ SYMBOL_WARNING="🚨 "
 # printf "%b[ok]%b %s\n" "$COLOR_GREEN" "$COLOR_RESET" "some message"
 
 function report_start_phase() {
-  local caller_func
-  local caller_file
+  local caller_func="(script body)"
+  local caller_file="${(%):-%x}"
 
-  if (( ${#funcstack[@]} >= 2 )); then
-    caller_func="${funcstack[1]}"
-    caller_file="${funcfiletrace[1]%%:*}"
-  else
-    caller_func="(script body)"
-    caller_file="${(%):-%x}"
+  # If the caller exists and isn't this function, use it
+  if (( ${#funcstack[@]} >= 3 )); then
+    caller_func="${funcstack[2]}"
   fi
 
   printf "\n%b********************* ENTERING PHASE *********************%b\n" "$COLOR_MAGENTA" "$COLOR_RESET"
@@ -53,15 +50,11 @@ function report_start_phase() {
 }
 
 function report_end_phase() {
-  local caller_func
-  local caller_file
+  local caller_func="(script body)"
+  local caller_file="${(%):-%x}"
 
-  if (( ${#funcstack[@]} >= 2 )); then
-    caller_func="${funcstack[1]}"
-    caller_file="${funcfiletrace[1]%%:*}"
-  else
-    caller_func="(script body)"
-    caller_file="${(%):-%x}"
+  if (( ${#funcstack[@]} >= 3 )); then
+    caller_func="${funcstack[2]}"
   fi
 
   printf "\n%b--------------------- LEAVING PHASE ---------------------%b\n" "$COLOR_YELLOW" "$COLOR_RESET"
