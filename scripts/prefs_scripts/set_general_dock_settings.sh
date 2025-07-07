@@ -13,7 +13,7 @@ source "${GENOMAC_BOOTSTRAP_HELPER_DIR}/helpers.sh"
 
 function set_general_dock_settings() {
 
-report_action_taken "Implement Dock settings"
+report_action_taken "Implement general Dock settings (but not populating the Dock with apps)"
 
 report_adjust_setting "Dock: Turn OFF automatic hide/show the Dock"
 defaults write com.apple.dock autohide -bool false;success_or_not
