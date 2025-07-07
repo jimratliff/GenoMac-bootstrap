@@ -49,8 +49,8 @@ else
 fi
 
 # Derive LocalHostName by sanitizing ComputerName
-# Remove all characters except alphanumerics and hyphens
-sanitized_name=$(echo "$final_name" | tr -cd '[:alnum:]-')
+# Replace spaces with hyphens, then remove all characters except alphanumerics and hyphens
+sanitized_name=$(echo "$final_name" | tr '[:space:]' '-' | tr -cd '[:alnum:]-')
 echo "Sanitized LocalHostName: \"$sanitized_name\""
 sudo scutil --set LocalHostName "$sanitized_name"; success_or_not
 
