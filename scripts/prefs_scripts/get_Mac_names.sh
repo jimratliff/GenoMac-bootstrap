@@ -74,5 +74,6 @@ printf "ComputerName:   %s\n" "$(sudo scutil --get ComputerName 2>/dev/null || e
 printf "LocalHostName:  %s\n" "$(sudo scutil --get LocalHostName 2>/dev/null || echo "(not set)")"
 printf "HostName:       %s\n" "$(sudo scutil --get HostName 2>/dev/null || echo "(not set)")"
 
-report_end_phase
+report_start_phase_standard
+
 }
