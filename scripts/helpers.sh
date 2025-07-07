@@ -78,14 +78,14 @@ function report_end_phase() {
 }
 
 function report_start_phase_standard() {
-  local fn_name="${funcstack[1]}"
+  local fn_name="${funcstack[2]}"
   local fn_file="${(%):-%x}"
   [[ "$fn_file" == "$HOME"* ]] && fn_file="~${fn_file#$HOME}"
   report_start_phase "$fn_name" "$fn_file"
 }
 
 function report_end_phase_standard() {
-  local fn_name="${funcstack[1]}"
+  local fn_name="${funcstack[2]}"
   local fn_file="${(%):-%x}"
   [[ "$fn_file" == "$HOME"* ]] && fn_file="~${fn_file#$HOME}"
   report_end_phase "$fn_name" "$fn_file"
