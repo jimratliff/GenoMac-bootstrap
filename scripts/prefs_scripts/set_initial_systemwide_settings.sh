@@ -23,7 +23,7 @@ source "${BETTER_PREFS_COMPONENTS_DIR}/get_loginwindow_message.sh"
 function set_initial_systemwide_settings() {
 # Makes system-wide settings, requiring sudo, to be run from USER_CONFIGURER.
 
-report_start_phase
+report_start_phase _calling_function _calling_file
 
 report_action_taken "Begin commands that require 'sudo'"
 keep_sudo_alive
