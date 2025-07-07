@@ -18,7 +18,7 @@ function get_loginwindow_message() {
 #   - I.e., if not, existing text is retained or, if none existing, there will be no loginwindow message.
 # If user wants to supply a message, the user is queried for the text and iterates until user confirms satisfaction.
 
-report_start_phase
+report_start_phase_standard
 report_action_taken "Set login-window message"
 
 # Check for existing login text
@@ -65,6 +65,6 @@ else
   echo "No changes made to login-window text."
 fi
 
-report_end_phase
+report_end_phase_standard
 
 }
