@@ -35,51 +35,43 @@ SYMBOL_WARNING="🚨 "
 # Each %b and %s maps to a successive argument to printf
 # printf "%b[ok]%b %s\n" "$COLOR_GREEN" "$COLOR_RESET" "some message"
 
-# Internal utility to extract caller metadata (one level above wrapper)
-function _get_phase_caller_info() {
-  local func_depth=3  # One level beyond wrapper
+function _calling_function() {
+  echo "${funcstack[1]}"
+}
+
+function _calling_file() {
   local file="${(%):-%x}"
-  local func=""
-
-  if (( ${#funcstack[@]} >= func_depth + 1 )); then
-    func="${funcstack[$func_depth]}"
-  fi
-
-  if [[ -n ${funcfiletrace[$func_depth]:-} ]]; then
-    file="${funcfiletrace[$func_depth]%%:*}"
-  fi
-
-  # Replace $HOME prefix with ~
-  if [[ -n "$HOME" && "$file" == "$HOME"* ]]; then
-    file="~${file#$HOME}"
-  fi
-
-  echo "$func|$file"
+  [[ "$file" == "$HOME"* ]] && file="~${file#$HOME}"
+  echo "$file"
 }
 
 function report_start_phase() {
-  local info="$(_get_phase_caller_info)"
-  local caller_func="${info%%|*}"
-  local caller_file="${info##*|}"
-
   printf "\n%b%s%b\n" "$COLOR_MAGENTA" "********************************************************************************" "$COLOR_RESET"
 
-  if [[ -n "$caller_func" && -n "$caller_file" && "$caller_func" != "(script body)" ]]; then
-    printf "%bEntering: %s (file: %s)%b\n" "$COLOR_MAGENTA" "$caller_func" "$caller_file" "$COLOR_RESET"
+  if (( $# == 2 )); then
+    local func="$1"
+    local file="$2"
+    printf "%bEntering: %s (file: %s)%b\n" "$COLOR_MAGENTA" "$func" "$file" "$COLOR_RESET"
+  elif (( $# == 1 )); then
+    printf "%b%s%b\n" "$COLOR_MAGENTA" "$1" "$COLOR_RESET"
+  else
+    printf "%bEntering phase%b\n" "$COLOR_MAGENTA" "$COLOR_RESET"
   fi
 
   printf "%b%s%b\n\n" "$COLOR_MAGENTA" "********************************************************************************" "$COLOR_RESET"
 }
 
 function report_end_phase() {
-  local info="$(_get_phase_caller_info)"
-  local caller_func="${info%%|*}"
-  local caller_file="${info##*|}"
-
   printf "\n%b%s%b\n" "$COLOR_YELLOW" "--------------------------------------------------------------------------------" "$COLOR_RESET"
 
-  if [[ -n "$caller_func" && -n "$caller_file" && "$caller_func" != "(script body)" ]]; then
-    printf "%bLeaving: %s (file: %s)%b\n" "$COLOR_YELLOW" "$caller_func" "$caller_file" "$COLOR_RESET"
+  if (( $# == 2 )); then
+    local func="$1"
+    local file="$2"
+    printf "%bLeaving: %s (file: %s)%b\n" "$COLOR_YELLOW" "$func" "$file" "$COLOR_RESET"
+  elif (( $# == 1 )); then
+    printf "%b%s%b\n" "$COLOR_YELLOW" "$1" "$COLOR_RESET"
+  else
+    printf "%bLeaving phase%b\n" "$COLOR_YELLOW" "$COLOR_RESET"
   fi
 
   printf "%b%s%b\n\n" "$COLOR_YELLOW" "--------------------------------------------------------------------------------" "$COLOR_RESET"
