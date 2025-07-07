@@ -37,7 +37,7 @@ source "${BETTER_PREFS_COMPONENTS_DIR}/set_initial_user_level_settings.sh"
 source "${BETTER_PREFS_COMPONENTS_DIR}/overrides_for_sysadmin_users.sh"
 
 ############################## BEGIN SCRIPT PROPER ##############################
-report_start_phase
+report_start_phase 'Begin the preference-setting phase of the bootstrapping process'
 
 # Set initial system-wide settings (requires sudo)
 set_initial_systemwide_settings
