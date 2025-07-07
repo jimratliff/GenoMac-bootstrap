@@ -40,6 +40,20 @@ SYMBOL_WARNING="🚨 "
 #  printf " ${SYMBOL_SUCCESS}\n"
 #}
 
+function keep_sudo_alive() {
+  report_action_taken "I very likely am about to ask you for your administrator password. Do you trust me??? 😉"
+
+  # Update user’s cached credentials for `sudo`.
+  sudo -v
+
+  # Keep-alive: update existing `sudo` time stamp until this shell exits
+  while true; do 
+    sudo -n true
+    sleep 60
+    kill -0 "$$" || exit
+  done 2>/dev/null &  # background process, silence errors
+}
+
 function success_or_not() {
   if [[ $? -eq 0 ]]; then
     printf " ${SYMBOL_SUCCESS}\n"
