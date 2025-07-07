@@ -20,7 +20,7 @@ function set_auto_correction_suggestion_settings() {
 # - Add period with double-space
 # - Use smart quotes and dashes
 
-report_start_phase
+report_start_phase_standard
 report_action_taken "Stop intrusive, arrogant, I-know-better-than-you “corrections”"
 
 report_action_taken "Turn OFF: “Correct spelling automatically”"
@@ -49,6 +49,6 @@ defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false;su
 report_adjust_setting "2 of 2: Don’t automatically substitute dash/hyphen types"
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false;success_or_not
 
-report_end_phase
+report_end_phase_standard
 
 }
