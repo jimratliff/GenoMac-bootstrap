@@ -23,7 +23,7 @@ source "${BETTER_PREFS_COMPONENTS_DIR}/set_safari_settings.sh"
 
 function set_initial_user_level_settings() {
 
-report_start_phase
+report_start_phase_standard
 
 # Enable app-state persistence
 set_app_state_persistence
@@ -133,6 +133,6 @@ defaults write com.apple.TextEdit RichText -bool false;success_or_not
 # Safari
 set_safari_settings
 
-report_end_phase
+report_end_phase_standard
 
 }
