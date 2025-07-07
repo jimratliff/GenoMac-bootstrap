@@ -13,7 +13,7 @@ source "${GENOMAC_BOOTSTRAP_HELPER_DIR}/helpers.sh"
 
 function set_finder_settings() {
 
-report_start_phase
+report_start_phase_standard
 report_action_taken "Adjust settings for Finder"
 
 # Open new windows to HOME
@@ -101,6 +101,6 @@ defaults write com.apple.finder FXEnableExtensionChangeWarning -bool true;succes
 report_adjust_setting "⌘-double-click opens folder in new tab (not new window)"
 defaults write com.apple.finder "FinderSpawnTab" -bool true;success_or_not
 
-report_end_phase
+report_end_phase_standard
 
 }
