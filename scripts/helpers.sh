@@ -36,20 +36,18 @@ SYMBOL_WARNING="🚨 "
 # printf "%b[ok]%b %s\n" "$COLOR_GREEN" "$COLOR_RESET" "some message"
 
 function report_start_phase() {
-  local func_name="${funcstack[1]}"
-  local file_name="${(%):-%x}"
-
+  local caller_func="${funcstack[2]}"
+  local caller_file="$(print -P %x)"  # Name of the current script file
   printf "\n%b********************* ENTERING PHASE *********************%b\n" "$COLOR_MAGENTA" "$COLOR_RESET"
-  printf "%bEntering function: %s (file: %s)%b\n" "$COLOR_MAGENTA" "$func_name" "$file_name" "$COLOR_RESET"
+  printf "%bEntering function: %s (file: %s)%b\n" "$COLOR_MAGENTA" "$caller_func" "$caller_file" "$COLOR_RESET"
   printf "%b***********************************************************%b\n\n" "$COLOR_MAGENTA" "$COLOR_RESET"
 }
 
 function report_end_phase() {
-  local func_name="${funcstack[1]}"
-  local file_name="${(%):-%x}"
-
+  local caller_func="${funcstack[2]}"
+  local caller_file="$(print -P %x)"
   printf "\n%b--------------------- LEAVING PHASE ---------------------%b\n" "$COLOR_YELLOW" "$COLOR_RESET"
-  printf "%bLeaving function: %s (file: %s)%b\n" "$COLOR_YELLOW" "$func_name" "$file_name" "$COLOR_RESET"
+  printf "%bLeaving function: %s (file: %s)%b\n" "$COLOR_YELLOW" "$caller_func" "$caller_file" "$COLOR_RESET"
   printf "%b----------------------------------------------------------%b\n\n" "$COLOR_YELLOW" "$COLOR_RESET"
 }
 
