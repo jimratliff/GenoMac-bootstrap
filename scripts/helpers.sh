@@ -35,16 +35,6 @@ SYMBOL_WARNING="🚨 "
 # Each %b and %s maps to a successive argument to printf
 # printf "%b[ok]%b %s\n" "$COLOR_GREEN" "$COLOR_RESET" "some message"
 
-function _calling_function() {
-  echo "${funcstack[1]}"
-}
-
-function _calling_file() {
-  local file="${(%):-%x}"
-  [[ "$file" == "$HOME"* ]] && file="~${file#$HOME}"
-  echo "$file"
-}
-
 function report_start_phase() {
   printf "\n%b%s%b\n" "$COLOR_MAGENTA" "********************************************************************************" "$COLOR_RESET"
 
@@ -79,14 +69,14 @@ function report_end_phase() {
 
 function report_start_phase_standard() {
   local fn_name="${funcstack[2]}"
-  local fn_file="${(%):-%x}"
+  local fn_file="${funcfiletrace[2]%%:*}"  # get full path to caller’s source file
   [[ "$fn_file" == "$HOME"* ]] && fn_file="~${fn_file#$HOME}"
   report_start_phase "$fn_name" "$fn_file"
 }
 
 function report_end_phase_standard() {
   local fn_name="${funcstack[2]}"
-  local fn_file="${(%):-%x}"
+  local fn_file="${funcfiletrace[2]%%:*}"
   [[ "$fn_file" == "$HOME"* ]] && fn_file="~${fn_file#$HOME}"
   report_end_phase "$fn_name" "$fn_file"
 }
