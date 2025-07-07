@@ -23,7 +23,7 @@ source "${BETTER_PREFS_COMPONENTS_DIR}/get_loginwindow_message.sh"
 function set_initial_systemwide_settings() {
 # Makes system-wide settings, requiring sudo, to be run from USER_CONFIGURER.
 
-report_start_phase _calling_function _calling_file
+report_start_phase_standard
 
 report_action_taken "Begin commands that require 'sudo'"
 keep_sudo_alive
@@ -61,8 +61,6 @@ report_adjust_setting "Display additional info (IP address, hostname, OS version
 # Requires restart.
 sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName;success_or_not
 
-report_action_taken "End commands that require 'sudo'"
-
-report_end_phase
+report_end_phase_standard
 
 }
