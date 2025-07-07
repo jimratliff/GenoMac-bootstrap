@@ -13,11 +13,14 @@ fi
 
 source "${GENOMAC_BOOTSTRAP_HELPER_DIR}/helpers.sh"
 
+############################## BEGIN SCRIPT PROPER ##############################
+
 function overrides_for_sysadmin_users() {
 # Implements preferences for the SysAdmin users (USER_VANILLA and USER_CONFIGURER) that diverge
 # from preferences set for generic non-SysAdmin users.
 # Thus this function must not be executed before the preferences for generic non-sysadmin users are set.
 
+report_start_phase
 report_action_taken "Overriding certain settings in a way appropriate for only SysAdmin accounts"
 
 # Finder: Show hard drives on desktop
@@ -35,5 +38,7 @@ report_action_taken "Sysadmin overrides completed. Please relaunch Finder."
 
 # report_about_to_kill_app "Finder"
 # killall "Finder";success_or_not
+
+report_end_phase
 
 }
