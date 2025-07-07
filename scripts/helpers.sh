@@ -35,31 +35,49 @@ SYMBOL_WARNING="🚨 "
 # Each %b and %s maps to a successive argument to printf
 # printf "%b[ok]%b %s\n" "$COLOR_GREEN" "$COLOR_RESET" "some message"
 
-function report_start_phase() {
-  local caller_func="(script body)"
-  local caller_file="${(%):-%x}"
+# Internal utility to extract caller metadata (one level above wrapper)
+function _get_phase_caller_info() {
+  local func_depth=3  # default: caller of the wrapper (2) + 1 for this helper
+  local file="${(%):-%x}"
+  local func=""
 
-  # If the caller exists and isn't this function, use it
-  if (( ${#funcstack[@]} >= 3 )); then
-    caller_func="${funcstack[2]}"
+  if (( ${#funcstack[@]} >= func_depth + 1 )); then
+    func="${funcstack[$func_depth]}"
   fi
 
-  printf "\n%b********************* ENTERING PHASE *********************%b\n" "$COLOR_MAGENTA" "$COLOR_RESET"
-  printf "%bEntering: %s (file: %s)%b\n" "$COLOR_MAGENTA" "$caller_func" "$caller_file" "$COLOR_RESET"
-  printf "%b***********************************************************%b\n\n" "$COLOR_MAGENTA" "$COLOR_RESET"
+  if [[ -n ${funcfiletrace[$func_depth]:-} ]]; then
+    file="${funcfiletrace[$func_depth]%%:*}"
+  fi
+
+  echo "$func|$file"
+}
+
+function report_start_phase() {
+  local info="$(_get_phase_caller_info)"
+  local caller_func="${info%%|*}"
+  local caller_file="${info##*|}"
+
+  printf "\n%b%s%b\n" "$COLOR_MAGENTA" "************************************************************" "$COLOR_RESET"
+
+  if [[ -n "$caller_func" && -n "$caller_file" && "$caller_func" != "(script body)" ]]; then
+    printf "%bEntering: %s (file: %s)%b\n" "$COLOR_MAGENTA" "$caller_func" "$caller_file" "$COLOR_RESET"
+  fi
+
+  printf "%b%s%b\n\n" "$COLOR_MAGENTA" "************************************************************" "$COLOR_RESET"
 }
 
 function report_end_phase() {
-  local caller_func="(script body)"
-  local caller_file="${(%):-%x}"
+  local info="$(_get_phase_caller_info)"
+  local caller_func="${info%%|*}"
+  local caller_file="${info##*|}"
 
-  if (( ${#funcstack[@]} >= 3 )); then
-    caller_func="${funcstack[2]}"
+  printf "\n%b%s%b\n" "$COLOR_YELLOW" "------------------------------------------------------------" "$COLOR_RESET"
+
+  if [[ -n "$caller_func" && -n "$caller_file" && "$caller_func" != "(script body)" ]]; then
+    printf "%bLeaving: %s (file: %s)%b\n" "$COLOR_YELLOW" "$caller_func" "$caller_file" "$COLOR_RESET"
   fi
 
-  printf "\n%b--------------------- LEAVING PHASE ---------------------%b\n" "$COLOR_YELLOW" "$COLOR_RESET"
-  printf "%bLeaving: %s (file: %s)%b\n" "$COLOR_YELLOW" "$caller_func" "$caller_file" "$COLOR_RESET"
-  printf "%b----------------------------------------------------------%b\n\n" "$COLOR_YELLOW" "$COLOR_RESET"
+  printf "%b%s%b\n\n" "$COLOR_YELLOW" "------------------------------------------------------------" "$COLOR_RESET"
 }
 
 function keep_sudo_alive() {
