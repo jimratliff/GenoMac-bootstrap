@@ -15,7 +15,7 @@ source "${GENOMAC_BOOTSTRAP_HELPER_DIR}/helpers.sh"
 
 function set_general_dock_settings() {
 
-report_start_phase
+report_start_phase_standard
 report_action_taken "Implement general Dock settings (but not populating the Dock with apps)"
 
 report_adjust_setting "Dock: Turn OFF automatic hide/show the Dock"
@@ -43,6 +43,6 @@ defaults write com.apple.dock minimize-to-application -bool false;success_or_not
 # report_adjust_setting "Highlight the element of a grid-view Dock stack over which the cursor hovers"
 # defaults write com.apple.dock mouse-over-hilte-stack -bool true;success_or_not
 
-report_end_phase
+report_end_phase_standard
 
 }
