@@ -9,6 +9,8 @@ fi
 
 source "${GENOMAC_BOOTSTRAP_HELPER_DIR}/helpers.sh"
 
+############################## BEGIN SCRIPT PROPER ##############################
+
 function set_auto_correction_suggestion_settings() {
 
 ########## Stop intrusive/arrogant “corrections”
@@ -17,6 +19,8 @@ function set_auto_correction_suggestion_settings() {
 # - Capitalize words automatically
 # - Add period with double-space
 # - Use smart quotes and dashes
+
+report_start_phase
 report_action_taken "Stop intrusive, arrogant, I-know-better-than-you “corrections”"
 
 report_action_taken "Turn OFF: “Correct spelling automatically”"
@@ -44,5 +48,7 @@ report_adjust_setting "1 of 2: I’ll supply the intelligence for my quotation m
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false;success_or_not
 report_adjust_setting "2 of 2: Don’t automatically substitute dash/hyphen types"
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false;success_or_not
+
+report_end_phase
 
 }
