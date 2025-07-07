@@ -14,7 +14,7 @@ source "${GENOMAC_BOOTSTRAP_HELPER_DIR}/helpers.sh"
 
 function get_Mac_names() {
 ############### Get and optionally set Mac computer names
-report_start_phase
+report_start_phase _calling_function _calling_file
 report_action_taken "Get and optionally set Mac ComputerName and LocalHostName"
 
 # Get current ComputerName
