@@ -30,18 +30,23 @@ while true; do
 done
 
 if [[ "$choice" =~ ^[Yy]$ ]]; then
-  while true; do
-    echo -n "Enter desired ComputerName: "
-    read new_name
-    echo "You entered: \"$new_name\""
-    echo -n "Is this correct? (y/n): "
-    read confirmation
-    if [[ "$confirmation" =~ ^[Yy]$ ]]; then
-      report_action_taken 'Assigning ComputerName'
-      sudo systemsetup -setcomputername "$new_name" 2> >(grep -v '### Error:-99' >&2); success_or_not
-      break
-    fi
-  done
+while true; do
+  echo -n "Enter desired ComputerName: "
+  read new_name_raw
+
+  # Strip leading/trailing whitespace
+  new_name=$(echo "$new_name_raw" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+
+  echo "You entered: \"$new_name\""
+  echo -n "Is this correct? (y/n): "
+  read confirmation
+
+  if [[ "$confirmation" =~ ^[Yy]$ ]]; then
+    report_action_taken 'Assigning ComputerName'
+    sudo systemsetup -setcomputername "$new_name" 2> >(grep -v '### Error:-99' >&2); success_or_not
+    break
+  fi
+done
   final_name="$new_name"
 else
   echo "Keeping existing ComputerName."
