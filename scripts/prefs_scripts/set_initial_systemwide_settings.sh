@@ -14,6 +14,8 @@ fi
 
 source "${GENOMAC_BOOTSTRAP_HELPER_DIR}/helpers.sh"
 
+source "${BETTER_PREFS_COMPONENTS_DIR}/get_Mac_names.sh"
+
 source "${BETTER_PREFS_COMPONENTS_DIR}/get_loginwindow_message.sh"
 
 function set_initial_systemwide_settings() {
@@ -30,6 +32,9 @@ while true; do
   sleep 60              # wait one minute
   kill -0 "$$" || exit  # exit if the parent shell no longer exists
 done 2>/dev/null &      # run loop in background, silence stderr
+
+# Get ComputerName and LocalHostName
+get_Mac_names
 
 # Get login-window message
 get_loginwindow_message
