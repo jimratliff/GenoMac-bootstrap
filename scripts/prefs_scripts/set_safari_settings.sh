@@ -9,8 +9,11 @@ fi
 
 source "${GENOMAC_BOOTSTRAP_HELPER_DIR}/helpers.sh"
 
+############################## BEGIN SCRIPT PROPER ##############################
+
 function set_safari_settings() {
 
+report_start_phase
 report_action_taken "Implement Safari settings"
 
 report_adjust_setting "Do NOT auto-open “safe” downloads"
@@ -71,5 +74,6 @@ defaults write com.apple.Safari.SandboxBroker ShowDevelopMenu -bool true;success
 report_adjust_setting "Reveal internal debug menu"
 defaults write com.apple.Safari IncludeInternalDebugMenu -bool true;success_or_not
 
+report_end_phase
 
 }
