@@ -9,9 +9,12 @@ fi
 
 source "${GENOMAC_BOOTSTRAP_HELPER_DIR}/helpers.sh"
 
+############################## BEGIN SCRIPT PROPER ##############################
+
+
 function get_Mac_names() {
 ############### Get and optionally set Mac computer names
-
+report_start_phase
 report_action_taken "Get and optionally set Mac ComputerName and LocalHostName"
 
 # Get current ComputerName
@@ -70,4 +73,6 @@ report_action_taken "Final name settings:"
 printf "ComputerName:   %s\n" "$(sudo scutil --get ComputerName 2>/dev/null || echo "(not set)")"
 printf "LocalHostName:  %s\n" "$(sudo scutil --get LocalHostName 2>/dev/null || echo "(not set)")"
 printf "HostName:       %s\n" "$(sudo scutil --get HostName 2>/dev/null || echo "(not set)")"
+
+report_end_phase
 }
