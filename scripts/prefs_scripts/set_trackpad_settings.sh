@@ -9,6 +9,8 @@ fi
 
 source "${GENOMAC_BOOTSTRAP_HELPER_DIR}/helpers.sh"
 
+############################## BEGIN SCRIPT PROPER ##############################
+
 function set_trackpad_settings() {
 
 ########## Trackpad
@@ -39,6 +41,7 @@ function set_trackpad_settings() {
 #    Use trackpad for dragging: Yes
 #    Dragging sytle: Three Finger Drag
 
+report_start_phase
 report_action_taken "Implement configuration of Trackpad behavior"
 
 report_adjust_setting "Point & Click: Tracking speed"
@@ -174,5 +177,7 @@ report_adjust_setting "2 of 3: com.apple.driver.AppleBluetoothMultitouch.trackpa
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerDrag -bool true;success_or_not
 report_adjust_setting "3 of 3: -cH -g » com.apple.trackpad.threeFingerDragGesture"
 defaults -currentHost write NSGlobalDomain com.apple.trackpad.threeFingerDragGesture -bool true;success_or_not
+
+report_end_phase
 
 }
