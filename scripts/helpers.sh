@@ -70,6 +70,12 @@ function report_end_phase() {
 function report_start_phase_standard() {
   local fn_name="${funcstack[2]}"
   local fn_file="$(functions -t "$fn_name" 2>/dev/null)"
+
+  # Fallback: use the file from the stack trace
+  if [[ -z "$fn_file" && -n "${funcfiletrace[3]:-}" ]]; then
+    fn_file="${funcfiletrace[3]%%:*}"
+  fi
+
   [[ "$fn_file" == "$HOME"* ]] && fn_file="~${fn_file#$HOME}"
   report_start_phase "$fn_name" "$fn_file"
 }
@@ -77,6 +83,11 @@ function report_start_phase_standard() {
 function report_end_phase_standard() {
   local fn_name="${funcstack[2]}"
   local fn_file="$(functions -t "$fn_name" 2>/dev/null)"
+
+  if [[ -z "$fn_file" && -n "${funcfiletrace[3]:-}" ]]; then
+    fn_file="${funcfiletrace[3]%%:*}"
+  fi
+
   [[ "$fn_file" == "$HOME"* ]] && fn_file="~${fn_file#$HOME}"
   report_end_phase "$fn_name" "$fn_file"
 }
