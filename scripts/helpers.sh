@@ -39,9 +39,11 @@ function report_start_phase() {
   printf "\n%b%s%b\n" "$COLOR_MAGENTA" "********************************************************************************" "$COLOR_RESET"
 
   if (( $# == 2 )); then
-    local func="$1"
-    local file="$2"
-    printf "%bEntering: %s (file: %s)%b\n" "$COLOR_MAGENTA" "$func" "$file" "$COLOR_RESET"
+    if [[ "$2" == "-" ]]; then
+      printf "%bEntering: %s%b\n" "$COLOR_MAGENTA" "$1" "$COLOR_RESET"
+    else
+      printf "%bEntering: %s (file: %s)%b\n" "$COLOR_MAGENTA" "$1" "$2" "$COLOR_RESET"
+    fi
   elif (( $# == 1 )); then
     printf "%b%s%b\n" "$COLOR_MAGENTA" "$1" "$COLOR_RESET"
   else
@@ -55,9 +57,11 @@ function report_end_phase() {
   printf "\n%b%s%b\n" "$COLOR_YELLOW" "--------------------------------------------------------------------------------" "$COLOR_RESET"
 
   if (( $# == 2 )); then
-    local func="$1"
-    local file="$2"
-    printf "%bLeaving: %s (file: %s)%b\n" "$COLOR_YELLOW" "$func" "$file" "$COLOR_RESET"
+    if [[ "$2" == "-" ]]; then
+      printf "%bLeaving: %s%b\n" "$COLOR_YELLOW" "$1" "$COLOR_RESET"
+    else
+      printf "%bLeaving: %s (file: %s)%b\n" "$COLOR_YELLOW" "$1" "$2" "$COLOR_RESET"
+    fi
   elif (( $# == 1 )); then
     printf "%b%s%b\n" "$COLOR_YELLOW" "$1" "$COLOR_RESET"
   else
@@ -70,32 +74,21 @@ function report_end_phase() {
 function report_start_phase_standard() {
   local fn_name="${funcstack[2]}"
   local fn_file="$(functions -t "$fn_name" 2>/dev/null)"
+  [[ -n "$fn_file" && "$fn_file" == "$HOME"* ]] && fn_file="~${fn_file#$HOME}"
 
-  # Only use file if it's non-empty
-  if [[ -n "$fn_file" && "$fn_file" == "$HOME"* ]]; then
-    fn_file="~${fn_file#$HOME}"
-  fi
+  [[ -z "$fn_file" ]] && fn_file="-"  # Sentinel: no file
 
-  if [[ -n "$fn_file" ]]; then
-    report_start_phase "$fn_name" "$fn_file"
-  else
-    report_start_phase "$fn_name"
-  fi
+  report_start_phase "$fn_name" "$fn_file"
 }
 
 function report_end_phase_standard() {
   local fn_name="${funcstack[2]}"
   local fn_file="$(functions -t "$fn_name" 2>/dev/null)"
+  [[ -n "$fn_file" && "$fn_file" == "$HOME"* ]] && fn_file="~${fn_file#$HOME}"
 
-  if [[ -n "$fn_file" && "$fn_file" == "$HOME"* ]]; then
-    fn_file="~${fn_file#$HOME}"
-  fi
+  [[ -z "$fn_file" ]] && fn_file="-"  # Sentinel: no file
 
-  if [[ -n "$fn_file" ]]; then
-    report_end_phase "$fn_name" "$fn_file"
-  else
-    report_end_phase "$fn_name"
-  fi
+  report_end_phase "$fn_name" "$fn_file"
 }
 
 function keep_sudo_alive() {
