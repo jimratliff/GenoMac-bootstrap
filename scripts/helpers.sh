@@ -35,6 +35,97 @@ SYMBOL_WARNING="🚨 "
 # Each %b and %s maps to a successive argument to printf
 # printf "%b[ok]%b %s\n" "$COLOR_GREEN" "$COLOR_RESET" "some message"
 
+function keep_sudo_alive() {
+  report_action_taken "I very likely am about to ask you for your administrator password. Do you trust me??? 😉"
+
+  # Update user’s cached credentials for `sudo`.
+  sudo -v
+
+  # Keep-alive: update existing `sudo` time stamp until this shell exits
+  while true; do 
+    sudo -n true
+    sleep 60
+    kill -0 "$$" || exit
+  done 2>/dev/null &  # background process, silence errors
+}
+
+function success_or_not() {
+  if [[ $? -eq 0 ]]; then
+    printf " ${SYMBOL_SUCCESS}\n"
+  else
+    printf "\n${SYMBOL_FAILURE}\n"
+  fi
+}
+
+function report() {
+  # Output supplied line of text in a distinctive color.
+  printf "%b%s%b\n" "$COLOR_REPORT" "$1" "$COLOR_RESET"
+}
+
+function report_adjust_setting() {
+  # Output supplied line of text in a distinctive color, prefaced by "$SYMBOL_ADJUST_SETTING.
+  # It is intentional to NOT have a newline. This will be supplied by success().
+  printf "%b%s%s%b" "$COLOR_ADJUST_SETTING" "$SYMBOL_ADJUST_SETTING" "$1" "$COLOR_RESET"
+}
+
+function report_about_to_kill_app() {
+  # Takes `app` as argument
+  # Outputs message that the app was killed.
+  printf "%b%s %s is being killed (if necessary) %b" "$COLOR_KILLED" "$SYMBOL_KILLED" "$1" "$COLOR_RESET"
+}
+
+function report_action_taken() {
+  # Output supplied line of text in a distinctive color, prefaced by "$SYMBOL_ADJUST_SETTING.
+  printf "%b%s%s%b\n" "$COLOR_ACTION_TAKEN" "$SYMBOL_ACTION_TAKEN" "$1" "$COLOR_RESET"
+}
+
+################################################################################
+# PHASE REPORTING HELPERS
+#
+# The below four functions provide a consistent way to mark in the terminal output 
+# the start and end of output-intensive or semantically distinct “phases” within the
+# bootstrap process.
+#
+# They emit color-coded separator blocks, with textual content like:
+#
+#   ********************************************************************************
+#   Entering: configure_firewall
+#   ********************************************************************************
+#
+# USAGE GUIDELINES:
+#
+# ⏺ report_start_phase
+# ⏺ report_end_phase
+#
+#   Use these when you want fine-grained control.
+#
+#   • Zero arguments → print "Entering phase" or "Leaving phase", respectively
+#   • One argument   → print the argument exactly as a message line (e.g. emoji + text)
+#   • Two arguments  → interpret as function name and file name; format as:
+#       Entering: func_name (file: /path/to/file)
+#     If the second argument is "-", the file-name clause is omitted:
+#       Entering: func_name
+#
+# ⏺ report_start_phase_standard
+# ⏺ report_end_phase_standard
+#
+#   Use these inside functions when you want standard behavior without manual quoting
+#   or boilerplate. These extract (a) the function name from the call stack and,
+#   (b) if available, the file name using `functions -t`.
+#
+#   - If the file name is unavailable, the file-name clause is silently omitted.
+#   - These accept no arguments — just call them:
+#
+#       function configure_firewall() {
+#         report_start_phase_standard
+#         # ...
+#         report_end_phase_standard
+#       }
+#
+#   This is the recommended style for all GenoMac bootstrap functions.
+#
+################################################################################
+
 function report_start_phase() {
   printf "\n%b%s%b\n" "$COLOR_MAGENTA" "********************************************************************************" "$COLOR_RESET"
 
@@ -91,46 +182,3 @@ function report_end_phase_standard() {
   report_end_phase "$fn_name" "$fn_file"
 }
 
-function keep_sudo_alive() {
-  report_action_taken "I very likely am about to ask you for your administrator password. Do you trust me??? 😉"
-
-  # Update user’s cached credentials for `sudo`.
-  sudo -v
-
-  # Keep-alive: update existing `sudo` time stamp until this shell exits
-  while true; do 
-    sudo -n true
-    sleep 60
-    kill -0 "$$" || exit
-  done 2>/dev/null &  # background process, silence errors
-}
-
-function success_or_not() {
-  if [[ $? -eq 0 ]]; then
-    printf " ${SYMBOL_SUCCESS}\n"
-  else
-    printf "\n${SYMBOL_FAILURE}\n"
-  fi
-}
-
-function report() {
-  # Output supplied line of text in a distinctive color.
-  printf "%b%s%b\n" "$COLOR_REPORT" "$1" "$COLOR_RESET"
-}
-
-function report_adjust_setting() {
-  # Output supplied line of text in a distinctive color, prefaced by "$SYMBOL_ADJUST_SETTING.
-  # It is intentional to NOT have a newline. This will be supplied by success().
-  printf "%b%s%s%b" "$COLOR_ADJUST_SETTING" "$SYMBOL_ADJUST_SETTING" "$1" "$COLOR_RESET"
-}
-
-function report_about_to_kill_app() {
-  # Takes `app` as argument
-  # Outputs message that the app was killed.
-  printf "%b%s %s is being killed (if necessary) %b" "$COLOR_KILLED" "$SYMBOL_KILLED" "$1" "$COLOR_RESET"
-}
-
-function report_action_taken() {
-  # Output supplied line of text in a distinctive color, prefaced by "$SYMBOL_ADJUST_SETTING.
-  printf "%b%s%s%b\n" "$COLOR_ACTION_TAKEN" "$SYMBOL_ACTION_TAKEN" "$1" "$COLOR_RESET"
-}
