@@ -71,25 +71,31 @@ function report_start_phase_standard() {
   local fn_name="${funcstack[2]}"
   local fn_file="$(functions -t "$fn_name" 2>/dev/null)"
 
-  # Fallback: use the file from the stack trace
-  if [[ -z "$fn_file" && -n "${funcfiletrace[3]:-}" ]]; then
-    fn_file="${funcfiletrace[3]%%:*}"
+  # Only use file if it's non-empty
+  if [[ -n "$fn_file" && "$fn_file" == "$HOME"* ]]; then
+    fn_file="~${fn_file#$HOME}"
   fi
 
-  [[ "$fn_file" == "$HOME"* ]] && fn_file="~${fn_file#$HOME}"
-  report_start_phase "$fn_name" "$fn_file"
+  if [[ -n "$fn_file" ]]; then
+    report_start_phase "$fn_name" "$fn_file"
+  else
+    report_start_phase "$fn_name"
+  fi
 }
 
 function report_end_phase_standard() {
   local fn_name="${funcstack[2]}"
   local fn_file="$(functions -t "$fn_name" 2>/dev/null)"
 
-  if [[ -z "$fn_file" && -n "${funcfiletrace[3]:-}" ]]; then
-    fn_file="${funcfiletrace[3]%%:*}"
+  if [[ -n "$fn_file" && "$fn_file" == "$HOME"* ]]; then
+    fn_file="~${fn_file#$HOME}"
   fi
 
-  [[ "$fn_file" == "$HOME"* ]] && fn_file="~${fn_file#$HOME}"
-  report_end_phase "$fn_name" "$fn_file"
+  if [[ -n "$fn_file" ]]; then
+    report_end_phase "$fn_name" "$fn_file"
+  else
+    report_end_phase "$fn_name"
+  fi
 }
 
 function keep_sudo_alive() {
