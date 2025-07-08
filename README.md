@@ -69,7 +69,7 @@ git clone https://github.com/jimratliff/GenoMac-bootstrap.git .
 **Note the trailing “.” at the end of the `git clone` command.**
 
 ## Grant Terminal full-disk access
--System Settings
+- System Settings
   - Security & Privacy
     - Select the Privacy tab
       - Scroll down and click Full Disk Access
