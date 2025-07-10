@@ -18,6 +18,8 @@ report_start_phase_standard
 report_action_taken "Get and optionally set Mac ComputerName and LocalHostName"
 
 # Get current ComputerName
+# Note: `systemsetup -getcomputername` outputs ComputerName as the text string: 'Computer Name: MyComputerName'
+#       The following `sed` command converts that prefix to an empty string.
 current_name=$(sudo systemsetup -getcomputername 2>/dev/null | sed 's/^Computer Name: //')
 echo "Current ComputerName: \"$current_name\""
 
