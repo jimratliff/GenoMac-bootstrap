@@ -79,7 +79,7 @@ sudo scutil --set LocalHostName "$sanitized_name"; success_or_not
 
 # Display final names
 echo ""
-report_action_taken "Final name settings:"
+printf "Final name settings:\n"
 printf "ComputerName:   %s\n" "$(sudo scutil --get ComputerName 2>/dev/null || echo "(not set)")"
 printf "LocalHostName:  %s\n" "$(sudo scutil --get LocalHostName 2>/dev/null || echo "(not set)")"
 printf "HostName:       %s\n" "$(sudo scutil --get HostName 2>/dev/null || echo "(not set)")"
