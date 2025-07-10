@@ -17,6 +17,10 @@ function get_Mac_names() {
 report_start_phase_standard
 report_action_taken "Get and optionally set Mac ComputerName and LocalHostName"
 
+# Display current ComputerName to user, offering opportunity to change it.
+# Whether ComputerName is changed or remains the same, a new LocalHostName is computed from ComputerName:
+#   - Normalized/sanitized by stripping leading/trailing spaces
+
 # Get current ComputerName
 # Note: `systemsetup -getcomputername` outputs ComputerName as the text string: 'Computer Name: MyComputerName'
 #       The following `sed` command converts that prefix to an empty string.
@@ -59,13 +63,17 @@ else
 fi
 
 # Derive LocalHostName by sanitizing ComputerName
-# - Trim leading/trailing whitespace
-# - Replace inner spaces with hyphens
+# - Replace all whitespace with hyphens
 # - Remove all but alphanumerics and hyphens
-# - Remove leading/trailing hyphens
+# - Remove leading/trailing hyphens (which also removes any originally leading/trailing whitespace)
 
-trimmed_name=$(echo "$final_name" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
-sanitized_name=$(echo "$trimmed_name" | tr '[:space:]' '-' | tr -cd '[:alnum:]-' | sed 's/^-*//;s/-*$//')
+sanitized_name=$(echo "$final_name" \
+  | tr '[:space:]' '-' \
+  | tr -cd '[:alnum:]-' \
+  | sed 's/^-*//;s/-*$//')
+
+# trimmed_name=$(echo "$final_name" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+# sanitized_name=$(echo "$trimmed_name" | tr '[:space:]' '-' | tr -cd '[:alnum:]-' | sed 's/^-*//;s/-*$//')
 echo "Sanitized LocalHostName: \"$sanitized_name\""
 sudo scutil --set LocalHostName "$sanitized_name"; success_or_not
 
