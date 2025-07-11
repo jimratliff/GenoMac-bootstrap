@@ -36,7 +36,7 @@ echo "Current ComputerName: \"$current_name\""
 final_name_is_dirty=false
 
 # If current_name ends with ' (###)', clean it
-if [[ "$current_name" =~ ' \([0-9]\{1,\}\)$' ]]; then
+if [[ "$current_name" =~ \ \([0-9]+\)$ ]]; then
   final_name=$(echo "$current_name" | sed 's/ ([0-9]\{1,\})$//')
   report_action_taken "ComputerName appears to have been auto-mangled. I have unmangled it: \"$final_name\""
   final_name_is_dirty=true
