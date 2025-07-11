@@ -17,15 +17,30 @@ function get_Mac_names() {
 report_start_phase_standard
 report_action_taken "Get and optionally set Mac ComputerName and LocalHostName"
 
-# Display current ComputerName to user, offering opportunity to change it.
-# Whether ComputerName is changed or remains the same, a new LocalHostName is computed from ComputerName:
-#   - Normalized/sanitized by stripping leading/trailing spaces
+# - Display current ComputerName to user, offering opportunity to change it.
+#   - If user opts to change ComputerName, any leading/trailing whitespace characters are removed before a
+#     assigning the new value to ComputerName
+# - Compute new value for LocalHostName and assign it to LocalHostName
+#   - This occurs regardless of whether ComputerName is changed or remains the same
+#   - The new value for LocalHostName is computed from ComputerName by normalizing/sanitizing it by the sequence:
+#     - replace all whitespace with hyphens
+#     - remove every character that is neither an alphanumeric nor a hyphen
+#     - strip all leading/trailing hyphens (which removes all original characters that were leading/trailing whitespace)
+# - Do not assign any value to HostName
 
 # Get current ComputerName
-# Note: `systemsetup -getcomputername` outputs ComputerName as the text string: 'Computer Name: MyComputerName'
-#       The following `sed` command converts that prefix to an empty string.
 current_name=$(sudo systemsetup -getcomputername 2>/dev/null | sed 's/^Computer Name: //')
 echo "Current ComputerName: \"$current_name\""
+
+# Assume it's clean unless proven otherwise
+current_name_is_dirty=false
+
+# If it ends in ' (digits)', strip that off
+if [[ "$current_name" =~ ^(.+)\ \([0-9]+\)$ ]]; then
+  current_name="${match[1]:-${BASH_REMATCH[1]}}"  # Zsh or Bash fallback
+  report_action_taken "ComputerName appears to have been auto-mangled. I have unmangled it: \"$current_name\""
+  current_name_is_dirty=true
+fi
 
 # Ask whether to change the ComputerName
 while true; do
@@ -39,24 +54,24 @@ while true; do
 done
 
 if [[ "$choice" =~ ^[Yy]$ ]]; then
-while true; do
-  echo -n "Enter desired ComputerName: "
-  read new_name_raw
+  while true; do
+    echo -n "Enter desired ComputerName: "
+    read new_name_raw
 
-  # Strip leading/trailing whitespace
-  new_name=$(echo "$new_name_raw" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+    # Strip leading/trailing whitespace
+    new_name=$(echo "$new_name_raw" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
 
-  echo "You entered: \"$new_name\""
-  echo -n "Is this correct? (y/n): "
-  read confirmation
+    echo "You entered: \"$new_name\""
+    echo -n "Is this correct? (y/n): "
+    read confirmation
 
-  if [[ "$confirmation" =~ ^[Yy]$ ]]; then
-    report_action_taken 'Assigning ComputerName'
-    sudo systemsetup -setcomputername "$new_name" 2> >(grep -v '### Error:-99' >&2); success_or_not
-    break
-  fi
-done
-  final_name="$new_name"
+    if [[ "$confirmation" =~ ^[Yy]$ ]]; then
+      report_action_taken 'Assigning ComputerName'
+      sudo systemsetup -setcomputername "$new_name" 2> >(grep -v '### Error:-99' >&2); success_or_not
+      final_name="$new_name"
+      break
+    fi
+  done
 else
   echo "Keeping existing ComputerName."
   final_name="$current_name"
