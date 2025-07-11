@@ -87,8 +87,6 @@ sanitized_name=$(echo "$final_name" \
   | tr -cd '[:alnum:]-' \
   | sed 's/^-*//;s/-*$//')
 
-# trimmed_name=$(echo "$final_name" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
-# sanitized_name=$(echo "$trimmed_name" | tr '[:space:]' '-' | tr -cd '[:alnum:]-' | sed 's/^-*//;s/-*$//')
 echo "Sanitized LocalHostName: \"$sanitized_name\""
 sudo scutil --set LocalHostName "$sanitized_name"; success_or_not
 
