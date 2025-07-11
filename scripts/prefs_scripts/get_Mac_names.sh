@@ -32,14 +32,14 @@ report_action_taken "Get and optionally set Mac ComputerName and LocalHostName"
 current_name=$(sudo systemsetup -getcomputername 2>/dev/null | sed 's/^Computer Name: //')
 echo "Current ComputerName: \"$current_name\""
 
-# Assume it's clean unless proven otherwise
-current_name_is_dirty=false
+# Assume name is clean unless proven otherwise
+final_name_is_dirty=false
 
-# If it ends in ' (digits)', strip that off
+# If current_name ends with ' (###)', clean it
 if [[ "$current_name" =~ ^(.+)\ \([0-9]+\)$ ]]; then
-  current_name="${match[1]:-${BASH_REMATCH[1]}}"  # Zsh or Bash fallback
-  report_action_taken "ComputerName appears to have been auto-mangled. I have unmangled it: \"$current_name\""
-  current_name_is_dirty=true
+  final_name="${match[1]:-${BASH_REMATCH[1]}}"  # Zsh or Bash fallback
+  final_name_is_dirty=true
+  report_action_taken "ComputerName appears to have been auto-mangled. I have unmangled it: \"$final_name\""
 fi
 
 # Ask whether to change the ComputerName
@@ -49,7 +49,7 @@ while true; do
   if [[ "$choice" =~ ^[YyNn]$ ]]; then
     break
   else
-    echo "Invalid response. Please enter “y” or “n”."
+    echo "Invalid response. Please enter \"y\" or \"n\"."
   fi
 done
 
@@ -62,19 +62,23 @@ if [[ "$choice" =~ ^[Yy]$ ]]; then
     new_name=$(echo "$new_name_raw" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
 
     echo "You entered: \"$new_name\""
-    echo -n "Is this correct? (y/n): "
+    echo -n "Is this what you want? (y/n): "
     read confirmation
 
     if [[ "$confirmation" =~ ^[Yy]$ ]]; then
-      report_action_taken 'Assigning ComputerName'
-      sudo systemsetup -setcomputername "$new_name" 2> >(grep -v '### Error:-99' >&2); success_or_not
       final_name="$new_name"
+      final_name_is_dirty=true
       break
     fi
   done
 else
   echo "Keeping existing ComputerName."
-  final_name="$current_name"
+fi
+
+# Final assignment, if needed
+if [[ "$final_name_is_dirty" == true ]]; then
+  report_action_taken "Assigning ComputerName to $final_name"
+  sudo systemsetup -setcomputername "$final_name" 2> >(grep -v '### Error:-99' >&2); success_or_not
 fi
 
 # Derive LocalHostName by sanitizing ComputerName
