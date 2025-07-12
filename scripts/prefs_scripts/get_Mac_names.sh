@@ -22,8 +22,8 @@ report_action_taken "Get and optionally set Mac ComputerName and LocalHostName"
 #     ' (nnn)' suffix, and alert user that this has occurred.
 #   - Offer the user to chance to change ComputerName.
 #     - This choice is offered both when ComputerName was not mangled and when it was mangled.
-#     - If user opts to change ComputerName, any leading/trailing whitespace characters are removed before a
-#       assigning the new value to ComputerName.
+#     - If user opts to change ComputerName, any leading/trailing whitespace characters are removed from the new name
+#       before assigning the new value to ComputerName.
 # - Compute new value for LocalHostName and assign it to LocalHostName.
 #   - This occurs regardless of whether ComputerName is changed or remains the same.
 #   - The new value for LocalHostName is computed from ComputerName by normalizing/sanitizing it by the sequence:
