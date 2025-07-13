@@ -7,7 +7,7 @@ cd ~/bootstrap
 git pull origin main
 ```
 
-To run the better-prefs:
+To run the better-prefs script:
 ```bash
 cd ~/bootstrap
 make better-prefs
