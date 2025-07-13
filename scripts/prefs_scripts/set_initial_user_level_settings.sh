@@ -11,6 +11,7 @@ source "${GENOMAC_BOOTSTRAP_HELPER_DIR}/helpers.sh"
 
 source "${BETTER_PREFS_COMPONENTS_DIR}/set_app_state_persistence.sh"
 source "${BETTER_PREFS_COMPONENTS_DIR}/set_trackpad_settings.sh"
+source "${BETTER_PREFS_COMPONENTS_DIR}/set_general_interface_settings.sh"
 source "${BETTER_PREFS_COMPONENTS_DIR}/set_auto_correction_suggestion_settings.sh"
 source "${BETTER_PREFS_COMPONENTS_DIR}/set_general_dock_settings.sh"
 source "${BETTER_PREFS_COMPONENTS_DIR}/set_screen_capture_settings.sh"
