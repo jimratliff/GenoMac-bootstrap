@@ -38,6 +38,10 @@ defaults write NSGlobalDomain AppleWindowTabbingMode -string "manual";success_or
 report_adjust_setting "Double-click on window’s title bar ⇒ Zoom (reinforces default)"
 defaults write NSGlobalDomain AppleActionOnDoubleClick -string "Maximize";success_or_not
 
+# By default, save to disk, not to iCloud
+report_adjust_setting "By default, save to disk, not to iCloud"
+defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
+
 report_end_phase_standard
 
 }
