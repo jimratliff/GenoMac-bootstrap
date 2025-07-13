@@ -75,6 +75,10 @@ report_action_taken "Implement menubar-related settings"
 report_adjust_setting "Always show Sound in menubar (not only when “active”)"
 defaults -currentHost write com.apple.controlcenter sound -int 18;success_or_not
 
+# Give audible feedback when volume is changed
+report_adjust_setting "Give audible feedback when volume is changed"
+defaults write NSGlobalDomain com.apple.sound.beep.feedback -bool true;success_or_not
+
 # Show battery percentage in menubar
 report_adjust_setting "Show battery percentage in menubar"
 defaults -currentHost write com.apple.controlcenter BatteryShowPercentage -bool true;success_or_not
