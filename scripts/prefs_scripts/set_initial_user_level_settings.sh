@@ -31,30 +31,8 @@ set_app_state_persistence
 # Trackpad
 set_trackpad_settings
 
-########## Other general interface
-report_action_taken "Implement other general interface defaults"
-
-# Show scroll bars always (not only when scrolling)
-report_adjust_setting "Always show scrollbars"
-defaults write NSGlobalDomain AppleShowScrollBars -string "Always";success_or_not
-
-# Override change to clicking-on-desktop behavior
-# Desktop & Dock » Desktop & Stage Manager » Click wallpaper to reveal desktop » Only in Stage Manager
-report_adjust_setting "Reverse obnoxious default that revealed desktop anytime you clicked on the desktop"
-defaults write com.apple.WindowManager EnableStandardClickToShowDesktop -bool false;success_or_not
-
-# Window tabbing mode
-report_adjust_setting "AppleWindowTabbingMode: manual ⇒ Window should display at tabs according to window’s tabbing mode”"
-defaults write NSGlobalDomain AppleWindowTabbingMode -string "manual";success_or_not
-
-# Double-click on titlebar behavior
-# System Settings » Desktop & Dock » Dock » Double-click a window's title bar to: 
-#  - "Fill" Fill
-#  - "Maximize" =Zoom (default)
-#  - "Minimize"
-#  - "None" =Do Nothing
-report_adjust_setting "Double-click on window’s title bar ⇒ Zoom (reinforces default)"
-defaults write NSGlobalDomain AppleActionOnDoubleClick -string "Maximize";success_or_not
+# Other general interface
+set_general_interface_settings
 
 # Stop intrusive/arrogant “corrections”
 set_auto_correction_suggestion_settings
