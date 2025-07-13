@@ -40,7 +40,20 @@ defaults write NSGlobalDomain AppleActionOnDoubleClick -string "Maximize";succes
 
 # By default, save to disk, not to iCloud
 report_adjust_setting "By default, save to disk, not to iCloud"
-defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
+defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false;success_or_not
+
+############### Expand certain dialog boxes by default
+report_action_taken "Expand “Save As…” dialog boxes"
+report_adjust_setting "1 of 2: NSNavPanelExpandedStateForSaveMode"
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true;success_or_not
+report_adjust_setting "2 of 2: NSNavPanelExpandedStateForSaveMode2"
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true;success_or_not
+
+report_action_taken "Expand print dialog boxes"
+report_adjust_setting "1 of 2: PMPrintingExpandedStateForPrint"
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true;success_or_not
+report_adjust_setting "2 of 2: PMPrintingExpandedStateForPrint2"
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true;success_or_not
 
 report_end_phase_standard
 
