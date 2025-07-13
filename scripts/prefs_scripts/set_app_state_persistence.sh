@@ -23,6 +23,10 @@ defaults write com.apple.loginwindow LoginwindowLaunchesRelaunchApps -bool true;
 report_adjust_setting "3 of 3: NSGlobalDomain: NSQuitAlwaysKeepsWindows: true"
 defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool true;success_or_not
 
+# Closing a document window confirms any dirty changes
+report_adjust_setting "Implement document-state persistence"
+defaults write NSGlobalDomain NSCloseAlwaysConfirmsChanges -bool true
+
 report_end_phase_standard
 
 }
