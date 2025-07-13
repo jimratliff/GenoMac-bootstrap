@@ -76,6 +76,7 @@ if [[ "$choice" =~ ^[Yy]$ ]]; then
     fi
   done
 else
+  final_name="$current_name"
   echo "Keeping existing ComputerName."
 fi
 
