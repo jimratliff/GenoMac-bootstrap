@@ -68,6 +68,9 @@ defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool true;success_or_not
 report_adjust_setting "Enable Keyboard Navigation (with Tab key)"
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 2;success_or_not
 
+report_adjust_setting "Use F1, F2, etc. keys as standard function keys"
+defaults write NSGlobalDomain com.apple.keyboard.fnState -bool true
+
 ############### Menubar 
 report_action_taken "Implement menubar-related settings"
 
