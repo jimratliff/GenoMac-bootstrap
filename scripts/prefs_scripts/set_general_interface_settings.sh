@@ -26,7 +26,7 @@ report_adjust_setting "Reverse obnoxious default that revealed desktop anytime y
 defaults write com.apple.WindowManager EnableStandardClickToShowDesktop -bool false;success_or_not
 
 # Window tabbing mode
-report_adjust_setting "AppleWindowTabbingMode: manual ⇒ Window should display at tabs according to window’s tabbing mode”"
+report_adjust_setting "AppleWindowTabbingMode: manual ⇒ Window should display as tabs according to window’s tabbing mode”"
 defaults write NSGlobalDomain AppleWindowTabbingMode -string "manual";success_or_not
 
 # Double-click on titlebar behavior
