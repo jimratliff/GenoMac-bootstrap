@@ -25,7 +25,7 @@ defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool true;success_or_not
 
 # Closing a document window confirms any dirty changes
 report_adjust_setting "Implement document-state persistence"
-defaults write NSGlobalDomain NSCloseAlwaysConfirmsChanges -bool true
+defaults write NSGlobalDomain NSCloseAlwaysConfirmsChanges -bool true;success_or_not
 
 report_end_phase_standard
 
