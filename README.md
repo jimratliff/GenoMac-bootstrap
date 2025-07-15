@@ -27,6 +27,12 @@ At this point, we assume the following:
 - USER_CONFIGURER is signed into its account
 
 ### Preview of process
+- In Safari, open “Project GenoMac: Text-exchange Document” to be used for real-time exchange of text, error messages, etc.
+  - In Safari, sign into my standard Google account.
+    - Go to google.com and click “Log in”
+    - Enter the username of my Google account
+    - A QR code will appear. Scan it with my iPhone and complete the authentication.
+  - Open the Google Doc document “[Project GenoMac: Text-exchange Document](https://docs.google.com/document/d/1RCbwjLHPidxRJJcvzILKGwtSkKpDrm8dT1fgJxlUdZ4/edit?usp=sharing)]”
 - Install Homebrew (and therefore also Git)
 - Modify PATH to add Homebrew
 - Clone this public repo to `~/bootstrap`
@@ -57,6 +63,7 @@ In Terminal, sequentially execute each of the following three commands:
 ```shell
 echo >> /Users/configger/.zprofile
 echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/configger/.zprofile
+
 eval "$(/opt/homebrew/bin/brew shellenv)"
 ```
 ## Clone this repo to `~/bootstrap`
