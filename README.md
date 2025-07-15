@@ -101,9 +101,15 @@ In Terminal, still in `~/bootstrap`:
 ```shell
 make install-1password
 ```
+This will:
+- Install 1Password using Homebrew
+- Install 1Password-CLI using Homebrew
+- Open/launch 1Password.app
 
 ### Log into your 1Password account.
 1Password should at this point be the active app. If not, launch it and/or make it active.
+
+Log into my 1Password account.
 
 ### Adjust settings of 1Password
 Make 1Password active.
