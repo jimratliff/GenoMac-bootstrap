@@ -33,13 +33,13 @@ At this point, we assume the following:
 - Give Terminal full-disk access
 - Run a script that executes a bunch of `defaults` commands for USER_CONFIGURER to deal with the most-annoying macOS default settings.
 - Prepare USER_CONFIGURER to be able to clone the *next* repo in Project GenoMac, which is private and therefore requires authentication:
-  - Install 1Password
+  - Install 1Password (using Homebrew)
     - Log into your 1Password account
     - Enable the 1Password SSH Agent
     - Change two settings to ensure the 1Password SSH Agent runs in the background.
-  - Install 1Password CLI
+  - Install 1Password CLI (using Homebrew)
   - Test the SSH connection to GitHub.
-- Clone the *next* repo: GenoMac
+- Clone the *next* repo: viz., GenoMac
 - Delete *this* repo: `~/bootstrap`. It is no longer needed.
 
 ## Install Homebrew and update PATH
