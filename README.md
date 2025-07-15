@@ -27,12 +27,7 @@ At this point, we assume the following:
 - USER_CONFIGURER is signed into its account
 
 ### Preview of process
-- In Safari, open “Project GenoMac: Text-exchange Document” to be used as/if needed for real-time exchange of text, error messages, etc.
-  - In Safari, sign into my standard Google account:
-    - Go to google.com and click “Log in”
-    - Enter the username of my Google account
-    - A QR code will appear. Scan it with my iPhone and complete the authentication.
-  - Open the Google Doc document “[Project GenoMac: Text-exchange Document](https://docs.google.com/document/d/1RCbwjLHPidxRJJcvzILKGwtSkKpDrm8dT1fgJxlUdZ4/edit?usp=sharing)]”
+- In Safari, establish a real-time textual connection to other devices to be used as/if needed for real-time exchange of text, error messages, etc.
 - Install Homebrew (and therefore also Git)
 - Modify PATH to add Homebrew
 - Clone this public repo to `~/bootstrap`
@@ -47,6 +42,16 @@ At this point, we assume the following:
   - Test the SSH connection to GitHub.
 - Clone the *next* repo: viz., GenoMac
 - Delete *this* repo: `~/bootstrap`. It is no longer needed.
+
+## Establish real-time connection to communicate text back and forth
+Open a Google Docs document to be used as/if needed for real-time exchange of text, error messages, etc., between the target Mac and other devices.
+- In Safari, open “Project GenoMac: Text-exchange Document” 
+  - In Safari, sign into my standard Google account:
+    - Go to google.com and click “Log in”
+    - Enter the username of my Google account
+    - A QR code will appear. Scan it with my iPhone and complete the authentication.
+  - Open the Google Doc document “[Project GenoMac: Text-exchange Document](https://docs.google.com/document/d/1RCbwjLHPidxRJJcvzILKGwtSkKpDrm8dT1fgJxlUdZ4/edit?usp=sharing)]”
+ 
 
 ## Install Homebrew and update PATH
 ### Install Homebrew
