@@ -81,6 +81,8 @@ In Terminal, still in `~/bootstrap`:
 make better-prefs
 ```
 
+Note: This will produce *pages* of terminal output.
+
 ## Install and configure 1Password
 ### Install 1Password and `1Password-CLI`
 In Terminal, still in `~/bootstrap`:
