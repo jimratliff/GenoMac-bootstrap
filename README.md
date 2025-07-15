@@ -27,8 +27,8 @@ At this point, we assume the following:
 - USER_CONFIGURER is signed into its account
 
 ### Preview of process
-- In Safari, open “Project GenoMac: Text-exchange Document” to be used for real-time exchange of text, error messages, etc.
-  - In Safari, sign into my standard Google account.
+- In Safari, open “Project GenoMac: Text-exchange Document” to be used as/if needed for real-time exchange of text, error messages, etc.
+  - In Safari, sign into my standard Google account:
     - Go to google.com and click “Log in”
     - Enter the username of my Google account
     - A QR code will appear. Scan it with my iPhone and complete the authentication.
