@@ -50,7 +50,7 @@ report_adjust_setting "1 of 3: BlockStoragePolicy"
 defaults write com.apple.Safari BlockStoragePolicy -int 2;success_or_not
 report_adjust_setting "2 of 3: WebKitPreferences.storageBlockingPolicy"
 defaults write com.apple.Safari WebKitPreferences.storageBlockingPolicy -int 1;success_or_not
-report_adjust_setting "1 of 3: WebKitStorageBlockingPolicy"
+report_adjust_setting "3 of 3: WebKitStorageBlockingPolicy"
 defaults write com.apple.Safari WebKitStorageBlockingPolicy -int 1;success_or_not
 
 report_action_taken "Warn if visit a fraudulent site"
