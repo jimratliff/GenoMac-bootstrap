@@ -25,7 +25,7 @@ At this point, we assume the following:
     - USER_CONFIGURER
   - ***No other configurations or installations have been performed***
 - USER_CONFIGURER is signed into its account
-- **An SSH key pair for using my GitHub account/repositories has already been created and stored in the `Dev` vault of my 1Password account.**
+- **An SSH key pair for using my GitHub account/repositories has already been created and stored in the `Dev` vault of my 1Password account, accessible via 1Password on my nearby iPhone.**
 
 ### Preview of process
 - In Safari, using a Google Sheets doc, establish a real-time textual connection to other devices to be used as/if needed for real-time exchange of text, error messages, etc.
