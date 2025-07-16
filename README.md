@@ -28,7 +28,7 @@ At this point, we assume the following:
 - **An SSH key pair for using my GitHub account/repositories has already been created and stored in the `Dev` vault of my 1Password account.**
 
 ### Preview of process
-- In Safari, establish a real-time textual connection to other devices to be used as/if needed for real-time exchange of text, error messages, etc.
+- In Safari, using a Google Sheets doc, establish a real-time textual connection to other devices to be used as/if needed for real-time exchange of text, error messages, etc.
 - Install Homebrew (and therefore also Git)
 - Modify PATH to add Homebrew
 - Clone this public repo to `~/bootstrap`
