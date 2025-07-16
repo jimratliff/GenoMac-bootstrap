@@ -23,8 +23,9 @@ At this point, we assume the following:
   - Only two users are defined:
     - USER_VANILLA
     - USER_CONFIGURER
-  - - ***No other configurations or installations have been performed***
+  - ***No other configurations or installations have been performed***
 - USER_CONFIGURER is signed into its account
+- **An SSH key pair for using my GitHub account/repositories has already been created and stored in the `Dev` vault of my 1Password account.**
 
 ### Preview of process
 - In Safari, establish a real-time textual connection to other devices to be used as/if needed for real-time exchange of text, error messages, etc.
