@@ -35,6 +35,7 @@ DEST_BASE="$HOME"
 dotfiles=(
   ".config/1Password/ssh/agent.toml"
   ".ssh/config"
+  ".zshrc"
 )
 
 for rel_path in $dotfiles; do
