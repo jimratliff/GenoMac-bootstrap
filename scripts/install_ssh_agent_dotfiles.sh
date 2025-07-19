@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-# Deploys the two dotfiles required for (a) configuring 1Password’s SSH agent and
+# Deploys the three dotfiles required for (a) configuring 1Password’s SSH agent and
 # (b) configuring the SSH client to use 1Password SSH agent as the default SSH agent
 
 set -euo pipefail
@@ -45,7 +45,7 @@ for rel_path in $dotfiles; do
   # Ensure destination directory exists
   mkdir -p "${dest:h}"
 
-  # Copy and overwrite
+  # Copy (and overwrite if necessary)
   report_action_taken "Copying \"${src/#$HOME/~}\" to \"${dest/#$HOME/~}\""
   cp "$src" "$dest"; success_or_not
 done
