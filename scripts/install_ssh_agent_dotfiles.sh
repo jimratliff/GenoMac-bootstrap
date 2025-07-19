@@ -45,7 +45,7 @@ for rel_path in $dotfiles; do
   mkdir -p "${dest:h}"
 
   # Copy and overwrite
-  report_action_taken "Copying \"$src\" to \"$dest\""
+  report_action_taken "Copying \"${src/#$HOME/~}\" to \"${dest/#$HOME/~}\""
   cp -v "$src" "$dest"; success_or_not
 done
 
