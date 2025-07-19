@@ -46,7 +46,7 @@ for rel_path in $dotfiles; do
 
   # Copy and overwrite
   report_action_taken "Copying \"${src/#$HOME/~}\" to \"${dest/#$HOME/~}\""
-  cp -v "$src" "$dest"; success_or_not
+  cp "$src" "$dest"; success_or_not
 done
 
 report_end_phase 'Completed: installing SSH-related dotfiles'
