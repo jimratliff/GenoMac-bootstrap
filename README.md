@@ -139,7 +139,7 @@ Again in the 1Password app:
 ## Deploy dotfiles for (a) 1Password SSH agent and (b) SSH client
 In Terminal, still in `~/bootstrap`:
 ```shell
-make deploy-ssh-agent-dotiles
+make deploy-ssh-agent-dotfiles
 ```
 
 
