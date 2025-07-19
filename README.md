@@ -103,7 +103,7 @@ make better-prefs
 
 Note: This will produce *pages* of terminal output.
 
-## Install and configure 1Password
+## Install and configure 1Password for authentication with GitHub
 ### Install 1Password and `1Password-CLI`
 In Terminal, still in `~/bootstrap`:
 ```shell
@@ -140,6 +140,11 @@ Again in the 1Password app:
 In Terminal, still in `~/bootstrap`:
 ```shell
 make deploy-ssh-agent-dotfiles
+```
+
+## Test the SSH connection with GitHub
+```shell
+ssh -T git@github.com
 ```
 
 
