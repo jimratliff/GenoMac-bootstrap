@@ -1,6 +1,8 @@
 # GenoMac-bootstrap
 
-## Cheat sheet
+## Quick-reference Cheat sheet
+(First time here? Please go to the next major heading, viz., “Overview.”)
+
 After initial cloning, to pull down subsequent changes to this repository
 ```bash
 cd ~/bootstrap
