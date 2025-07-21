@@ -42,6 +42,7 @@ At this point, we assume the following:
     - Enable the 1Password SSH Agent
     - Change two settings to ensure the 1Password SSH Agent runs in the background.
   - Install 1Password CLI (using Homebrew)
+  - Deploy three dotfiles with `make deploy-ssh-agent-dotfiles`
   - Test the SSH connection to GitHub.
 - Clone the *next* repo: viz., GenoMac
 - Delete *this* repo: `~/bootstrap`. It is no longer needed.
