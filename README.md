@@ -150,4 +150,15 @@ make deploy-ssh-agent-dotfiles
 ssh -T git@github.com
 ```
 
+## Clone the *private* repo GenoMac
+In Terminal:
+```shell
+mkdir -p ~/genomac
+cd ~/genomac
+git clone git@github.com:jimratliff/GenoMac.git .
+```
+
+## Delete the now-obsolete local copy of the repo GenoMac-bootstrap
+
+
 
