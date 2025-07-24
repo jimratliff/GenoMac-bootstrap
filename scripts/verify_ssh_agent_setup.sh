@@ -42,3 +42,9 @@ else
 fi
 
 }
+
+function main() {
+  verify_ssh_agent_setup
+}
+
+main
