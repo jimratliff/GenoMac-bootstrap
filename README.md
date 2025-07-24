@@ -17,7 +17,7 @@ make better-prefs
 
 ## Overview
 ### Context
-This repository is the first stop for configuring a Mac under Project GenoMac.
+This public repository is the first stop for configuring a Mac under Project GenoMac.
 
 At this point, we assume the following:
 - An essentially pristine Mac:
