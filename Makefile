@@ -11,3 +11,6 @@ deploy-ssh-agent-dotfiles:
 
 verify-ssh-agent:
 	zsh scripts/verify_ssh_agent_setup.sh
+
+clone-genomac:
+	zsh scripts/clone_genomac_repo.sh
