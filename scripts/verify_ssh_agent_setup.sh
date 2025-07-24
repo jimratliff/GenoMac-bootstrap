@@ -30,12 +30,14 @@ ssh_output=$(ssh -T git@github.com 2>&1) || true  # Don't let failure abort scri
 
 if [[ "$ssh_output" == *"successfully authenticated"* ]]; then
   print -r -- "${SYMBOL_SUCCESS}SSH authentication with GitHub succeeded"
-  report_end_phase "Verified: SSH agent is working"
+  report "Verified: SSH agent is working"
   exit 0
 else
   report_warning "SSH authentication failed. Output:"
   print -r -- "$ssh_output"
   print -r -- "${SYMBOL_FAILURE}SSH authentication with GitHub failed"
-  report_end_phase "Failed: SSH agent test did not succeed"
+  report "Failed: SSH agent test did not succeed"
   exit 1
 fi
+
+report_end_phase "Verifying 1Password SSH agent configuration"
