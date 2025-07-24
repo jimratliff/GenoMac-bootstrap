@@ -53,4 +53,10 @@ done
 
 report_end_phase_standard
 
-} 
+}
+
+function main() {
+  install_ssh_agent_dotfiles
+}
+
+main
