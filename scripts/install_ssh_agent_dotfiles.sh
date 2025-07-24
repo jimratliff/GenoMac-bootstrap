@@ -22,7 +22,8 @@ printf "GENOMAC_BOOTSTRAP_HELPER_DIR: %s\n" "$GENOMAC_BOOTSTRAP_HELPER_DIR"
 source "${GENOMAC_BOOTSTRAP_HELPER_DIR}/helpers.sh"
 
 ############################## BEGIN SCRIPT PROPER ##############################
-report_start_phase 'Begin installing SSH-related dotfiles'
+function install_ssh_agent_dotfiles() {
+report_start_phase_standard
 
 # Specify location into which this repo is cloned
 REPO_LOCAL_PATH=~/bootstrap
@@ -50,4 +51,6 @@ for rel_path in $dotfiles; do
   cp "$src" "$dest"; success_or_not
 done
 
-report_end_phase 'Completed: installing SSH-related dotfiles'
+report_end_phase_standard
+
+} 
