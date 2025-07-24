@@ -147,7 +147,7 @@ make deploy-ssh-agent-dotfiles
 
 ## Test the SSH connection with GitHub
 ```shell
-ssh -T git@github.com
+make verify-ssh-agent
 ```
 
 ## Clone the *private* repo GenoMac
