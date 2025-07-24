@@ -153,9 +153,7 @@ make verify-ssh-agent
 ## Clone the *private* repo GenoMac
 In Terminal:
 ```shell
-mkdir -p ~/genomac
-cd ~/genomac
-git clone git@github.com:jimratliff/GenoMac.git .
+make clone-genomac
 ```
 
 ## Delete the now-obsolete local copy of the repo GenoMac-bootstrap
