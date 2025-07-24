@@ -15,6 +15,7 @@ GENOMAC_BOOTSTRAP_HELPER_DIR="${this_script_dir}"
 source "${GENOMAC_BOOTSTRAP_HELPER_DIR}/helpers.sh"
 
 ############################## BEGIN SCRIPT PROPER ##############################
+function verify_ssh_agent_setup() {
 report_start_phase_standard
 if [[ -z "${SSH_AUTH_SOCK:-}" ]]; then
   report_error "SSH_AUTH_SOCK is not set. Failed: SSH agent not configured"
@@ -39,3 +40,5 @@ else
   report_end_phase_standard
   exit 1
 fi
+
+}
