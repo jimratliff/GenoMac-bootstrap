@@ -8,3 +8,6 @@ install-1password:
 
 deploy-ssh-agent-dotfiles:
 	zsh scripts/install_ssh_agent_dotfiles.sh
+
+verify-ssh-agent:
+	zsh scripts/verify_ssh_agent_setup.sh
