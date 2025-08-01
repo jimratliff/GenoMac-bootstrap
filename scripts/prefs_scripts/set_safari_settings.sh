@@ -45,6 +45,9 @@ defaults write com.apple.Safari CommandClickMakesTabs -bool true;success_or_not
 report_adjust_setting "Do NOT make a new tab/window active"
 defaults write com.apple.Safari OpenNewTabsInFront -bool false;success_or_not
 
+report_adjust_setting "Always show website titles in tabs"
+defaults write com.apple.Safari EnableNarrowTabs -bool false;success_or_not
+
 report_action_taken "Turn on: Prevent cross-site tracking (reinforces default)"
 report_adjust_setting "1 of 3: BlockStoragePolicy"
 defaults write com.apple.Safari BlockStoragePolicy -int 2;success_or_not
