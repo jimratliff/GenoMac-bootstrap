@@ -150,7 +150,7 @@ make deploy-ssh-agent-dotfiles
 make verify-ssh-agent
 ```
 
-## Clone the *private* repo GenoMac
+## Clone the *private* repo GenoMac to `~/genomac`
 In Terminal:
 ```shell
 make clone-genomac
