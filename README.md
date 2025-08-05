@@ -134,10 +134,11 @@ In the 1Password app, turn on two checkboxes to ensure that 1Password’s SSH Ag
 #### Enable 1Password SSH Agent
 Again in the 1Password app:
 - 1Password » Settings » Developer:
-  - SSH Agent
-    - ✅ Use the SSH Agent
-  - Advanced
-    - Remember key approval: **until 1Password quits**
+  - Click on "Setup SSH Agent"
+    - SSH Agent
+      - ✅ Use the SSH Agent
+    - Advanced
+      - Remember key approval: **until 1Password quits**
    
 ## Deploy dotfiles for (a) 1Password SSH agent and (b) SSH client
 In Terminal, still in `~/bootstrap`:
