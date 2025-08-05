@@ -1,8 +1,3 @@
-configure-homebrew-path:
-	echo >> ~/.zprofile
-	echo '# Set up Homebrew in PATH (added by GenoMac bootstrap)' >> ~/.zprofile
-	echo 'eval "$$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
-
 better-prefs:
 	zsh scripts/better_prefs.sh
 
