@@ -1,7 +1,7 @@
 # GenoMac-bootstrap
 
 ## TO DO/CONSIDER
-Consider moving (a) `make stow-dotfiles` and (b) `clone_genomac_dotfiles_repo.sh` from the GenoMac repo into this repo. This would (a) require `brew install stow` being added here but (b) would allow the removal of `install_ssh_agent_dotfiles.sh` and all associated future maintenance. (`install_ssh_agent_dotfiles.sh` essentially replicates what `stow` is designed for.)
+Consider moving (a) `make stow-dotfiles` and (b) `clone_genomac_dotfiles_repo.sh` from the GenoMac repo into this repo. This would (a) require `brew install stow` being added here but (b) would allow the removal of `install_ssh_agent_dotfiles.sh` and all associated future maintenance of that script. (`install_ssh_agent_dotfiles.sh` essentially replicates what `stow` is designed for.)
 
 ## Quick-reference Cheat sheet
 (First time here? Please go to the next major heading, viz., “Overview.”)
