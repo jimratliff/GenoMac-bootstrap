@@ -76,13 +76,6 @@ echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/configger/.zprofile
 eval "$(/opt/homebrew/bin/brew shellenv)"
 ```
 ## Clone this repo to `~/bootstrap`
-### Initialize `.gitconfig`
-Initialize `.gitconfig` by adding name and email address to prevent complaints later:
-```shell
-git config --global user.name "Jim Ratliff"
-git config --global user.email "8410716+jimratliff@users.noreply.github.com"
-```
-### Clone the repo
 In Terminal:
 ```shell
 mkdir -p ~/bootstrap
